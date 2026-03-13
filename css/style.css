@@ -262,7 +262,7 @@ a:hover { color: var(--black); }
 .fill-block.completed {
   border-style: solid;
   border-color: var(--gray-700);
-  background: var(--gray-100);
+  background: var(--white);
 }
 
 .fill-block.completed .fill-content {
