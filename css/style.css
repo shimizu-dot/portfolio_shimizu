@@ -309,7 +309,7 @@ a:hover { color: var(--black); }
   min-height: 48px;
   font-size: 14px;
   line-height: 1.7;
-  color: var(--text-muted);
+  color: var(--black);
 }
 
 .fill-content p {
@@ -411,12 +411,13 @@ a:hover { color: var(--black); }
 }
 
 .doc-table thead th {
-  background: var(--black);
-  color: var(--white);
+  background: var(--gray-100);
+  color: var(--gray-900);
   font-weight: 700;
   padding: 14px 20px;
   text-align: left;
   font-size: 13px;
+  border-bottom: 1px solid var(--border-dark);
 }
 
 .doc-table tbody td {
@@ -554,6 +555,14 @@ a:hover { color: var(--black); }
   height: 40px;
   min-width: 280px;
   outline: none;
+}
+
+.external-link-box .external-link-input #external-link-01 {
+  color: var(--black);
+}
+
+.external-link-box .external-link-input #external-link-01::placeholder {
+  color: var(--black);
 }
 
 .external-link-box .external-link-input input:focus {
