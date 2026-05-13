@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Pet Life Plus | スマホトップ</title>
+  <style>
+    :root {
+      --bg: #f4f8fc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #dbe6f2;
+      --brand: #0ea5a4;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.14), transparent 28%),
+        radial-gradient(circle at 100% 0, rgba(34, 197, 94, 0.1), transparent 24%),
+        var(--bg);
+      line-height: 1.55;
+    }
+    .wrap { width: 92vw; margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255,255,255,0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .nav {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .logo { font-size: 15px; font-weight: 800; letter-spacing: .01em; }
+    .nav-actions { display: flex; gap: 8px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .btn.primary {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fff;
+    }
+
+    .hero {
+      padding: 18px 0 10px;
+    }
+    .hero-card {
+      background: linear-gradient(145deg, #ffffff, #ecfeff);
+      border: 1px solid #bdeff0;
+      border-radius: 16px;
+      padding: 18px 14px;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.18;
+      letter-spacing: .01em;
+    }
+    .lead { margin: 0 0 14px; color: var(--muted); font-size: 14px; }
+    .stack-btns { display: grid; gap: 8px; }
+    .stack-btns .btn { width: 100%; padding: 11px 12px; font-size: 14px; }
+
+    section { padding: 20px 0; }
+    h2 { margin: 0 0 10px; font-size: 22px; }
+    .section-lead { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+
+    .cards { display: grid; gap: 10px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 13px;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.05);
+    }
+    .card h3 { margin: 0 0 6px; font-size: 16px; }
+    .card p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+    .kpi {
+      background: #fff;
+      border: 1px solid #dbeafe;
+      border-radius: 12px;
+      text-align: center;
+      padding: 11px 8px;
+    }
+    .kpi strong { display: block; color: var(--accent); font-size: 24px; }
+    .kpi span { font-size: 12px; color: var(--muted); }
+
+    .cta {
+      background: linear-gradient(120deg, #0f172a, #0ea5a4);
+      color: #fff;
+      border-radius: 16px;
+      padding: 18px 14px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.2);
+    }
+    .cta h2 { margin-bottom: 8px; font-size: 24px; }
+    .cta p { margin: 0 0 12px; font-size: 13px; opacity: .94; }
+    .cta .btn { width: 100%; margin-top: 8px; padding: 11px 12px; font-size: 14px; }
+    .cta .btn.secondary {
+      background: #fff;
+      color: #0f172a;
+      border-color: #fff;
+    }
+
+    footer {
+      margin-top: 20px;
+      padding: 18px 0 26px;
+      border-top: 1px solid var(--line);
+      color: #64748b;
+      font-size: 12px;
+    }
+    .foot-links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .foot-links div { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="logo">Pet Life Plus</div>
+      <div class="nav-actions">
+        <a class="btn" href="#">ログイン</a>
+        <a class="btn primary" href="#">相談</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>ペットの健康を、
+          いつでも見える化。</h1>
+        <p class="lead">記録・症状チェック・相談予約をひとつに。忙しい毎日でも、安心して健康管理を続けられます。</p>
+        <div class="stack-btns">
+          <a class="btn primary" href="#">無料相談を予約</a>
+          <a class="btn" href="#">サービス詳細を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>サービス紹介</h2>
+      <p class="section-lead">3つの機能で「気づく・相談する・つながる」を一体化。</p>
+      <div class="cards">
+        <article class="card">
+          <h3>健康記録</h3>
+          <p>体重・食事・運動・通院履歴を毎日まとめて管理。</p>
+        </article>
+        <article class="card">
+          <h3>AI症状チェック</h3>
+          <p>気になる症状の受診目安を素早く確認できます。</p>
+        </article>
+        <article class="card">
+          <h3>オンライン診療・訪問ケア</h3>
+          <p>相談から予約までスマホで完結。通院負担を軽減。</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>実績</h2>
+      <div class="kpi-grid">
+        <div class="kpi"><strong>92%</strong><span>継続利用率</span></div>
+        <div class="kpi"><strong>4.7</strong><span>満足度</span></div>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>利用者の声</h3>
+          <p>「夜間の不安時にすぐ相談できるので安心。記録も続けやすいです。」</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta">
+        <h2>まずは無料相談</h2>
+        <p>最短3分で予約可能。あなたとペットに合う使い方をご案内します。</p>
+        <a class="btn primary" href="#">無料相談を予約する</a>
+        <a class="btn secondary" href="#">料金プランを見る</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-links">
+        <div>FAQ / お問い合わせ</div>
+        <div>利用規約 / プライバシー</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

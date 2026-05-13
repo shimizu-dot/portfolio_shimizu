@@ -146,3 +146,410 @@
 ・予防医療プログラム
 ・IoTデバイス連携
 ・地域動物病院ネットワーク
+
+## サイトマップ
+トップページ
+├── ペットライフプラスとは
+│ ├── コンセプト
+│ └── 提供価値
+├── サービス詳細
+│ ├── 健康管理機能
+│ ├── 医療サポート
+│ └── 料金
+├── 活用情報
+│ ├── ご利用の流れ
+│ ├── 事例・お客様の声
+│ └── コラム
+└── サポート
+├── FAQ
+├── お問い合わせ
+└── 特商法・プライバシー
+
+## Webアプリケーション構造図
+ログイン前
+├── ログイン
+│ ├── メールアドレス/パスワード入力
+│ ├── ログイン実行
+│ └── パスワードを忘れた場合
+├── パスワード再設定
+│ ├── 再設定メール送信
+│ └── 新パスワード登録
+└── お知らせ/メンテナンス情報
+
+ログイン後
+├── ダッシュボード
+│ ├── KPI表示（売上・継続率・予約件数）
+│ ├── 本日の予定
+│ └── 通知一覧
+├── ユーザー管理（CRUD）
+│ ├── ユーザー一覧・検索
+│ ├── ユーザー詳細
+│ ├── ユーザー登録
+│ ├── ユーザー編集
+│ └── ユーザー削除
+├── ペット管理（CRUD）
+│ ├── ペット一覧・検索
+│ ├── ペット詳細
+│ ├── ペット登録
+│ ├── ペット編集
+│ └── ペット削除
+├── 健康記録管理（CRUD）
+│ ├── 記録一覧・検索（体重/食事/運動）
+│ ├── 記録詳細
+│ ├── 記録登録
+│ ├── 記録編集
+│ └── 記録削除
+├── 契約・プラン管理（CRUD）
+│ ├── 契約一覧・検索
+│ ├── 契約詳細
+│ ├── 契約登録
+│ ├── 契約編集（更新/解約）
+│ └── 契約削除
+├── 予約管理（CRUD）
+│ ├── 予約一覧・検索
+│ ├── 予約詳細
+│ ├── 予約登録
+│ ├── 予約変更
+│ └── 予約キャンセル
+├── 診療・相談履歴管理（CRUD）
+│ ├── 履歴一覧・検索
+│ ├── 履歴詳細
+│ ├── 履歴登録
+│ ├── 履歴編集
+│ └── 履歴削除
+├── 請求・決済管理
+│ ├── 請求一覧・検索
+│ ├── 請求作成
+│ ├── 入金確認
+│ └── 領収書発行
+├── 通知管理
+│ ├── 通知作成
+│ ├── 配信設定（リマインド）
+│ └── 配信履歴
+├── レポート
+│ ├── 月次レポート表示
+│ ├── 顧客別レポート表示
+│ └── CSV出力
+└── システム設定
+├── 管理者アカウント管理
+├── 権限管理（管理者/スタッフ）
+└── ログアウト
+
+
+##Webサイト ページ一覧
+No.	ページ名	ページの目的	主要コンテンツ
+1	トップページ	サービス全体の価値を短時間で伝え、各ページへ誘導する	キャッチコピー、課題提起、特徴、CTA（無料相談/申込み）
+2	サービス紹介	提供機能と利用メリットを具体的に説明する	健康記録機能、AI症状チェック、オンライン診療、訪問ケア
+3	料金・プラン	料金体系を明確にし、比較検討しやすくする	プラン比較表、オプション、支払い方法、利用条件
+4	ご利用の流れ	申込みから利用開始後までの手順を可視化する	登録手順、初期設定、利用開始フロー、サポート案内
+5	事例・お客様の声	利用イメージと信頼性を高める	導入事例、ビフォーアフター、ユーザーコメント
+6	FAQ	不安や疑問を事前に解消し、離脱を防ぐ	よくある質問、利用条件、対応時間、トラブル時の案内
+7	お問い合わせ・申込み	問い合わせ・相談・申込みを受け付ける	フォーム、無料相談予約、連絡先、返信目安
+8	運営者情報（About）	運営体制と理念を示し、安心感を与える	会社/運営者情報、コンセプト、ミッション、実績
+9	特商法・プライバシーポリシー	法令順守と個人情報保護方針を明示する	特商法表記、個人情報の取扱い、利用規約リンク
+
+
+##Webアプリ 画面一覧
+No.	画面名	画面の目的	主要機能
+1	ログイン画面	利用者認証を行い安全にシステムへアクセスさせる	メール/パスワード入力、ログイン、パスワード再設定導線
+2	ダッシュボード画面	全体状況をひと目で把握し次の操作へ誘導する	KPI表示、予約予定、通知一覧、未対応タスク表示
+3	ユーザー管理画面	飼い主ユーザー情報を管理する	一覧表示、検索、詳細表示、新規登録、編集、削除（CRUD）
+4	ペット管理画面	ペット情報を一元管理する	一覧表示、絞り込み検索、詳細表示、登録・編集・削除（CRUD）
+5	健康記録管理画面	日々の健康データを管理・確認する	体重/食事/運動記録の登録、履歴表示、期間検索、編集・削除
+6	症状チェック結果管理画面	AI症状チェック結果を確認し対応判断を支援する	結果一覧、重症度フィルタ、詳細確認、対応ステータス更新
+7	予約管理画面	診療・相談予約を管理する	予約一覧、日付検索、新規予約、変更、キャンセル、リマインド設定
+8	診療・相談履歴画面	診療/相談内容を記録し継続対応に活用する	履歴一覧、キーワード検索、詳細記録、添付、編集
+9	請求・決済管理画面	請求と入金状況を管理する	請求作成、支払い状況確認、入金消込、領収書発行
+10	通知配信管理画面	ユーザー向け通知を作成・配信する	通知作成、一斉配信、セグメント配信、配信履歴確認
+
+
+##ユーザーフロー
+ペルソナ：佐藤 美咲、32歳、ITベンチャー企業のマーケティング担当
+目的：忙しい日常でも、愛犬の健康状態を一元管理し、必要時にオンライン相談・診療までスムーズに利用する
+
+ステップ	行動	表示ページ	次のアクション
+1	SNS/検索で「ペット 健康管理 アプリ」を調べる	記事LP・検索結果	公式サイトを開く
+2	サービス概要と特徴を確認する	トップページ	サービス詳細へ進む
+3	機能（健康記録・AI症状チェック・オンライン診療）を確認する	サービス紹介ページ	料金を確認する
+4	料金と他サービス比較を行う	料金・プランページ	利用開始を判断する
+5	口コミや利用事例で安心材料を確認する	事例・お客様の声ページ	登録/申込みへ進む
+6	不明点を解消する	FAQページ	申込みフォームへ進む
+7	新規登録を行う（アカウント作成）	申込み・登録ページ	初期設定を開始する
+8	ペット情報を登録し、体重/食事/運動の記録を開始する	初期設定・ペット情報登録ページ	日常利用を継続する
+9	体調が気になる日にAI症状チェックを実施する	症状チェックページ	必要ならオンライン相談を予約する
+10	オンライン相談/診療を受け、履歴を確認する
+
+##サブシナリオ
+ステップ	行動	表示ページ	次のアクション
+1	夜間に愛犬の軽い不調（食欲低下）に気づく	-	すぐに公式サイトへアクセス
+2	緊急時対応の可否を確認する	トップページ	医療サポート詳細へ進む
+3	AI症状チェックとオンライン相談の流れを確認する	サービス紹介ページ（医療サポート）	料金・相談費用を確認する
+4	単発利用可否・相談料金を確認する	料金・プランページ	不安点をFAQで確認する
+5	「夜間相談可否」「受診目安」を確認する	FAQページ	相談申込みへ進む
+6	最短でアカウント登録しペット情報を入力する	申込み・登録ページ	症状チェックを開始する
+7	症状を入力して受診推奨度を確認する	AI症状チェックページ	オンライン相談予約へ進む
+8	直近枠でオンライン相談を予約する	予約ページ	問診情報を事前送信する
+9	オンライン相談で対応方針（自宅経過観察/受診）を確認する	オンライン相談画面	必要時は訪問ケア/病院受診を手配する
+10	相談内容と今後のケアを履歴で確認し、通知設定を有効化する	診療履歴ページ・通知設定ページ	継続的な健康記録運用へ移行する
+
+##URL設計
+機能一覧：ログイン認証、ユーザー/ペット管理CRUD、健康記録CRUD、AI症状チェック、予約管理CRUD、診療/相談履歴CRUD、請求/決済管理、通知、レポート出力
+
+Webサイト部分（公開サイト）
+
+URL	HTTPメソッド	画面/機能	説明
+/	GET	トップページ	サービス概要・導線表示
+/services	GET	サービス紹介	機能・提供価値の説明
+/plans	GET	料金・プラン	プラン比較、料金表示
+/flow	GET	ご利用の流れ	登録〜利用開始までの手順
+/cases	GET	事例・お客様の声	導入事例・レビュー表示
+/faq	GET	FAQ	よくある質問表示
+/about	GET	運営者情報	企業/運営情報表示
+/contact	GET	お問い合わせフォーム	問い合わせ入力画面
+/contact	POST	お問い合わせ送信	問い合わせ内容を送信
+/legal	GET	特商法・プライバシー	法務情報表示
+Spring Bootアプリ部分（管理/会員アプリ）
+
+URL	HTTPメソッド	画面/機能	説明
+/app/login	GET	ログイン画面	ログインフォーム表示
+/app/sessions	POST	ログイン処理	認証してセッション作成
+/app/sessions/current	DELETE	ログアウト	現在セッション削除
+/app/password-resets	POST	パスワード再設定依頼	再設定メール送信
+/app/password-resets/{token}	PATCH	パスワード更新	新パスワード反映
+/app/dashboard	GET	ダッシュボード	KPI・通知・予定表示
+/app/users	GET	ユーザー一覧/検索	一覧、条件検索
+/app/users/new	GET	ユーザー登録画面	新規入力フォーム表示
+/app/users	POST	ユーザー登録	新規作成
+/app/users/{userId}	GET	ユーザー詳細	詳細表示
+/app/users/{userId}/edit	GET	ユーザー編集画面	編集フォーム表示
+/app/users/{userId}	PATCH	ユーザー更新	情報更新
+/app/users/{userId}	DELETE	ユーザー削除	論理削除/削除
+/app/pets	GET	ペット一覧/検索	一覧、条件検索
+/app/pets	POST	ペット登録	新規作成
+/app/pets/{petId}	GET	ペット詳細	詳細表示
+/app/pets/{petId}	PATCH	ペット更新	情報更新
+/app/pets/{petId}	DELETE	ペット削除	削除
+/app/pets/{petId}/health-records	GET	健康記録一覧	体重/食事/運動履歴表示
+/app/pets/{petId}/health-records	POST	健康記録登録	記録作成
+/app/pets/{petId}/health-records/{recordId}	GET	健康記録詳細	記録詳細表示
+/app/pets/{petId}/health-records/{recordId}	PATCH	健康記録更新	記録修正
+/app/pets/{petId}/health-records/{recordId}	DELETE	健康記録削除	記録削除
+/app/symptom-checks	POST	AI症状チェック実行	入力症状を診断ロジックへ送信
+/app/symptom-checks/{checkId}	GET	AI結果表示	推奨対応・重症度表示
+/app/appointments	GET	予約一覧/検索	日付・種別で検索
+/app/appointments	POST	予約登録	相談/診療予約作成
+/app/appointments/{appointmentId}	GET	予約詳細	予約内容表示
+/app/appointments/{appointmentId}	PATCH	予約変更	日時・担当更新
+/app/appointments/{appointmentId}	DELETE	予約キャンセル	予約取消
+/app/consultations	GET	診療/相談履歴一覧	履歴検索・一覧表示
+/app/consultations	POST	診療/相談履歴登録	履歴作成
+/app/consultations/{consultationId}	GET	診療/相談履歴詳細	詳細表示
+/app/consultations/{consultationId}	PATCH	診療/相談履歴更新	記録更新
+/app/consultations/{consultationId}	DELETE	診療/相談履歴削除	記録削除
+/app/billings	GET	請求一覧/検索	請求状態確認
+/app/billings	POST	請求作成	請求データ作成
+/app/billings/{billingId}	GET	請求詳細	請求情報表示
+/app/billings/{billingId}	PATCH	請求更新	金額/状態更新
+/app/payments	POST	入金登録	決済・入金反映
+/app/notifications	GET	通知一覧	配信履歴表示
+/app/notifications	POST	通知作成/配信	通知作成して配信
+/app/reports/monthly	GET	月次レポート	月次集計表示
+/app/reports/customers	GET	顧客別レポート	顧客単位集計表示
+/app/reports/exports	POST	レポート出力	CSV/PDFエクスポート開始
+
+##Controller 単位
+PublicSiteController（公開サイト）
+
+URL	HTTPメソッド	画面/機能	説明
+/	GET	トップページ	サービス概要・主要導線を表示
+/services	GET	サービス紹介	機能・提供価値を表示
+/plans	GET	料金・プラン	料金体系・比較情報を表示
+/flow	GET	ご利用の流れ	利用開始までの手順を表示
+/cases	GET	事例・お客様の声	導入事例・レビューを表示
+/faq	GET	FAQ	よくある質問を表示
+/about	GET	運営者情報	運営情報・理念を表示
+/legal	GET	特商法・プライバシー	法務情報を表示
+ContactController（公開サイト問い合わせ）
+
+URL	HTTPメソッド	画面/機能	説明
+/contact	GET	お問い合わせフォーム	入力画面を表示
+/contact	POST	お問い合わせ送信	問い合わせを受付・保存/送信
+/contact/thanks	GET	送信完了	送信完了メッセージを表示
+AuthController（認証）
+
+URL	HTTPメソッド	画面/機能	説明
+/app/login	GET	ログイン画面	ログインフォームを表示
+/app/sessions	POST	ログイン処理	認証してセッション作成
+/app/sessions/current	DELETE	ログアウト	現在セッションを破棄
+/app/password-resets/new	GET	再設定申請画面	メール入力画面を表示
+/app/password-resets	POST	再設定申請	再設定トークンを発行・通知
+/app/password-resets/{token}/edit	GET	再設定入力画面	新パスワード入力画面を表示
+/app/password-resets/{token}	PATCH	パスワード更新	パスワードを更新
+DashboardController
+
+URL	HTTPメソッド	画面/機能	説明
+/app/dashboard	GET	ダッシュボード	KPI・通知・本日予定を表示
+UsersController
+
+URL	HTTPメソッド	画面/機能	説明
+/app/users	GET	一覧/検索	ユーザー一覧・検索
+/app/users/new	GET	新規登録画面	作成フォーム表示
+/app/users	POST	作成	ユーザー新規作成
+/app/users/{userId}	GET	詳細	ユーザー詳細表示
+/app/users/{userId}/edit	GET	編集画面	編集フォーム表示
+/app/users/{userId}	PATCH	更新	ユーザー情報更新
+/app/users/{userId}	DELETE	削除	ユーザー削除
+PetsController
+
+URL	HTTPメソッド	画面/機能	説明
+/app/pets	GET	一覧/検索	ペット一覧・検索
+/app/pets/new	GET	新規登録画面	作成フォーム表示
+/app/pets	POST	作成	ペット新規作成
+/app/pets/{petId}	GET	詳細	ペット詳細表示
+/app/pets/{petId}/edit	GET	編集画面	編集フォーム表示
+/app/pets/{petId}	PATCH	更新	ペット情報更新
+/app/pets/{petId}	DELETE	削除	ペット削除
+HealthRecordsController
+
+URL	HTTPメソッド	画面/機能	説明
+/app/pets/{petId}/health-records	GET	一覧/検索	健康記録一覧（期間・種別検索）
+/app/pets/{petId}/health-records/new	GET	新規登録画面	作成フォーム表示
+/app/pets/{petId}/health-records	POST	作成	健康記録作成
+/app/pets/{petId}/health-records/{recordId}	GET	詳細	記録詳細表示
+/app/pets/{petId}/health-records/{recordId}/edit	GET	編集画面	編集フォーム表示
+/app/pets/{petId}/health-records/{recordId}	PATCH	更新	記録更新
+/app/pets/{petId}/health-records/{recordId}	DELETE	削除	記録削除
+SymptomChecksController
+
+URL	HTTPメソッド	画面/機能	説明
+/app/symptom-checks/new	GET	症状入力画面	AIチェック入力フォーム表示
+/app/symptom-checks	POST	AI症状チェック実行	症状を解析して結果生成
+/app/symptom-checks/{checkId}	GET	結果表示	推奨対応・重症度表示
+/app/symptom-checks	GET	履歴一覧	過去チェック結果を検索表示
+AppointmentsController
+
+URL	HTTPメソッド	画面/機能	説明
+/app/appointments	GET	一覧/検索	予約一覧・条件検索
+/app/appointments/new	GET	新規登録画面	予約作成フォーム表示
+/app/appointments	POST	作成	予約作成
+/app/appointments/{appointmentId}	GET	詳細	予約詳細表示
+/app/appointments/{appointmentId}/edit	GET	編集画面	予約編集フォーム表示
+/app/appointments/{appointmentId}	PATCH	更新	予約変更
+/app/appointments/{appointmentId}	DELETE	キャンセル	予約取消
+ConsultationsController
+
+URL	HTTPメソッド	画面/機能	説明
+/app/consultations	GET	一覧/検索	診療・相談履歴一覧
+/app/consultations/new	GET	新規登録画面	履歴作成フォーム表示
+/app/consultations	POST	作成	履歴作成
+/app/consultations/{consultationId}	GET	詳細	履歴詳細表示
+/app/consultations/{consultationId}/edit	GET	編集画面	履歴編集フォーム表示
+/app/consultations/{consultationId}	PATCH	更新	履歴更新
+/app/consultations/{consultationId}	DELETE	削除	履歴削除
+BillingsController
+
+URL	HTTPメソッド	画面/機能	説明
+/app/billings	GET	一覧/検索	請求一覧・状態検索
+/app/billings/new	GET	請求作成画面	請求フォーム表示
+/app/billings	POST	作成	請求作成
+/app/billings/{billingId}	GET	詳細	請求詳細表示
+/app/billings/{billingId}/edit	GET	編集画面	請求編集フォーム表示
+/app/billings/{billingId}	PATCH	更新	請求更新
+/app/billings/{billingId}	DELETE	取消/削除	請求取消または削除
+PaymentsController
+
+URL	HTTPメソッド	画面/機能	説明
+/app/payments	GET	入金一覧	入金履歴表示
+/app/payments	POST	入金登録	入金・決済結果を登録
+/app/payments/{paymentId}	GET	入金詳細	入金明細表示
+NotificationsController
+
+URL	HTTPメソッド	画面/機能	説明
+/app/notifications	GET	一覧	通知一覧・配信履歴表示
+/app/notifications/new	GET	作成画面	通知作成フォーム表示
+/app/notifications	POST	作成/配信	通知作成と配信実行
+/app/notifications/{notificationId}	GET	詳細	通知内容・結果表示
+ReportsController
+
+URL	HTTPメソッド	画面/機能	説明
+/app/reports/monthly	GET	月次レポート	月次KPI表示
+/app/reports/customers	GET	顧客別レポート	顧客別集計表示
+/app/reports/exports	POST	エクスポート	CSV/PDF出力ジョブ作成
+/app/reports/exports/{exportId}
+
+## ワイヤーフレーム（トップページ）
+
+### PCワイヤー（12カラム基準）
+
+- コンテナ幅：min(1200px, 92vw)
+- 基本グリッド：12カラム
+- セクション間余白：64px
+- 構成：2カラム中心（情報 + ビジュアル）
+
+1. ヘッダー（高さ72px）
+   - 左3/12：ロゴ
+   - 中央6/12：ナビ（サービス/料金/事例/FAQ）
+   - 右3/12：ログイン + 主CTA
+2. ヒーロー（高さ560px）
+   - 左6/12：見出し、説明、CTA2種
+   - 右6/12：キービジュアル（アプリ画面 + ペット写真）
+3. サービス紹介（高さ520px）
+   - 上段12/12：セクション見出し
+   - 下段：4/12 × 3カード（健康記録 / AI症状チェック / オンライン診療・訪問ケア）
+4. 実績（高さ420px）
+   - 左7/12：事例カード2件（縦積み）
+   - 右5/12：数値実績（KPIブロック）
+5. CTA（高さ300px）
+   - 中央寄せ8/12：訴求文 + 主CTA + 副CTA
+6. フッター（高さ220px）
+   - 3/12 × 4列（サービス / 会社情報 / 法務 / サポート）
+
+### 配置意図（PC）
+
+- ヘッダー
+  - なぜその位置か：最上部固定で主要導線へ常時アクセスできるようにするため。
+  - ユーザー効果：迷子を防ぎ、相談/ログインへの遷移を促進。
+- ヒーロー
+  - なぜその位置か：ファーストビューで価値訴求とCTAを同時提示するため。
+  - ユーザー効果：自分向けサービスかを短時間で判断しやすい。
+- サービス紹介
+  - なぜその位置か：興味獲得直後に機能を具体化するため。
+  - ユーザー効果：理解コストを下げ、比較検討しやすくなる。
+- 実績
+  - なぜその位置か：機能理解後に信頼材料を提示するため。
+  - ユーザー効果：導入不安の軽減と意思決定の後押し。
+- CTA
+  - なぜその位置か：納得感が高まるタイミングで行動喚起するため。
+  - ユーザー効果：検討から申込みへの遷移率向上。
+- フッター
+  - なぜその位置か：末尾で法務情報と補助導線を集約するため。
+  - ユーザー効果：信頼確認がしやすく、安心して申込み判断できる。
+
+### スマートフォンワイヤー（1カラム基準）
+
+- コンテナ幅：92vw
+- 基本グリッド：1カラム
+- セクション間余白：32px
+- 構成：完全1カラム（縦スクロール最適化）
+
+1. ヘッダー（高さ56px）
+   - 左：ロゴ
+   - 右：ハンバーガー + 小CTA
+2. ヒーロー（高さ520px）
+   - 上：見出し・説明
+   - 中：CTA縦並び
+   - 下：ビジュアル
+3. サービス紹介
+   - 機能カード3枚を縦積み
+4. 実績
+   - KPI（2列→小画面は1列）+ ユーザー声カード縦積み
+5. CTA（高さ260px）
+   - 主CTA・副CTAを幅100%で縦並び
+6. フッター
+   - アコーディオン式リンク群 + 法務リンク
+
+### レスポンシブ切替ルール
+
+1. 768px以下で2カラム→1カラム
+2. CTA横並び→縦並び
+3. カード3列→1列
