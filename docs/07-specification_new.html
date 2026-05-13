@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>機能詳細仕様 - ペットライフプラス（Pet Life Plus）</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1D4ED8;
+            --secondary-color: #0EA5A4;
+            --accent-color: #F59E0B;
+            --bg-color: #F8FAFC;
+            --text-main: #0F172A;
+            --text-sub: #64748B;
+            --border-color: #CBD5E1;
+            --radius-card: 14px;
+            --radius-input: 10px;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.75;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: var(--radius-card);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+        }
+
+        h1 {
+            font-size: 32px;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-top: 60px;
+            border-left: 6px solid var(--primary-color);
+            padding-left: 15px;
+            background: #F1F5F9;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: var(--secondary-color);
+            margin-top: 40px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+        }
+
+        h4 {
+            font-size: 16px;
+            color: var(--text-main);
+            margin-top: 25px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        h4::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background-color: var(--accent-color);
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #F1F5F9;
+            font-weight: 600;
+        }
+
+        .priority-must { color: #DC2626; font-weight: bold; }
+        .priority-should { color: #D97706; font-weight: bold; }
+        .priority-could { color: #059669; font-weight: bold; }
+
+        .feature-box {
+            margin-bottom: 80px;
+            padding: 20px;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        .item-list {
+            background-color: #F8FAFC;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 767px) {
+            .container { padding: 20px; }
+            h1 { font-size: 24px; }
+            h2 { font-size: 20px; }
+            th, td { padding: 8px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>機能詳細仕様書</h1>
+
+        <section>
+            <h2>1. システム概要</h2>
+            <p><strong>サービス名:</strong> ペットライフプラス（Pet Life Plus）</p>
+            <p><strong>利用者:</strong> 管理者、一般ユーザー</p>
+            <p><strong>目的:</strong> ペットの健康記録、AI症状チェック、予約、診療・相談履歴を一元管理し、早期異変の発見、受診判断の支援、継続的な健康管理を実現する。</p>
+        </section>
+
+        <section>
+            <h2>2. システム構成</h2>
+            <ul>
+                <li><strong>フロントエンド:</strong> HTML / CSS / JavaScript（Thymeleaf）</li>
+                <li><strong>バックエンド:</strong> Spring Boot（Controller → Service → Repository）</li>
+                <li><strong>データベース:</strong> H2 / MySQL</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. 機能一覧</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>機能名</th>
+                        <th>概要</th>
+                        <th>優先度</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>F-001</td><td>ログイン認証</td><td>管理者・一般ユーザー認証と権限制御</td><td class="priority-must">Must</td></tr>
+                    <tr><td>F-002</td><td>ダッシュボード表示</td><td>KPI・予定・通知の集約表示と導線提供</td><td class="priority-must">Must</td></tr>
+                    <tr><td>F-003</td><td>ユーザー管理（CRUD）</td><td>ユーザー情報の登録/参照/更新/削除</td><td class="priority-must">Must</td></tr>
+                    <tr><td>F-004</td><td>ペット管理（CRUD）</td><td>ペット情報の登録/参照/更新/削除</td><td class="priority-must">Must</td></tr>
+                    <tr><td>F-005</td><td>健康記録管理（CRUD）</td><td>体重/食事/運動などの記録管理</td><td class="priority-must">Must</td></tr>
+                    <tr><td>F-006</td><td>予約管理（CRUD）</td><td>診療・相談予約の登録/変更/キャンセル</td><td class="priority-must">Must</td></tr>
+                    <tr><td>F-007</td><td>診療・相談履歴管理（CRUD）</td><td>履歴の登録/参照/更新/削除</td><td class="priority-must">Must</td></tr>
+                    <tr><td>F-008</td><td>入力バリデーション</td><td>全フォームの共通検証ルール実行</td><td class="priority-must">Must</td></tr>
+                    <tr><td>F-009</td><td>AI症状チェック</td><td>症状解析と推奨対応提示</td><td class="priority-should">Should</td></tr>
+                    <tr><td>F-010</td><td>検索・ソート・ページネーション</td><td>一覧表示の検索性/閲覧性向上</td><td class="priority-should">Should</td></tr>
+                    <tr><td>F-011</td><td>請求・決済管理</td><td>請求作成、入金確認、状態管理</td><td class="priority-should">Should</td></tr>
+                    <tr><td>F-012</td><td>通知・リマインド配信</td><td>通知作成、配信設定、履歴管理</td><td class="priority-should">Should</td></tr>
+                    <tr><td>F-013</td><td>PDF出力</td><td>レポート/一覧のPDF出力</td><td class="priority-could">Could</td></tr>
+                    <tr><td>F-014</td><td>ファイルアップロード</td><td>添付ファイルの登録・管理</td><td class="priority-could">Could</td></tr>
+                    <tr><td>F-015</td><td>メール通知</td><td>予約・重要情報のメール配信</td><td class="priority-could">Could</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>4. 機能詳細仕様</h2>
+
+            <!-- F-001 -->
+            <div class="feature-box">
+                <h3>F-001: ログイン認証</h3>
+                <p>メールアドレス/パスワードで認証し、成功時にセッションを発行してダッシュボードへ遷移する。</p>
+                <h4>画面レイアウト</h4>
+                <p>メールアドレス入力、パスワード入力、ログインボタン、再設定リンクを配置。</p>
+                <h4>処理フロー</h4>
+                <ol>
+                    <li>認証情報を入力する。</li>
+                    <li>ログインボタン押下で認証処理を実行する。</li>
+                    <li>認証結果に応じて遷移またはエラー表示する。</li>
+                </ol>
+                <h4>正常時の動作</h4>
+                <p>認証成功でセッションを作成し、ダッシュボードへ遷移する。</p>
+                <h4>エラー時の動作</h4>
+                <p>バリデーション: 未入力・形式不正を項目下に表示。システム: 認証処理失敗時に汎用エラーメッセージを表示。</p>
+                <h4>入力項目一覧</h4>
+                <table>
+                    <tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th></tr>
+                    <tr><td>メールアドレス</td><td>String</td><td>○</td><td>必須 / メール形式 / 255文字</td></tr>
+                    <tr><td>パスワード</td><td>String</td><td>○</td><td>必須 / 8〜64文字</td></tr>
+                </table>
+            </div>
+
+            <!-- F-002 -->
+            <div class="feature-box">
+                <h3>F-002: ダッシュボード表示</h3>
+                <p>KPI・通知・本日の予定を表示し、各管理画面への導線を提供する。</p>
+                <h4>画面レイアウト</h4>
+                <p>KPIカード、本日の予定、通知一覧、メニュー導線を配置。</p>
+                <h4>正常時の動作</h4>
+                <p>最新データを表示し、各機能に遷移できる。</p>
+            </div>
+
+            <!-- F-003 -->
+            <div class="feature-box">
+                <h3>F-003: ユーザー管理（CRUD）</h3>
+                <p>ユーザー情報の一覧表示、登録、詳細表示、編集、削除を行う。</p>
+                <h4>処理フロー</h4>
+                <ol>
+                    <li>検索または対象ユーザーを選択する。</li>
+                    <li>登録/更新/削除を実行する。</li>
+                    <li>保存後に一覧を再表示する。</li>
+                </ol>
+                <h4>入力項目一覧</h4>
+                <table>
+                    <tr><th>項目名</th><th>データ型</th><th>必須</th><th>備考</th></tr>
+                    <tr><td>氏名</td><td>String</td><td>○</td><td>1〜50文字</td></tr>
+                    <tr><td>メールアドレス</td><td>String</td><td>○</td><td>一意制約</td></tr>
+                    <tr><td>電話番号</td><td>String</td><td>-</td><td>任意（10〜13桁）</td></tr>
+                </table>
+            </div>
+
+            <!-- F-004 -->
+            <div class="feature-box">
+                <h3>F-004: ペット管理（CRUD）</h3>
+                <p>ペット情報の登録、参照、更新、削除を行い、飼い主情報と紐付ける。</p>
+                <h4>入力項目一覧</h4>
+                <table>
+                    <tr><th>項目名</th><th>データ型</th><th>必須</th><th>備考</th></tr>
+                    <tr><td>ペット名</td><td>String</td><td>○</td><td>1〜40文字</td></tr>
+                    <tr><td>種別</td><td>Enum</td><td>○</td><td>犬 / 猫 など</td></tr>
+                    <tr><td>生年月日</td><td>Date</td><td>-</td><td>未来日不可</td></tr>
+                </table>
+            </div>
+
+            <!-- F-005 -->
+            <div class="feature-box">
+                <h3>F-005: 健康記録管理（CRUD）</h3>
+                <p>体重・食事・運動などの健康記録を登録し、時系列で管理する。</p>
+                <h4>入力項目一覧</h4>
+                <table>
+                    <tr><th>項目名</th><th>データ型</th><th>必須</th><th>バリデーション</th></tr>
+                    <tr><td>記録日</td><td>Date</td><td>○</td><td>日付形式</td></tr>
+                    <tr><td>体重</td><td>Decimal</td><td>-</td><td>0.1〜200.0</td></tr>
+                    <tr><td>食事メモ</td><td>String</td><td>-</td><td>300文字以内</td></tr>
+                </table>
+            </div>
+
+            <!-- F-006 -->
+            <div class="feature-box">
+                <h3>F-006: 予約管理（CRUD）</h3>
+                <p>診療・相談予約の登録、変更、キャンセルを管理し、空き枠チェックを行う。</p>
+                <h4>処理フロー</h4>
+                <ol>
+                    <li>予約条件を入力する。</li>
+                    <li>空き枠と重複をチェックする。</li>
+                    <li>成功時に一覧へ反映する。</li>
+                </ol>
+                <h4>入力項目一覧</h4>
+                <table>
+                    <tr><th>項目名</th><th>データ型</th><th>必須</th><th>備考</th></tr>
+                    <tr><td>予約日時</td><td>DateTime</td><td>○</td><td>過去日時不可</td></tr>
+                    <tr><td>予約種別</td><td>Enum</td><td>○</td><td>診療 / 相談</td></tr>
+                </table>
+            </div>
+
+            <!-- F-007 -->
+            <div class="feature-box">
+                <h3>F-007: 診療・相談履歴管理（CRUD）</h3>
+                <p>診療・相談履歴の登録、検索、編集、削除と添付管理を行う。</p>
+                <h4>入力項目一覧</h4>
+                <table>
+                    <tr><th>項目名</th><th>データ型</th><th>必須</th><th>備考</th></tr>
+                    <tr><td>実施日</td><td>Date</td><td>○</td><td>日付形式</td></tr>
+                    <tr><td>対応内容</td><td>String</td><td>○</td><td>1000文字以内</td></tr>
+                    <tr><td>添付ファイル</td><td>File</td><td>-</td><td>PDF・画像（5MB以内）</td></tr>
+                </table>
+            </div>
+
+            <!-- F-009 -->
+            <div class="feature-box">
+                <h3>F-009: AI症状チェック</h3>
+                <p>症状入力を解析し、重症度と推奨対応（経過観察/相談/受診）を提示する。</p>
+                <h4>処理フロー</h4>
+                <ol>
+                    <li>症状種別、発症時期を入力する。</li>
+                    <li>AI解析を実行する。</li>
+                    <li>判定結果（重症度・推奨アクション）を表示する。</li>
+                </ol>
+            </div>
+
+            <!-- F-011 -->
+            <div class="feature-box">
+                <h3>F-011: 請求・決済管理</h3>
+                <p>請求作成、入金確認、支払状況の更新、領収書発行を行う。</p>
+                <h4>入力項目一覧</h4>
+                <table>
+                    <tr><th>項目名</th><th>データ型</th><th>必須</th><th>備考</th></tr>
+                    <tr><td>請求金額</td><td>Decimal</td><td>○</td><td>0以上</td></tr>
+                    <tr><td>請求日</td><td>Date</td><td>○</td><td>日付形式</td></tr>
+                    <tr><td>支払状況</td><td>Enum</td><td>○</td><td>未払い / 入金済み</td></tr>
+                </table>
+            </div>
+
+            <!-- F-012 -->
+            <div class="feature-box">
+                <h3>F-012: 通知・リマインド配信</h3>
+                <p>通知作成、配信対象設定、配信実行、配信履歴管理を行う。</p>
+                <h4>入力項目一覧</h4>
+                <table>
+                    <tr><th>項目名</th><th>データ型</th><th>必須</th><th>備考</th></tr>
+                    <tr><td>件名</td><td>String</td><td>○</td><td>100文字以内</td></tr>
+                    <tr><td>本文</td><td>String</td><td>○</td><td>2000文字以内</td></tr>
+                    <tr><td>配信日時</td><td>DateTime</td><td>-</td><td>予約配信の場合必須</td></tr>
+                </table>
+            </div>
+
+            <!-- F-013 -->
+            <div class="feature-box">
+                <h3>F-013: PDF出力</h3>
+                <p>指定条件でレポートや一覧データをPDFとして生成・出力する。</p>
+                <h4>出力種別</h4>
+                <p>月次レポート / 顧客別レポート / 診療明細 など</p>
+            </div>
+
+            <!-- F-014 -->
+            <div class="feature-box">
+                <h3>F-014: ファイルアップロード</h3>
+                <p>関連ファイルを検証後に保存し、対象データへ紐付けて管理する。</p>
+                <h4>検証ルール</h4>
+                <ul>
+                    <li>拡張子: PDF, JPG, PNG</li>
+                    <li>容量: 1ファイル最大10MB</li>
+                </ul>
+            </div>
+
+            <!-- F-015 -->
+            <div class="feature-box">
+                <h3>F-015: メール通知</h3>
+                <p>テンプレートに基づき即時/予約でメール送信し、送信結果を記録する。</p>
+                <h4>主な送信トリガー</h4>
+                <ul>
+                    <li>予約完了通知</li>
+                    <li>診療前日リマインド</li>
+                    <li>請求発行通知</li>
+                </ul>
+            </div>
+
+        </section>
+    </div>
+</body>
+</html>
