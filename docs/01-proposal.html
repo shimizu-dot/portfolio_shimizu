@@ -50,6 +50,8 @@
       border: 1px solid #b7cff7;
       background: #fff;
       border-radius: 10px;
+      color: #0f172a;
+      opacity: 1;
     }
 
     .section {
@@ -87,25 +89,43 @@
     .doc-table {
       border-collapse: separate;
       border-spacing: 0;
-      border: 1px solid #d9e4f5;
-      border-radius: 12px;
+      border: 1px solid #cfe0f7;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.07);
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.12);
     }
 
     .doc-table thead th {
-      background: linear-gradient(135deg, #eaf2ff 0%, #e8faf6 100%);
-      color: #0f172a;
+      background: linear-gradient(120deg, #dbeafe 0%, #bfdbfe 45%, #93c5fd 100%);
+      color: #0b2545;
       font-weight: 700;
-      border-bottom: 1px solid #d6e2f3;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid #c5d7f1;
+      padding: 11px 12px;
+    }
+
+    .doc-table tbody td {
+      border-bottom: 1px solid #e7eef8;
+      padding: 10px 12px;
+    }
+
+    .doc-table tbody tr:nth-child(odd) td {
+      background: #ffffff;
     }
 
     .doc-table tbody tr:nth-child(even) td {
       background: #f8fbff;
     }
 
+    .doc-table tbody tr td:first-child {
+      background: linear-gradient(90deg, #f3f7ff 0%, #ffffff 85%);
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
     .doc-table tbody tr:hover td {
-      background: #eef6ff;
+      background: #ecfeff;
+      transition: background-color .18s ease;
     }
 
     .toc {
@@ -118,6 +138,10 @@
     .toc-title {
       color: #1e3a8a;
       font-weight: 700;
+    }
+
+    #sec5 .template-row td {
+      font-style: normal;
     }
   </style>
 </head>
@@ -153,7 +177,7 @@
           </div>
 
           <div class="external-link-input">
-            <input type="text" placeholder="MarketingFormat_document" id="external-link-01">
+            <input type="text" placeholder="MarketingFormat_document.xlsx" id="external-link-01">
             <a href="#" class="link-btn"
               onclick="window.open(document.getElementById('external-link-01').value || 'MarketingFormat_document.xlsx', '_blank'); return false;">
               <span class="material-symbols-outlined">open_in_new</span>
@@ -244,15 +268,38 @@
           <div class="fill-block">
             <div class="fill-label">Webサイト（フロントエンド）の範囲 <span class="required">必須</span></div>
             <div class="fill-hint">制作するWebサイトのページ一覧と概要</div>
-            <div class="fill-content">
-              <p>（Webサイトのページ一覧を記載）</p>
+            <div class="fill-content purpose-highlight">
+              <p class="purpose-meta"><strong>対象ページ数:</strong> 8ページ（公開サイト）</p>
+              <p class="purpose-meta"><strong>目的:</strong> サービス理解、比較検討、問い合わせ導線を一貫して提供する。</p>
+              <ul>
+                <li>ページ名：トップページ<br>主要コンテンツ：キャッチコピー、サービス概要、課題提起、主要機能導線、無料相談CTA</li>
+                <li>ページ名：サービス紹介<br>主要コンテンツ：健康管理機能（体重・食事・運動記録）、AI症状チェック、オンライン診療、訪問ケアの説明</li>
+                <li>ページ名：料金・プラン<br>主要コンテンツ：月額プラン比較、単発相談料金、オプション、支払い方法、利用条件</li>
+                <li>ページ名：ご利用の流れ<br>主要コンテンツ：登録手順、ペット情報初期設定、日常利用フロー、サポート案内</li>
+                <li>ページ名：事例・お客様の声<br>主要コンテンツ：利用事例、導入前後の変化、ユーザーコメント、継続利用メリット</li>
+                <li>ページ名：FAQ<br>主要コンテンツ：夜間相談可否、受診目安、予約変更、解約方法、トラブル時対応</li>
+                <li>ページ名：お問い合わせ・申込み<br>主要コンテンツ：問い合わせフォーム、無料相談予約導線、連絡先、返信目安</li>
+                <li>ページ名：運営者情報（About）<br>主要コンテンツ：運営者情報、コンセプト、ミッション、実績、法務ページへの導線</li>
+              </ul>
             </div>
           </div>
           <div class="fill-block">
             <div class="fill-label">Webアプリケーション（サーバーサイド）の範囲 <span class="required">必須</span></div>
             <div class="fill-hint">制作するWebアプリケーションの機能概要</div>
-            <div class="fill-content">
-              <p>（Webアプリの機能一覧を記載）</p>
+            <div class="fill-content purpose-highlight">
+              <p class="purpose-meta"><strong>対象機能数:</strong> 10機能（管理/会員アプリ）</p>
+              <p class="purpose-meta"><strong>目的:</strong> 記録 → 分析 → 相談 → 診療までを一元管理し、継続利用を支援する。</p>
+              <ul>
+                <li>【機能名】：ユーザー認証（ログイン/ログアウト）<br>概要：メールアドレスとパスワードで利用者を認証し、安全に管理画面へアクセスさせる。<br>優先度：Must</li>
+                <li>【機能名】：飼い主ユーザー管理（CRUD）<br>概要：飼い主情報の登録・一覧・検索・編集・削除を行い、契約や履歴と紐づけて管理する。<br>優先度：Must</li>
+                <li>【機能名】：ペット情報管理（CRUD）<br>概要：ペットの基本情報（名前、種類、年齢、既往歴など）を登録・更新し、健康記録の基盤データとして利用する。<br>優先度：Must</li>
+                <li>【機能名】：健康記録管理（CRUD）<br>概要：体重・食事・運動などの日次データを登録・参照し、時系列で健康状態を可視化する。<br>優先度：Must</li>
+                <li>【機能名】：AI症状チェック<br>概要：入力された症状情報から受診目安や推奨アクションを提示し、初期判断を支援する。<br>優先度：Must</li>
+                <li>【機能名】：予約管理（相談/診療）<br>概要：オンライン相談・診療の予約作成、変更、キャンセルを行い、利用者と運営側の予定を管理する。<br>優先度：Must</li>
+                <li>【機能名】：診療・相談履歴管理<br>概要：相談内容、対応結果、次回アクションを履歴として保存し、継続的なケアに活用する。<br>優先度：Should</li>
+                <li>【機能名】：通知・リマインド配信<br>概要：予約前通知、記録入力促進、ワクチン時期案内などを配信し、継続利用を促進する。<br>優先度：Should</li>
+                <li>【機能名】：レポート出力（PDF）<br>概要：健康記録や運用実績を月次・顧客別に集計し、CSV/PDFで出力できるようにする。<br>優先度：Could</li>
+              </ul>
             </div>
           </div>
 
@@ -262,7 +309,7 @@
           <h2 class="section-title"><span class="section-icon">5</span> 使用技術</h2>
 
           <p style="font-size:13px;color:var(--text-light);margin-bottom:8px;">※ 自分の実際の使用技術に合わせて編集してください</p>
-          <table class="doc-table">
+          <table class="doc-table tech-table">
             <thead>
               <tr>
                 <th>区分</th>

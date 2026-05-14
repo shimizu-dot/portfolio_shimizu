@@ -126,6 +126,11 @@
       transition: background-color .18s ease;
     }
 
+    .test-case-table th:first-child,
+    .test-case-table td:first-child {
+      white-space: nowrap;
+    }
+
     .toc {
       border: 1px solid #d7e5f6;
       border-radius: 12px;
@@ -196,9 +201,9 @@
           </div>
           <div class="external-link-input">
             <input type="text" placeholder="https://docs.google.com/spreadsheets/d/xxxxx" id="external-link-09"
-              value="docs/test_report.xlsx" style="color:#0f172a; opacity:1;">
+              value="test_report.xlsx" style="color:#0f172a; opacity:1;">
             <a href="#" class="link-btn"
-              onclick="window.open(document.getElementById('external-link-09').value || 'docs/test_report.xlsx', '_blank'); return false;">
+              onclick="window.open(document.getElementById('external-link-09').value || 'test_report_document.xlsx', '_blank'); return false;">
               <span class="material-symbols-outlined">open_in_new</span>
               開く
             </a>
@@ -232,7 +237,6 @@
                   <li>管理CRUD: F-003〜F-007</li>
                   <li>共通制御: F-008 入力バリデーション</li>
                   <li>支援機能: F-009〜F-010</li>
-                  <li>業務機能: F-011〜F-015</li>
                 </ul>
               </div>
               <div class="scope-card">
@@ -240,7 +244,6 @@
                 <ul>
                   <li>ログイン、ダッシュボード</li>
                   <li>ユーザー/ペット/健康記録/予約/履歴管理</li>
-                  <li>請求・決済、通知配信、症状チェック</li>
                   <li>レポート出力、ファイルアップロード、メール通知</li>
                 </ul>
               </div>
@@ -257,7 +260,6 @@
                 <ul>
                   <li>本番運用監視設計</li>
                   <li>災害復旧訓練</li>
-                  <li>外部決済事業者内部システムの詳細動作検証</li>
                 </ul>
               </div>
             </div>
@@ -272,7 +274,7 @@
 
           <div class="fill-block">
             <div class="fill-label">テストケース一覧 <span class="required">必須</span></div>
-            <table class="doc-table">
+            <table class="doc-table test-case-table">
               <thead>
                 <tr>
                   <th>ID</th>
@@ -309,7 +311,6 @@
                 <tr><td>TC-024</td><td>F-009 AI症状チェック</td><td>正常系</td><td>症状種別・発症時期を入力して実行する</td><td>重症度と推奨対応が表示される</td></tr>
                 <tr><td>TC-025</td><td>F-009 AI症状チェック</td><td>異常系</td><td>症状種別未選択で実行する</td><td>必須エラーが表示される</td></tr>
                 <tr><td>TC-026</td><td>F-010 検索・ソート・ページネーション</td><td>境界値</td><td>ページ番号に0を指定する</td><td>1に補正されるかエラー表示される</td></tr>
-                <tr><td>TC-027</td><td>F-011 請求・決済管理</td><td>正常系</td><td>請求作成後に入金登録する</td><td>支払状況が更新される</td></tr>
                 <tr><td>TC-028</td><td>F-012 通知・リマインド配信</td><td>正常系</td><td>予約配信を設定して保存する</td><td>配信予定として履歴に保存される</td></tr>
                 <tr><td>TC-029</td><td>F-014 ファイルアップロード</td><td>異常系</td><td>許可外拡張子で添付する</td><td>拡張子エラーで保存不可</td></tr>
                 <tr><td>TC-030</td><td>F-015 メール通知</td><td>境界値</td><td>本文2000文字で送信登録する</td><td>上限値として正常に登録される</td></tr>

@@ -272,12 +272,9 @@
 [appointments] 0..1 ─ 1 [medical_histories]
 [medical_histories] 1 ─ * [medical_attachments]
 
-【4. 契約・請求・決済】
 [plans] 1 ─ * [subscriptions]
 [users] 1 ─ * [subscriptions]
 [pets] 1 ─ * [subscriptions]
-[subscriptions] 1 ─ * [invoices]
-[invoices] 1 ─ * [payments]
 
 【5. 通知・メール】
 [notifications] * ─ * [users]
@@ -286,7 +283,6 @@
 [users] 1 ─ * [email_messages]
 [pets] 0..1 ─ * [email_messages]
 [appointments] 0..1 ─ * [email_messages]
-[invoices] 0..1 ─ * [email_messages]</pre>
             </div>
           </div>
 
@@ -895,7 +891,6 @@
               </table>
             </div>
 
-            <h3>plans / subscriptions / invoices / payments / notifications / notification_recipients / email_templates
               / email_messages / health_records / symptom_checks</h3>
             <p>残りテーブルは <code>db-design.md</code> の表形式定義と同一構成で管理（本ページは主要テーブルを掲載）。</p>
           </div>
@@ -1067,39 +1062,25 @@
                     <td>プラン別集計・FK結合</td>
                   </tr>
                   <tr>
-                    <td>invoices</td>
-                    <td>uk_invoices_invoice_number</td>
                     <td>invoice_number</td>
                     <td>UNIQUE</td>
-                    <td>請求番号一意制約</td>
                   </tr>
                   <tr>
-                    <td>invoices</td>
-                    <td>idx_invoices_subscription_id</td>
                     <td>subscription_id</td>
                     <td>INDEX</td>
-                    <td>契約配下請求取得・FK結合</td>
                   </tr>
                   <tr>
-                    <td>invoices</td>
-                    <td>idx_invoices_payment_status_due_date</td>
                     <td>payment_status, due_date</td>
                     <td>INDEX</td>
                     <td>未払い・期限順管理</td>
                   </tr>
                   <tr>
-                    <td>payments</td>
-                    <td>idx_payments_invoice_id</td>
                     <td>invoice_id</td>
                     <td>INDEX</td>
-                    <td>請求配下決済取得・FK結合</td>
                   </tr>
                   <tr>
-                    <td>payments</td>
-                    <td>idx_payments_status</td>
                     <td>status</td>
                     <td>INDEX</td>
-                    <td>決済状態検索</td>
                   </tr>
                   <tr>
                     <td>notifications</td>
@@ -1178,7 +1159,6 @@
 - plans（カテゴリマスタ相当5件）
 - pets / health_records / symptom_checks（各5件）
 - appointments / medical_histories / medical_attachments（各5件）
-- subscriptions / invoices / payments（各5件）
 - notifications / notification_recipients（各5件）
 - email_templates / email_messages（各5件）</pre>
             </div>

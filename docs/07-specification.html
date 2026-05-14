@@ -315,10 +315,10 @@
     #f009-core,
     #f010-core,
     #f011-core,
+    #f011-core,
     #f012-core,
     #f013-core,
-    #f014-core,
-    #f015-core {
+    #f014-core {
       border: 2px solid #93c5fd;
       border-radius: 12px;
       background: #ffffff;
@@ -334,10 +334,10 @@
     #f009-core .fill-content,
     #f010-core .fill-content,
     #f011-core .fill-content,
+    #f011-core .fill-content,
     #f012-core .fill-content,
     #f013-core .fill-content,
-    #f014-core .fill-content,
-    #f015-core .fill-content {
+    #f014-core .fill-content {
       border: 1px solid #bfdbfe;
       border-radius: 8px;
       background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
@@ -617,34 +617,27 @@
                 </tr>
                 <tr class="template-row">
                   <td>F-011</td>
-                  <td>請求・決済管理</td>
-                  <td>請求作成、入金確認、状態管理</td>
-                  <td>請求・決済管理画面</td>
-                  <td><span class="badge badge-should">Should</span></td>
-                </tr>
-                <tr class="template-row">
-                  <td>F-012</td>
                   <td>通知・リマインド配信</td>
                   <td>通知作成、配信設定、履歴管理</td>
                   <td>通知配信管理画面</td>
                   <td><span class="badge badge-should">Should</span></td>
                 </tr>
                 <tr class="template-row">
-                  <td>F-013</td>
+                  <td>F-012</td>
                   <td>PDF出力</td>
                   <td>レポート/一覧のPDF出力</td>
                   <td>レポート画面 / 各一覧画面</td>
                   <td><span class="badge badge-could">Could</span></td>
                 </tr>
                 <tr class="template-row">
-                  <td>F-014</td>
+                  <td>F-013</td>
                   <td>ファイルアップロード</td>
                   <td>添付ファイルの登録・管理</td>
                   <td>診療・相談履歴画面</td>
                   <td><span class="badge badge-could">Could</span></td>
                 </tr>
                 <tr class="template-row">
-                  <td>F-015</td>
+                  <td>F-014</td>
                   <td>メール通知</td>
                   <td>予約・重要情報のメール配信</td>
                   <td>通知配信管理画面</td>
@@ -1539,101 +1532,13 @@
                 </tbody>
               </table>
             </div>
-          </div>
-
-          <div class="subsection">
-            <h3 class="subsection-title">F-011 請求・決済管理</h3>
+          </div><div class="subsection">
+            <h3 class="subsection-title">F-011 通知・リマインド配信</h3>
 
             <div id="f011-core">
               <div class="fill-block">
                 <div class="fill-label">機能概要 <span class="required">必須</span></div>
                 <div class="fill-hint">機能ID：F-011</div>
-                <div class="fill-content">
-                  <p>請求作成、入金確認、支払状況の更新、領収書発行を行う。</p>
-                </div>
-              </div>
-              <div class="fill-block">
-                <div class="fill-label">画面レイアウト</div>
-                <div class="fill-content">
-                  <p>請求一覧、作成フォーム、入金確認、領収書出力を配置。</p>
-                </div>
-              </div>
-              <div class="fill-block">
-                <div class="fill-label">処理フロー</div>
-                <div class="fill-content">
-                  <p>1. 請求を作成する。</p>
-                  <p>2. 入金を登録する。</p>
-                  <p>3. 支払状態を更新する。</p>
-                </div>
-              </div>
-              <div class="fill-block">
-                <div class="fill-label">正常時の動作</div>
-                <div class="fill-content">
-                  <p>請求・決済状態を反映する。</p>
-                </div>
-              </div>
-              <div class="fill-block">
-                <div class="fill-label">エラー時の動作</div>
-                <div class="fill-content">
-                  <p>バリデーション: 金額不正・必須漏れを表示。</p>
-                  <p>システム: 連携失敗時に更新中止して通知。</p>
-                </div>
-              </div>
-              <div class="fill-block">
-                <div class="fill-label">画面遷移先</div>
-                <div class="fill-content">
-                  <p>請求詳細画面</p>
-                  <p>入金詳細画面</p>
-                  <p>レポート画面</p>
-                </div>
-              </div>
-            </div>
-            <div class="fill-block">
-              <div class="fill-label">入力項目一覧 <span class="required">必須</span></div>
-              <table class="doc-table">
-                <thead>
-                  <tr>
-                    <th>項目名</th>
-                    <th>データ型</th>
-                    <th>必須</th>
-                    <th>バリデーション</th>
-                    <th>備考</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="template-row">
-                    <td>請求金額</td>
-                    <td>Decimal</td>
-                    <td>○</td>
-                    <td>必須チェック / 0以上</td>
-                    <td></td>
-                  </tr>
-                  <tr class="template-row">
-                    <td>請求日</td>
-                    <td>Date</td>
-                    <td>○</td>
-                    <td>必須チェック / 日付形式</td>
-                    <td></td>
-                  </tr>
-                  <tr class="template-row">
-                    <td>支払状況</td>
-                    <td>Enum</td>
-                    <td>○</td>
-                    <td>必須チェック</td>
-                    <td>未払い / 入金済み</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="subsection">
-            <h3 class="subsection-title">F-012 通知・リマインド配信</h3>
-
-            <div id="f012-core">
-              <div class="fill-block">
-                <div class="fill-label">機能概要 <span class="required">必須</span></div>
-                <div class="fill-hint">機能ID：F-012</div>
                 <div class="fill-content">
                   <p>通知作成、配信対象設定、配信実行、配信履歴管理を行う。</p>
                 </div>
@@ -1713,12 +1618,12 @@
           </div>
 
           <div class="subsection">
-            <h3 class="subsection-title">F-013 PDF出力</h3>
+            <h3 class="subsection-title">F-012 PDF出力</h3>
 
-            <div id="f013-core">
+            <div id="f012-core">
               <div class="fill-block">
                 <div class="fill-label">機能概要 <span class="required">必須</span></div>
-                <div class="fill-hint">機能ID：F-013</div>
+                <div class="fill-hint">機能ID：F-012</div>
                 <div class="fill-content">
                   <p>指定条件でレポートや一覧データをPDFとして生成・出力する。</p>
                 </div>
@@ -1797,12 +1702,12 @@
           </div>
 
           <div class="subsection">
-            <h3 class="subsection-title">F-014 ファイルアップロード</h3>
+            <h3 class="subsection-title">F-013 ファイルアップロード</h3>
 
-            <div id="f014-core">
+            <div id="f013-core">
               <div class="fill-block">
                 <div class="fill-label">機能概要 <span class="required">必須</span></div>
-                <div class="fill-hint">機能ID：F-014</div>
+                <div class="fill-hint">機能ID：F-013</div>
                 <div class="fill-content">
                   <p>関連ファイルを検証後に保存し、対象データへ紐付けて管理する。</p>
                 </div>
@@ -1874,12 +1779,12 @@
           </div>
 
           <div class="subsection">
-            <h3 class="subsection-title">F-015 メール通知</h3>
+            <h3 class="subsection-title">F-014 メール通知</h3>
 
-            <div id="f015-core">
+            <div id="f014-core">
               <div class="fill-block">
                 <div class="fill-label">機能概要 <span class="required">必須</span></div>
-                <div class="fill-hint">機能ID：F-015</div>
+                <div class="fill-hint">機能ID：F-014</div>
                 <div class="fill-content">
                   <p>テンプレートに基づき即時/予約でメール送信し、送信結果を記録する。</p>
                 </div>
@@ -1916,7 +1821,6 @@
                 <div class="fill-content">
                   <p>通知配信管理画面</p>
                   <p>予約管理画面</p>
-                  <p>請求・決済管理画面</p>
                 </div>
               </div>
             </div>
@@ -1999,3 +1903,4 @@
 </body>
 
 </html>
+

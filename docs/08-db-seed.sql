@@ -70,8 +70,6 @@ VALUES
 (4, 3, 4, 4, '2026-03-20', NULL, 'ACTIVE', true, NULL, NOW(), NOW()),
 (5, 3, 5, 5, '2026-05-01', NULL, 'ACTIVE', true, NULL, NOW(), NOW());
 
--- 8) サンプルデータ（invoices 5件）
-INSERT INTO invoices
 (id, subscription_id, invoice_number, invoice_date, due_date, amount, payment_status, issued_at, paid_at, deleted_at, created_at, updated_at)
 VALUES
 (1, 1, 'INV-202605-0001', '2026-05-01', '2026-05-31', 1980.00, 'PAID',   '2026-05-01 00:00:00', '2026-05-03 09:10:00', NULL, NOW(), NOW()),
@@ -80,8 +78,6 @@ VALUES
 (4, 4, 'INV-202605-0004', '2026-05-01', '2026-05-31', 4980.00, 'PARTIAL','2026-05-01 00:00:00', NULL, NULL, NOW(), NOW()),
 (5, 5, 'INV-202605-0005', '2026-05-01', '2026-05-31', 3980.00, 'UNPAID', '2026-05-01 00:00:00', NULL, NULL, NOW(), NOW());
 
--- 9) サンプルデータ（payments 5件）
-INSERT INTO payments
 (id, invoice_id, paid_amount, paid_at, payment_method, transaction_ref, status, created_at, updated_at)
 VALUES
 (1, 1, 1980.00, '2026-05-03 09:10:00', 'CARD', 'TXN-202605-0001', 'SUCCEEDED', NOW(), NOW()),
@@ -126,7 +122,6 @@ INSERT INTO notifications
 VALUES
 (1, 'REMINDER', 'ワクチン予定のお知らせ', 'モカちゃんのワクチン予定日が近づいています。', '2026-05-20 09:00:00', '2026-05-20 09:00:05', 'SENT', 1, NULL, NOW(), NOW()),
 (2, 'INFO', 'メンテナンス告知', '2026-05-25 02:00-03:00にメンテナンスを実施します。', '2026-05-24 12:00:00', NULL, 'SCHEDULED', 1, NULL, NOW(), NOW()),
-(3, 'ALERT', '請求未払いのお知らせ', '5月分請求が未払いです。ご確認ください。', NULL, '2026-05-10 08:30:00', 'SENT', 1, NULL, NOW(), NOW()),
 (4, 'REMINDER', '予約前日リマインド', '明日の予約をご確認ください。', '2026-05-15 18:00:00', '2026-05-15 18:00:03', 'SENT', 1, NULL, NOW(), NOW()),
 (5, 'INFO', '新機能のお知らせ', '症状チェック機能をアップデートしました。', NULL, NULL, 'DRAFT', 1, NULL, NOW(), NOW());
 
@@ -145,8 +140,6 @@ INSERT INTO email_templates
 (id, template_code, subject_template, body_template, is_active, created_at, updated_at)
 VALUES
 (1, 'APPOINTMENT_REMINDER', '【Pet Life Plus】予約前日のお知らせ', '明日の予約情報: {{appointment}}', true, NOW(), NOW()),
-(2, 'INVOICE_ISSUED', '【Pet Life Plus】請求書発行のお知らせ', '請求書 {{invoice_number}} を発行しました。', true, NOW(), NOW()),
-(3, 'PAYMENT_CONFIRMED', '【Pet Life Plus】入金確認のお知らせ', 'ご入金を確認しました。', true, NOW(), NOW()),
 (4, 'SYSTEM_NOTICE', '【Pet Life Plus】システムからのお知らせ', '{{message}}', true, NOW(), NOW()),
 (5, 'HEALTH_ALERT', '【Pet Life Plus】健康アラート', '健康記録に注意点があります。', true, NOW(), NOW());
 
@@ -155,8 +148,6 @@ INSERT INTO email_messages
 (id, template_id, recipient_user_id, pet_id, appointment_id, invoice_id, subject, body, send_timing_at, status, error_message, created_at, sent_at, updated_at)
 VALUES
 (1, 1, 2, 1, 1, NULL, '【Pet Life Plus】予約前日のお知らせ', 'モカちゃんの予約は明日10:00です。', '2026-05-14 18:00:00', 'SENT', NULL, NOW(), '2026-05-14 18:00:02', NOW()),
-(2, 2, 2, 2, NULL, 2, '【Pet Life Plus】請求書発行のお知らせ', 'INV-202605-0002 を発行しました。', '2026-05-01 09:00:00', 'SENT', NULL, NOW(), '2026-05-01 09:00:01', NOW()),
-(3, 3, 2, NULL, NULL, 1, '【Pet Life Plus】入金確認のお知らせ', '入金確認済みです。', '2026-05-03 10:00:00', 'SENT', NULL, NOW(), '2026-05-03 10:00:01', NOW()),
 (4, 4, 3, NULL, NULL, NULL, '【Pet Life Plus】システムからのお知らせ', 'メンテナンス予定をお知らせします。', '2026-05-24 12:00:00', 'QUEUED', NULL, NOW(), NULL, NOW()),
 (5, 5, 3, 4, NULL, NULL, '【Pet Life Plus】健康アラート', 'ハルちゃんの呼吸状態に注意してください。', NULL, 'FAILED', 'SMTP timeout', NOW(), NULL, NOW());
 

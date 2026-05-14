@@ -326,7 +326,6 @@
 ├── 契約・プラン管理（CRUD）
 ├── 予約管理（CRUD）
 ├── 診療・相談履歴管理（CRUD）
-├── 請求・決済管理
 ├── 通知管理
 ├── レポート
 └── システム設定</pre>
@@ -337,7 +336,6 @@
               <div class="chip-row">
                 <span>ダッシュボード</span><span>ユーザー管理</span><span>ペット管理</span>
                 <span>健康記録</span><span>契約・プラン</span><span>予約管理</span>
-                <span>診療・相談履歴</span><span>請求・決済</span><span>通知管理</span>
                 <span>レポート</span><span>システム設定</span>
               </div>
             </div>
@@ -383,7 +381,6 @@
       <tr><td>6</td><td>症状チェック結果管理画面</td><td>AI症状チェック結果を確認し対応判断を支援する</td><td>結果一覧、重症度フィルタ、詳細確認、対応ステータス更新</td></tr>
       <tr><td>7</td><td>予約管理画面</td><td>診療・相談予約を管理する</td><td>予約一覧、日付検索、新規予約、変更、キャンセル、リマインド設定</td></tr>
       <tr><td>8</td><td>診療・相談履歴画面</td><td>診療/相談内容を記録し継続対応に活用する</td><td>履歴一覧、キーワード検索、詳細記録、添付、編集</td></tr>
-      <tr><td>9</td><td>請求・決済管理画面</td><td>請求と入金状況を管理する</td><td>請求作成、支払い状況確認、入金消込、領収書発行</td></tr>
       <tr><td>10</td><td>通知配信管理画面</td><td>ユーザー向け通知を作成・配信する</td><td>通知作成、一斉配信、セグメント配信、配信履歴確認</td></tr>
     </tbody>
   </table>
@@ -438,7 +435,6 @@
 
     <section>
       <h2>URL設計</h2>
-  <p><strong>機能一覧:</strong> ログイン認証、ユーザー/ペット管理CRUD、健康記録CRUD、AI症状チェック、予約管理CRUD、診療/相談履歴CRUD、請求/決済管理、通知、レポート出力</p>
 
   <h3>Webサイト部分（公開サイト）</h3>
   <table>
@@ -500,11 +496,6 @@
       <tr><td>/app/consultations/{consultationId}</td><td>GET</td><td>診療/相談履歴詳細</td><td>詳細表示</td></tr>
       <tr><td>/app/consultations/{consultationId}</td><td>PATCH</td><td>診療/相談履歴更新</td><td>記録更新</td></tr>
       <tr><td>/app/consultations/{consultationId}</td><td>DELETE</td><td>診療/相談履歴削除</td><td>記録削除</td></tr>
-      <tr><td>/app/billings</td><td>GET</td><td>請求一覧/検索</td><td>請求状態確認</td></tr>
-      <tr><td>/app/billings</td><td>POST</td><td>請求作成</td><td>請求データ作成</td></tr>
-      <tr><td>/app/billings/{billingId}</td><td>GET</td><td>請求詳細</td><td>請求情報表示</td></tr>
-      <tr><td>/app/billings/{billingId}</td><td>PATCH</td><td>請求更新</td><td>金額/状態更新</td></tr>
-      <tr><td>/app/payments</td><td>POST</td><td>入金登録</td><td>決済・入金反映</td></tr>
       <tr><td>/app/notifications</td><td>GET</td><td>通知一覧</td><td>配信履歴表示</td></tr>
       <tr><td>/app/notifications</td><td>POST</td><td>通知作成/配信</td><td>通知作成して配信</td></tr>
       <tr><td>/app/reports/monthly</td><td>GET</td><td>月次レポート</td><td>月次集計表示</td></tr>
