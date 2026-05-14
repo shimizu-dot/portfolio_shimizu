@@ -10,16 +10,24 @@ petlifeplus-site/
 ├─ frontend/
 │  ├─ public/
 │  │  ├─ index.html
-│  │  ├─ f_concept.html
 │  │  ├─ f_service.html
 │  │  ├─ f_flow.html
-│  │  ├─ f_faq.html
 │  │  ├─ f_contact.html
-│  │  ├─ top.html
-│  │  ├─ top_sp.html
+│  │  ├─ f_info.html
+│  │  ├─ webapp.html
 │  │  └─ assets/
 │  │     ├─ css/
 │  │     │  └─ style.css
+│  │     ├─ img/
+│  │     │  ├─ dog-app.png
+│  │     │  ├─ dog-main.png
+│  │     │  ├─ dog-sub.png
+│  │     │  ├─ gallery-01.jpg
+│  │     │  ├─ gallery-02.jpg
+│  │     │  ├─ gallery-03.jpg
+│  │     │  ├─ hero-dashboard.png
+│  │     │  ├─ hero-mobile.png
+│  │     │  └─ unused/
 │  │     └─ js/
 │  │        └─ main.js
 │  └─ docs/
