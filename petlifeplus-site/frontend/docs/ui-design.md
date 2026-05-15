@@ -35,19 +35,19 @@
 ## 3. タイポグラフィ
 
 ### フォント方針（Google Fonts / 日本語対応）
-- 主要フォント: `Noto Sans JP`
-- 補助フォント: `M PLUS 1p`（ラベル/短文強調時）
+- 見出しフォント: `Fredoka`
+- 本文フォント: `M PLUS Rounded 1c`
 
 ### ルール
 
 | 要素 | フォント | サイズ | 太さ | 行間 | letter-spacing |
 |---|---|---:|---:|---:|---:|
-| h1 | Noto Sans JP | 40px | 700 | 1.25 | 0.02em |
-| h2 | Noto Sans JP | 30px | 700 | 1.35 | 0.015em |
-| h3 | Noto Sans JP | 22px | 600 | 1.4 | 0.01em |
-| 本文 | Noto Sans JP | 16px | 400 | 1.75 | 0.01em |
-| キャプション | Noto Sans JP | 13px | 400 | 1.6 | 0.015em |
-| ボタン | Noto Sans JP | 14px | 600 | 1.2 | 0.02em |
+| h1 | Fredoka | 30px | 700 | 1.18 | 0.01em |
+| h2 | Fredoka | 22px | 600 | 1.3 | 0em |
+| h3 | Fredoka | 16px | 600 | 1.3 | 0em |
+| 本文 | M PLUS Rounded 1c | 16px | 400 | 1.6 | 0em |
+| キャプション | M PLUS Rounded 1c | 13px | 600 | 1.5 | 0em |
+| ボタン | M PLUS Rounded 1c | 14px | 700 | 1.2 | 0.01em |
 
 ---
 
@@ -60,7 +60,7 @@
 
 ```css
 .btn {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "M PLUS Rounded 1c", sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.02em;
