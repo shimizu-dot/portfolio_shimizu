@@ -1,10 +1,10 @@
 あなたはフロントエンドエンジニアです。以下の参照ドキュメントを根拠に、静的Webサイト（HTML/CSS/JavaScript）を実装してください。
 
 【参照ドキュメント】
-- 企画提案書: docs/01-proposal.html
+- 企画提案書: ../../docs/01-proposal.html
 - サイトマップ: docs/04-sitemap.html
 - ワイヤーフレーム: docs/05-wireframe.html
-- デザインガイドライン: docs/06-design-guide.html
+- デザインガイドライン: ../../docs/06-design-guide.html
 
 【プロジェクト概要】
 - サービス名: ペット健康管理プラットホーム（ペットライフプラス）

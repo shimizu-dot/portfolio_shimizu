@@ -1,0 +1,44 @@
+package com.example.petlife.mapper;
+
+import com.example.petlife.entity.HealthRecordEntity;
+import org.apache.ibatis.annotations.*;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Mapper
+public interface HealthRecordMapper {
+    @Select("""
+        SELECT id, pet_id, recorded_by_user_id, record_date, weight_kg, meal_memo, exercise_minutes, note, deleted_at, created_at, updated_at
+        FROM health_records WHERE deleted_at IS NULL ORDER BY record_date DESC, id DESC
+        LIMIT #{limit} OFFSET #{offset}
+        """)
+    List<HealthRecordEntity> findAll(@Param("limit") int limit, @Param("offset") int offset);
+
+    @Select("SELECT COUNT(*) FROM health_records WHERE deleted_at IS NULL")
+    long countAll();
+
+    @Select("""
+        SELECT id, pet_id, recorded_by_user_id, record_date, weight_kg, meal_memo, exercise_minutes, note, deleted_at, created_at, updated_at
+        FROM health_records WHERE id = #{id} AND deleted_at IS NULL
+        """)
+    HealthRecordEntity findById(@Param("id") Long id);
+
+    @Insert("""
+        INSERT INTO health_records(pet_id, recorded_by_user_id, record_date, weight_kg, meal_memo, exercise_minutes, note, created_at, updated_at)
+        VALUES(#{petId}, #{recordedByUserId}, #{recordDate}, #{weightKg}, #{mealMemo}, #{exerciseMinutes}, #{note}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+        """)
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    int insert(HealthRecordEntity row);
+
+    @Update("""
+        UPDATE health_records
+        SET record_date = #{recordDate}, weight_kg = #{weightKg}, meal_memo = #{mealMemo},
+            exercise_minutes = #{exerciseMinutes}, note = #{note}, updated_at = CURRENT_TIMESTAMP
+        WHERE id = #{id} AND deleted_at IS NULL
+        """)
+    int update(HealthRecordEntity row);
+
+    @Update("UPDATE health_records SET deleted_at = #{deletedAt}, updated_at = CURRENT_TIMESTAMP WHERE id = #{id} AND deleted_at IS NULL")
+    int softDelete(@Param("id") Long id, @Param("deletedAt") LocalDateTime deletedAt);
+}

@@ -8,7 +8,7 @@
 ## 2. システム構成
 - フロントエンド: HTML / CSS / JavaScript（Thymeleaf）
 - バックエンド: Spring Boot（Controller → Service → Repository）
-- データベース: PostgreSQL
+- データベース: PostgreSQL/ H2 / MySQL
 
 ## 3. 機能一覧（MoSCoW）
 | No. | 機能名 | 概要 | 対応画面 | 優先度 |
@@ -506,5 +506,5 @@
 - パスワードの暗号化方式: BCryptPasswordEncoderでハッシュ化して保存し、平文保存は行わない。
 - CSRF対策: Spring SecurityのCSRF保護を有効化し、フォーム送信時にCSRFトークンを検証する。
 - XSS対策: 入力値バリデーションと出力時エスケープ（Thymeleaf自動エスケープ）を実施する。
-- SQLインジェクション対策: MyBatis Mapperでバインド変数（`#{}`）を使用し、SQL文字列連結（`${}`の安易な利用）を禁止する。
+- SQLインジェクション対策: JPA/Repositoryおよびバインド変数を使用し、SQL文字列連結を禁止する。
 - セッション管理: ログイン時のセッションID再生成、セッションタイムアウト設定、ログアウト時のセッション破棄を実施する。

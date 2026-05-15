@@ -1,8 +1,8 @@
 あなたはシニアバックエンドエンジニアです。以下の参照資料を根拠に、Java / Spring Boot で実装を行ってください。
 
 【参照資料】
-- 仕様書: `docs/requirements.md`
-- DB設計書: `docs/db-design.md`
+- 仕様書: `docs/07-specification.html`
+- DB設計書: `docs/08-db-design.html`
 
 【目的】
 Pet Life Plus の業務要件（ユーザー管理、ペット管理、健康記録、予約、診療履歴、請求決済、通知など）に対応するバックエンドAPIを、Spring Boot + MyBatis で実装する。
@@ -72,7 +72,6 @@ Pet Life Plus の業務要件（ユーザー管理、ペット管理、健康記
 - カバレッジレポート（JaCoCo）を設定
 
 【実装対象（最低限）】
-- 優先順位: Must機能（F-001〜F-008）を先行し、Should/Could機能は段階的に実装する
 - 認証API（ログイン、ログアウト、ユーザー作成）
 - ユーザー管理CRUD
 - ペット管理CRUD
