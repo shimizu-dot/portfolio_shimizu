@@ -40,6 +40,7 @@ function generateNavigation() {
       <div class="nav-group">
         <div class="nav-group-title">プロジェクト</div>
         <a href="${rootPath}index.html"><span class="material-symbols-outlined icon-sm">home</span> トップページ</a>
+        <a href="${rootPath}login.html"><span class="material-symbols-outlined icon-sm">login</span> ログイン</a>
         <a href="${rootPath}about.html"><span class="material-symbols-outlined icon-sm">person</span> 自己紹介</a>
         <a href="${rootPath}works.html"><span class="material-symbols-outlined icon-sm">work</span> 制作物一覧</a>
         <a href="${rootPath}process.html"><span class="material-symbols-outlined icon-sm">assignment</span> 制作プロセス</a>
@@ -156,4 +157,64 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Login form submit
+  const loginForm = document.getElementById('login-form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = document.getElementById('login-submit');
+      const message = document.getElementById('login-message');
+      const responseBox = document.getElementById('login-response');
+      const responseJson = document.getElementById('login-response-json');
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+
+      if (!email || !password || !message || !responseBox || !responseJson || !submitBtn) return;
+
+      const payload = {
+        email: email.value.trim(),
+        password: password.value
+      };
+
+      message.textContent = '送信中...';
+      responseBox.style.display = 'none';
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify(payload)
+        });
+
+        const text = await res.text();
+        let parsed = text;
+        try {
+          parsed = text ? JSON.parse(text) : {};
+        } catch (_) {}
+
+        responseJson.textContent =
+          typeof parsed === 'string' ? parsed : JSON.stringify(parsed, null, 2);
+        responseBox.style.display = 'block';
+
+        if (res.ok) {
+          message.textContent = 'ログインに成功しました。';
+          message.style.color = '#166534';
+        } else {
+          message.textContent = `ログインに失敗しました（HTTP ${res.status}）。`;
+          message.style.color = '#b91c1c';
+        }
+      } catch (err) {
+        message.textContent = '通信エラーが発生しました。バックエンド起動とURLを確認してください。';
+        message.style.color = '#b91c1c';
+        responseJson.textContent = String(err);
+        responseBox.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
 });
