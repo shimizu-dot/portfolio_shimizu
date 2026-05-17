@@ -40,8 +40,7 @@ function generateNavigation() {
       <div class="nav-group">
         <div class="nav-group-title">プロジェクト</div>
         <a href="${rootPath}index.html"><span class="material-symbols-outlined icon-sm">home</span> トップページ</a>
-        <a href="${rootPath}login.html"><span class="material-symbols-outlined icon-sm">login</span> ログイン</a>
-        <a href="${rootPath}about.html"><span class="material-symbols-outlined icon-sm">person</span> 自己紹介</a>
+<a href="${rootPath}about.html"><span class="material-symbols-outlined icon-sm">person</span> 自己紹介</a>
         <a href="${rootPath}works.html"><span class="material-symbols-outlined icon-sm">work</span> 制作物一覧</a>
         <a href="${rootPath}process.html"><span class="material-symbols-outlined icon-sm">assignment</span> 制作プロセス</a>
         <a href="${rootPath}skills.html"><span class="material-symbols-outlined icon-sm">bolt</span> スキルシート</a>
