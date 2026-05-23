@@ -143,44 +143,6 @@
     #sec5 .template-row td {
       font-style: normal;
     }
-
-    .feature-list {
-      list-style: none;
-      margin: 10px 0 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .feature-list li {
-      border: 1px solid #dbe6f7;
-      border-radius: 10px;
-      background: #fff;
-      padding: 10px 12px;
-      line-height: 1.7;
-    }
-
-    .feature-list .feature-name {
-      display: block;
-      font-weight: 700;
-      color: #0f172a;
-    }
-
-    .feature-list .feature-summary {
-      display: block;
-      color: #334155;
-    }
-
-    .feature-list .feature-priority {
-      display: inline-block;
-      margin-top: 4px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 12px;
-      background: #e0f2fe;
-      color: #075985;
-      font-weight: 700;
-    }
   </style>
 </head>
 
@@ -309,13 +271,13 @@
             <div class="fill-content purpose-highlight">
               <p class="purpose-meta"><strong>対象ページ数:</strong> 6ページ（公開プロトタイプ）</p>
               <p class="purpose-meta"><strong>目的:</strong> サービス理解から機能体験、問い合わせ導線までを最短で確認できる構成にする。</p>
-              <ul class="feature-list">
-                <li><span class="feature-name">トップページ（index）</span><span class="feature-summary">主要コンテンツ: キャッチコピー、サービス概要、課題提起、主要機能への導線、CTA</span></li>
-                <li><span class="feature-name">サービス紹介（f_service）</span><span class="feature-summary">主要コンテンツ: 健康管理、AI症状チェック、オンライン診療、訪問ケアの説明</span></li>
-                <li><span class="feature-name">ご利用の流れ（f_flow）</span><span class="feature-summary">主要コンテンツ: 利用開始手順、登録〜利用までのフロー、サポート導線</span></li>
-                <li><span class="feature-name">運営情報（f_info）</span><span class="feature-summary">主要コンテンツ: 運営者情報、コンセプト、ミッション、提供方針</span></li>
-                <li><span class="feature-name">お問い合わせ（f_contact）</span><span class="feature-summary">主要コンテンツ: 問い合わせフォーム、連絡先、返信目安</span></li>
-                <li><span class="feature-name">Webアプリ紹介（webapp）</span><span class="feature-summary">主要コンテンツ: アプリ機能概要、主要画面への導線、利用イメージ</span></li>
+              <ul>
+                <li>トップページ（index）<br>主要コンテンツ：キャッチコピー、サービス概要、課題提起、主要機能への導線、CTA</li>
+                <li>サービス紹介（f_service）<br>主要コンテンツ：健康管理、AI症状チェック、オンライン診療、訪問ケアの説明</li>
+                <li>ご利用の流れ（f_flow）<br>主要コンテンツ：利用開始手順、登録〜利用までのフロー、サポート導線</li>
+                <li>運営情報（f_info）<br>主要コンテンツ：運営者情報、コンセプト、ミッション、提供方針</li>
+                <li>お問い合わせ（f_contact）<br>主要コンテンツ：問い合わせフォーム、連絡先、返信目安</li>
+                <li>Webアプリ紹介（webapp）<br>主要コンテンツ：アプリ機能概要、主要画面への導線、利用イメージ</li>
               </ul>
             </div>
           </div>
@@ -325,16 +287,16 @@
             <div class="fill-content purpose-highlight">
               <p class="purpose-meta"><strong>対象機能数:</strong> 10機能（管理/会員アプリ）</p>
               <p class="purpose-meta"><strong>目的:</strong> 記録 → 分析 → 相談 → 診療までを一元管理し、継続利用を支援する。</p>
-              <ul class="feature-list">
-                <li><span class="feature-name">機能名: ユーザー認証（ログイン/ログアウト）</span><span class="feature-summary">概要: メールアドレスとパスワードで利用者を認証し、安全に管理画面へアクセスさせる。</span><span class="feature-priority">優先度: Must</span></li>
-                <li><span class="feature-name">機能名: 飼い主ユーザー管理（CRUD）</span><span class="feature-summary">概要: 飼い主情報の登録・一覧・検索・編集・削除を行い、契約や履歴と紐づけて管理する。</span><span class="feature-priority">優先度: Must</span></li>
-                <li><span class="feature-name">機能名: ペット情報管理（CRUD）</span><span class="feature-summary">概要: ペットの基本情報（名前、種類、年齢、既往歴など）を登録・更新し、健康記録の基盤データとして利用する。</span><span class="feature-priority">優先度: Must</span></li>
-                <li><span class="feature-name">機能名: 健康記録管理（CRUD）</span><span class="feature-summary">概要: 体重・食事・運動などの日次データを登録・参照し、時系列で健康状態を可視化する。</span><span class="feature-priority">優先度: Must</span></li>
-                <li><span class="feature-name">機能名: AI症状チェック</span><span class="feature-summary">概要: 入力された症状情報から受診目安や推奨アクションを提示し、初期判断を支援する。</span><span class="feature-priority">優先度: Must</span></li>
-                <li><span class="feature-name">機能名: 予約管理（相談/診療）</span><span class="feature-summary">概要: オンライン相談・診療の予約作成、変更、キャンセルを行い、利用者と運営側の予定を管理する。</span><span class="feature-priority">優先度: Must</span></li>
-                <li><span class="feature-name">機能名: 診療・相談履歴管理</span><span class="feature-summary">概要: 相談内容、対応結果、次回アクションを履歴として保存し、継続的なケアに活用する。</span><span class="feature-priority">優先度: Should</span></li>
-                <li><span class="feature-name">機能名: 通知・リマインド配信</span><span class="feature-summary">概要: 予約前通知、記録入力促進、ワクチン時期案内などを配信し、継続利用を促進する。</span><span class="feature-priority">優先度: Should</span></li>
-                <li><span class="feature-name">機能名: レポート出力（PDF）</span><span class="feature-summary">概要: 健康記録や運用実績を月次・顧客別に集計し、CSV/PDFで出力できるようにする。</span><span class="feature-priority">優先度: Could</span></li>
+              <ul>
+                <li>【機能名】：ユーザー認証（ログイン/ログアウト）<br>概要：メールアドレスとパスワードで利用者を認証し、安全に管理画面へアクセスさせる。<br>優先度：Must</li>
+                <li>【機能名】：飼い主ユーザー管理（CRUD）<br>概要：飼い主情報の登録・一覧・検索・編集・削除を行い、契約や履歴と紐づけて管理する。<br>優先度：Must</li>
+                <li>【機能名】：ペット情報管理（CRUD）<br>概要：ペットの基本情報（名前、種類、年齢、既往歴など）を登録・更新し、健康記録の基盤データとして利用する。<br>優先度：Must</li>
+                <li>【機能名】：健康記録管理（CRUD）<br>概要：体重・食事・運動などの日次データを登録・参照し、時系列で健康状態を可視化する。<br>優先度：Must</li>
+                <li>【機能名】：AI症状チェック<br>概要：入力された症状情報から受診目安や推奨アクションを提示し、初期判断を支援する。<br>優先度：Must</li>
+                <li>【機能名】：予約管理（相談/診療）<br>概要：オンライン相談・診療の予約作成、変更、キャンセルを行い、利用者と運営側の予定を管理する。<br>優先度：Must</li>
+                <li>【機能名】：診療・相談履歴管理<br>概要：相談内容、対応結果、次回アクションを履歴として保存し、継続的なケアに活用する。<br>優先度：Should</li>
+                <li>【機能名】：通知・リマインド配信<br>概要：予約前通知、記録入力促進、ワクチン時期案内などを配信し、継続利用を促進する。<br>優先度：Should</li>
+                <li>【機能名】：レポート出力（PDF）<br>概要：健康記録や運用実績を月次・顧客別に集計し、CSV/PDFで出力できるようにする。<br>優先度：Could</li>
               </ul>
             </div>
           </div>
@@ -381,7 +343,7 @@
               </tr>
               <tr class="template-row">
                 <td>データベース</td>
-                <td>（MySQL / H2 / PostgreSQL 等）</td>
+                <td>（MySQL / H2 等）</td>
                 <td>データ永続化</td>
               </tr>
               <tr class="template-row">
@@ -396,7 +358,7 @@
               </tr>
               <tr class="template-row">
                 <td>AI活用</td>
-                <td>ChatGPT / Gemini / Claude / Copilot</td>
+                <td>ChatGPT / Gemini</td>
                 <td>プロンプトプログラミング</td>
               </tr>
             </tbody>
