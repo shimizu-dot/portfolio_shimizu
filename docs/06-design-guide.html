@@ -217,7 +217,7 @@
 
           <div class="fill-block">
             <div class="fill-label">カラーパレット <span class="required">必須</span></div>
-            <div class="fill-hint">各色のHEXコード・使用場面を記載し、実際の色見本も表示してください</div>
+            <div class="fill-hint">frontend/public/assets/css/style.css の :root トークンに合わせた定義（色見本付き）</div>
 
             <table class="doc-table">
               <thead>
@@ -230,7 +230,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>メインカラー</td>
+                  <td>メインカラー（--brand）</td>
                   <td>#FF8FB1</td>
                   <td><span
                       style="display:inline-block;width:32px;height:16px;border-radius:4px;background:#FF8FB1;border:1px solid #cbd5e1;"></span>
@@ -238,23 +238,39 @@
                   <td>主要CTA、強調ラベル、ブランド訴求</td>
                 </tr>
                 <tr>
-                  <td>サブカラー</td>
+                  <td>メイン濃色（--brand-dark）</td>
+                  <td>#FF6E9A</td>
+                  <td><span
+                      style="display:inline-block;width:32px;height:16px;border-radius:4px;background:#FF6E9A;border:1px solid #cbd5e1;"></span>
+                  </td>
+                  <td>主要CTAホバー、強調時の状態変化</td>
+                </tr>
+                <tr>
+                  <td>サブカラー（--accent）</td>
                   <td>#8C6EE6</td>
                   <td><span
                       style="display:inline-block;width:32px;height:16px;border-radius:4px;background:#8C6EE6;border:1px solid #cbd5e1;"></span>
                   </td>
-                  <td>補助強調、バナー、アクセント導線</td>
+                  <td>統計値の強調、補助アクセント</td>
                 </tr>
                 <tr>
-                  <td>アクセントカラー</td>
+                  <td>アクセント（--mint）</td>
                   <td>#C9F7EF</td>
                   <td><span
                       style="display:inline-block;width:32px;height:16px;border-radius:4px;background:#C9F7EF;border:1px solid #cbd5e1;"></span>
                   </td>
-                  <td>背景ハイライト、補助カード、安心感の演出</td>
+                  <td>補助背景、やわらかいハイライト</td>
                 </tr>
                 <tr>
-                  <td>背景色</td>
+                  <td>アクセント（--peach）</td>
+                  <td>#FFE6D6</td>
+                  <td><span
+                      style="display:inline-block;width:32px;height:16px;border-radius:4px;background:#FFE6D6;border:1px solid #cbd5e1;"></span>
+                  </td>
+                  <td>補助背景、暖色系のアクセント</td>
+                </tr>
+                <tr>
+                  <td>背景色（--bg）</td>
                   <td>#FFF9FB</td>
                   <td><span
                       style="display:inline-block;width:32px;height:16px;border-radius:4px;background:#FFF9FB;border:1px solid #cbd5e1;"></span>
@@ -262,7 +278,23 @@
                   <td>ページ背景、余白領域</td>
                 </tr>
                 <tr>
-                  <td>テキスト色（メイン）</td>
+                  <td>カード背景（--card）</td>
+                  <td>#FFFFFF</td>
+                  <td><span
+                      style="display:inline-block;width:32px;height:16px;border-radius:4px;background:#FFFFFF;border:1px solid #cbd5e1;"></span>
+                  </td>
+                  <td>カード、フォーム背景</td>
+                </tr>
+                <tr>
+                  <td>境界線（--line）</td>
+                  <td>#F2DBE7</td>
+                  <td><span
+                      style="display:inline-block;width:32px;height:16px;border-radius:4px;background:#F2DBE7;border:1px solid #cbd5e1;"></span>
+                  </td>
+                  <td>罫線、カード境界、区切り線</td>
+                </tr>
+                <tr>
+                  <td>テキスト色（メイン / --text）</td>
                   <td>#4A2D3C</td>
                   <td><span
                       style="display:inline-block;width:32px;height:16px;border-radius:4px;background:#4A2D3C;border:1px solid #cbd5e1;"></span>
@@ -270,7 +302,7 @@
                   <td>本文、重要情報</td>
                 </tr>
                 <tr>
-                  <td>テキスト色（サブ）</td>
+                  <td>テキスト色（サブ / --muted）</td>
                   <td>#7A6170</td>
                   <td><span
                       style="display:inline-block;width:32px;height:16px;border-radius:4px;background:#7A6170;border:1px solid #cbd5e1;"></span>
@@ -282,11 +314,10 @@
 
             <div class="fill-content" style="margin-top:10px;">
               <p><strong>選定理由（色彩心理を考慮）</strong></p>
-              <p>・メインカラー（#FF8FB1）：親しみと行動喚起を両立し、相談導線を見つけやすくするため。</p>
-              <p>・サブカラー（#8C6EE6）：情報の区切りや補助強調に使い、視線誘導を安定させるため。</p>
-              <p>・アクセントカラー（#C9F7EF）：安心感のある補助背景として、医療系の緊張を和らげるため。</p>
-              <p>・背景色（#FFF9FB）：高明度でやわらかい背景にし、長時間閲覧でも疲れにくくするため。</p>
-              <p>・テキスト色（#4A2D3C / #7A6170）：コントラストを確保しつつ、全体トーンを統一するため。</p>
+              <p>・メイン（#FF8FB1）と濃色（#FF6E9A）でCTAの通常/ホバーを明確化し、行動しやすさを担保する。</p>
+              <p>・サブ（#8C6EE6）とアクセント（#C9F7EF / #FFE6D6）で、情報の区切りと柔らかい印象を両立する。</p>
+              <p>・背景（#FFF9FB）とカード（#FFFFFF）、境界線（#F2DBE7）で、可読性と立体感を安定させる。</p>
+              <p>・テキスト（#4A2D3C / #7A6170）はコントラストを維持しつつ、全体トーンを統一する。</p>
               <p>実装では「安心感」と「行動しやすさ」を両立するため、やわらかい配色の中でCTAを明確に目立たせる設計とする。</p>
             </div>
 
@@ -323,7 +354,7 @@
                   <td>Fredoka</td>
                   <td>22px</td>
                   <td>600</td>
-                  <td>1.3</td>
+                  <td>約1.3</td>
                   <td>セクション見出し</td>
                 </tr>
                 <tr>
@@ -331,8 +362,8 @@
                   <td>Fredoka</td>
                   <td>16px</td>
                   <td>600</td>
-                  <td>1.3</td>
-                  <td>サブセクション見出し</td>
+                  <td>約1.4</td>
+                  <td>カード見出し、補助見出し</td>
                 </tr>
                 <tr>
                   <td>本文</td>
@@ -348,26 +379,42 @@
                   <td>13px</td>
                   <td>600</td>
                   <td>1.5</td>
-                  <td>注釈、画像説明、補助情報</td>
+                  <td>画像説明、補助情報</td>
                 </tr>
                 <tr>
                   <td>ボタン</td>
                   <td>M PLUS Rounded 1c</td>
                   <td>14px</td>
                   <td>700</td>
-                  <td>1.2</td>
+                  <td>約1.2</td>
                   <td>ボタンテキスト</td>
+                </tr>
+                <tr>
+                  <td>ブランド名（.brand）</td>
+                  <td>Fredoka</td>
+                  <td>16px</td>
+                  <td>800</td>
+                  <td>通常</td>
+                  <td>ヘッダー左上のサービス名</td>
+                </tr>
+                <tr>
+                  <td>ナビリンク（.global-nav > a）</td>
+                  <td>M PLUS Rounded 1c</td>
+                  <td>14px</td>
+                  <td>400（現在ページは700）</td>
+                  <td>通常</td>
+                  <td>グローバルナビゲーション</td>
                 </tr>
               </tbody>
             </table>
 
             <div class="fill-content" style="margin-top:10px;">
               <p><strong>Google Fonts 運用方針（日本語対応）</strong><br>
-                見出しフォント：Fredoka<br>
-                本文フォント：M PLUS Rounded 1c</p>
-              <p><strong>letter-spacing 推奨値</strong><br>
-                h1：0.01em / h2：0em / h3：0em / 本文：0em / キャプション：0em / ボタン：0.01em</p>
-              <p>見出しは親しみやすい丸み、本文は可読性を重視し、モバイルでも読みやすい字面を優先する。</p>
+                見出しフォント：Fredoka（wght 500/600/700）<br>
+                本文フォント：M PLUS Rounded 1c（wght 400/500/700/800）</p>
+              <p><strong>letter-spacing 実装値</strong><br>
+                h1：0.01em / brand：0.01em / h2：指定なし（0相当） / h3：指定なし（0相当） / 本文：指定なし（0相当） / ボタン：指定なし（0相当）</p>
+              <p>見出しは親しみやすい丸みを保ち、本文は可読性を優先。行動導線に使うボタンは太字で視認性を高める。</p>
             </div>
 
           </div>
@@ -376,342 +423,187 @@
         <section class="section" id="sec4">
           <h2 class="section-title"><span class="section-icon">4</span> UIコンポーネント</h2>
 
-
           <div class="fill-block">
             <div class="fill-label">ボタン <span class="required">必須</span></div>
-            <div class="fill-hint">プライマリ・セカンダリ・デンジャーの3種類のボタンスタイル（実物のHTMLサンプル付き）</div>
+            <div class="fill-hint">現行実装はプライマリ / セカンダリの2種類（pill型）（実物のHTMLサンプル付き）</div>
             <div class="fill-content">
               <p><strong>デザイン条件</strong><br>
-                メインカラー：#FF8FB1 / フォント：M PLUS Rounded 1c / 角丸：999px</p>
+                角丸：999px / 文字サイズ：14px / 太さ：700 / 主ボタン背景：#FF8FB1 / ホバー：#FF6E9A / 副ボタン背景：#FFFFFF</p>
+              <p><strong>実装クラス</strong><br>
+                `.btn`, `.btn-primary`, `.btn-secondary`</p>
 
-              <p><strong>HTML</strong></p>
-              <pre><code>&lt;div class=&quot;btn-demo&quot;&gt;
-  &lt;button class=&quot;btn btn-primary&quot;&gt;保存する&lt;/button&gt;
-  &lt;button class=&quot;btn btn-secondary&quot;&gt;戻る&lt;/button&gt;
-  &lt;button class=&quot;btn btn-danger&quot;&gt;削除する&lt;/button&gt;
+              <p><strong>HTML（実装準拠）</strong></p>
+              <pre><code>&lt;div class=&quot;actions&quot;&gt;
+  &lt;a class=&quot;btn btn-primary&quot; href=&quot;https://line.me/R/ti/p/@434idigg&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;LINE お友達登録&lt;/a&gt;
+  &lt;a class=&quot;btn btn-secondary&quot; href=&quot;f_service.html#pricing&quot;&gt;機能と料金を見る&lt;/a&gt;
 &lt;/div&gt;</code></pre>
 
-              <p><strong>CSS</strong></p>
+              <p><strong>CSS（主要部分）</strong></p>
               <pre><code>.btn {
-  font-family: "M PLUS Rounded 1c", sans-serif;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  padding: 11px 12px;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-  border-radius: 14px;
-  padding: 10px 16px;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .1s ease;
+  font-weight: 700;
 }
-
-.btn:active {
-  transform: translateY(1px);
-}
-
-.btn-primary {
-  background: #FF8FB1;
-  color: #FFFFFF;
-  border-color: #FF8FB1;
-}
-.btn-primary:hover {
-  background: #FF6E9A;
-  border-color: #FF6E9A;
-}
-
-.btn-secondary {
-  background: #FFFFFF;
-  color: #FF8FB1;
-  border-color: #FF8FB1;
-}
-.btn-secondary:hover {
-  background: #EFF6FF;
-}
-
-.btn-danger {
-  background: #FFFFFF;
-  color: #DC2626;
-  border-color: #DC2626;
-}
-.btn-danger:hover {
-  background: #FEE2E2;
-  color: #B91C1C;
-  border-color: #B91C1C;
-}</code></pre>
+.btn-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.btn-primary:hover { background: var(--brand-dark); border-color: var(--brand-dark); }
+.btn-secondary { background: #fff; }
+.btn-secondary:hover { background: #fff3f9; }</code></pre>
 
               <p><strong>表示サンプル</strong></p>
-              <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                <button
-                  style="font-family:'M PLUS Rounded 1c',sans-serif;font-size:14px;font-weight:600;letter-spacing:.02em;line-height:1.2;border-radius:14px;padding:10px 16px;border:1px solid #FF8FB1;background:#FF8FB1;color:#fff;cursor:pointer;">保存する</button>
-                <button
-                  style="font-family:'M PLUS Rounded 1c',sans-serif;font-size:14px;font-weight:600;letter-spacing:.02em;line-height:1.2;border-radius:14px;padding:10px 16px;border:1px solid #FF8FB1;background:#fff;color:#FF8FB1;cursor:pointer;">戻る</button>
-                <button
-                  style="font-family:'M PLUS Rounded 1c',sans-serif;font-size:14px;font-weight:600;letter-spacing:.02em;line-height:1.2;border-radius:14px;padding:10px 16px;border:1px solid #DC2626;background:#fff;color:#DC2626;cursor:pointer;">削除する</button>
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <a href="#" style="display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid #FF8FB1;background:#FF8FB1;color:#fff;padding:11px 12px;font-size:14px;font-weight:700;text-decoration:none;">LINE お友達登録</a>
+                <a href="#" style="display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid #F2DBE7;background:#fff;color:#4A2D3C;padding:11px 12px;font-size:14px;font-weight:700;text-decoration:none;">機能と料金を見る</a>
               </div>
             </div>
           </div>
+
           <div class="fill-block">
             <div class="fill-label">フォーム要素 <span class="required">必須</span></div>
             <div class="fill-hint">テキスト入力・セレクト・テキストエリア・チェックボックス・ラジオボタン（実物のHTMLサンプル付き）</div>
             <div class="fill-content">
-              <p><strong>HTML</strong></p>
-              <pre><code>&lt;form class=&quot;form-demo&quot;&gt;
-  &lt;label class=&quot;field&quot;&gt;
-    &lt;span class=&quot;field-label&quot;&gt;テキスト入力&lt;/span&gt;
-    &lt;input type=&quot;text&quot; class=&quot;control&quot; placeholder=&quot;例：佐藤 美咲&quot; /&gt;
-  &lt;/label&gt;
+              <p><strong>デザイン条件</strong><br>
+                入力高さ：40px前後 / 枠線：1px solid #F2DBE7 / 角丸：16px / フォント：14px / エラー文字：12px</p>
+              <p><strong>実装クラス</strong><br>
+                `.field`, `.field input`, `.field textarea`, `.error`</p>
 
-  &lt;label class=&quot;field&quot;&gt;
-    &lt;span class=&quot;field-label&quot;&gt;セレクトボックス&lt;/span&gt;
-    &lt;select class=&quot;control&quot;&gt;
+              <p><strong>HTML（実装準拠）</strong></p>
+              <pre><code>&lt;form class=&quot;contact-form&quot;&gt;
+  &lt;div class=&quot;field&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;お名前&lt;/label&gt;
+    &lt;input id=&quot;name&quot; type=&quot;text&quot; placeholder=&quot;例：山田 花子&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;field&quot;&gt;
+    &lt;label for=&quot;category&quot;&gt;お問い合わせ種別&lt;/label&gt;
+    &lt;select id=&quot;category&quot;&gt;
       &lt;option&gt;選択してください&lt;/option&gt;
-      &lt;option&gt;有効&lt;/option&gt;
-      &lt;option&gt;停止&lt;/option&gt;
+      &lt;option&gt;サービスについて&lt;/option&gt;
+      &lt;option&gt;料金について&lt;/option&gt;
     &lt;/select&gt;
-  &lt;/label&gt;
-
-  &lt;label class=&quot;field&quot;&gt;
-    &lt;span class=&quot;field-label&quot;&gt;テキストエリア&lt;/span&gt;
-    &lt;textarea class=&quot;control&quot; placeholder=&quot;備考を入力&quot;&gt;&lt;/textarea&gt;
-  &lt;/label&gt;
-
-  &lt;div class=&quot;field&quot;&gt;
-    &lt;span class=&quot;field-label&quot;&gt;チェックボックス&lt;/span&gt;
-    &lt;label class=&quot;check-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;check&quot; /&gt; 利用規約に同意する&lt;/label&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;field&quot;&gt;
-    &lt;span class=&quot;field-label&quot;&gt;ラジオボタン&lt;/span&gt;
-    &lt;label class=&quot;check-item&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;type&quot; class=&quot;check&quot; /&gt; 個人&lt;/label&gt;
-    &lt;label class=&quot;check-item&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;type&quot; class=&quot;check&quot; /&gt; 法人&lt;/label&gt;
+    &lt;label for=&quot;message&quot;&gt;内容&lt;/label&gt;
+    &lt;textarea id=&quot;message&quot; rows=&quot;4&quot; placeholder=&quot;お問い合わせ内容を入力&quot;&gt;&lt;/textarea&gt;
   &lt;/div&gt;
 
-  &lt;div class=&quot;field&quot;&gt;
-    &lt;span class=&quot;field-label&quot;&gt;トグルスイッチ&lt;/span&gt;
-    &lt;label class=&quot;switch&quot;&gt;
-      &lt;input type=&quot;checkbox&quot; class=&quot;switch-input&quot; /&gt;
-      &lt;span class=&quot;switch-slider&quot;&gt;&lt;/span&gt;
-      &lt;span class=&quot;switch-text&quot;&gt;通知を有効にする&lt;/span&gt;
-    &lt;/label&gt;
-  &lt;/div&gt;
-
-  &lt;label class=&quot;field&quot;&gt;
-    &lt;span class=&quot;field-label&quot;&gt;エラー表示例&lt;/span&gt;
-    &lt;input type=&quot;text&quot; class=&quot;control is-error&quot; value=&quot;入力エラー&quot; /&gt;
-    &lt;span class=&quot;error-text&quot;&gt;メールアドレスの形式が正しくありません。&lt;/span&gt;
+  &lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt; 利用規約に同意する&lt;/label&gt;
+  &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;contactMethod&quot;&gt; メール連絡を希望&lt;/label&gt;
+  &lt;label class=&quot;switch&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;switch-input&quot; checked&gt;
+    &lt;span class=&quot;switch-slider&quot;&gt;&lt;/span&gt;
+    通知を有効にする（トグルスイッチ）
   &lt;/label&gt;
+  &lt;div class=&quot;field&quot;&gt;
+    &lt;label for=&quot;email&quot;&gt;メールアドレス（エラー表示例）&lt;/label&gt;
+    &lt;input id=&quot;email&quot; type=&quot;email&quot; value=&quot;sample@&quot; aria-invalid=&quot;true&quot;&gt;
+    &lt;p class=&quot;error&quot;&gt;メールアドレスの形式が正しくありません。&lt;/p&gt;
+  &lt;/div&gt;
 &lt;/form&gt;</code></pre>
 
-              <p><strong>CSS</strong></p>
-              <pre><code>.form-demo {
-  display: grid;
-  gap: 12px;
-}
-
-.field {
-  display: grid;
-  gap: 6px;
-}
-
-.field-label {
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: #FF8FB1;
-  letter-spacing: 0.01em;
-}
-
-.control {
+              <p><strong>CSS（主要部分）</strong></p>
+              <pre><code>.field label { display: block; font-weight: 700; margin-bottom: 4px; }
+.field input,
+.field textarea {
   width: 100%;
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #4A2D3C;
-  background: #FFFFFF;
-  border: 1px solid #CBD5E1;
-  border-radius: 10px;
-  padding: 10px 12px;
-  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 9px 10px;
+  font: inherit;
+  background: #fff;
 }
-
-textarea.control {
-  min-height: 110px;
-  resize: vertical;
-}
-
-.control:focus {
-  outline: none;
-  border-color: #FF8FB1;
-  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.18);
-  background: #F8FAFF;
-}
-
-.control.is-error {
-  border-color: #DC2626;
-  background: #FEF2F2;
-}
-
-.control.is-error:focus {
-  border-color: #B91C1C;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.16);
-}
-
-.error-text {
-  font-size: 12px;
-  color: #DC2626;
-}
-
-.check-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-right: 14px;
-  font-size: 14px;
-  color: #4A2D3C;
-}
-
-.check {
-  accent-color: #FF8FB1;
-  width: 16px;
-  height: 16px;
-}
-
-.switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.switch-input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.switch-slider {
-  width: 44px;
-  height: 24px;
-  border-radius: 999px;
-  background: #cbd5e1;
-  position: relative;
-  transition: background-color .2s ease;
-}
-
-.switch-slider::after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
-  transition: transform .2s ease;
-}
-
-.switch-input:checked + .switch-slider {
-  background: #FF8FB1;
-}
-
-.switch-input:checked + .switch-slider::after {
-  transform: translateX(20px);
-}
-
-.switch-input:focus + .switch-slider {
-  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.18);
-}
-
-.switch-text {
-  font-size: 14px;
-  color: #4A2D3C;
-}</code></pre>
+.switch { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; }
+.switch-input { position: absolute; opacity: 0; width: 0; height: 0; }
+.switch-slider { width: 44px; height: 24px; background: #cbd5e1; border-radius: 999px; position: relative; }
+.switch-slider::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; transition: transform .2s ease; }
+.switch-input:checked + .switch-slider { background: #FF8FB1; }
+.switch-input:checked + .switch-slider::after { transform: translateX(20px); }
+.error { min-height: 1.1em; margin: 4px 0 0; color: #b91c1c; font-size: 12px; }</code></pre>
 
               <p><strong>表示サンプル</strong></p>
-              <form style="display:grid; gap:12px;">
-                <label style="display:grid; gap:6px;">
-                  <span
-                    style="font-family:'M PLUS Rounded 1c',sans-serif;font-size:13px;font-weight:600;color:#FF8FB1;letter-spacing:.01em;">テキスト入力</span>
-                  <input type="text" placeholder="例：佐藤 美咲"
-                    style="width:100%;font-family:'M PLUS Rounded 1c',sans-serif;font-size:14px;line-height:1.5;color:#4A2D3C;background:#fff;border:1px solid #CBD5E1;border-radius:10px;padding:10px 12px;">
+              <form style="display:grid; gap:10px; max-width:560px;">
+                <label style="display:grid; gap:4px;">
+                  <span style="font-weight:700;">お名前</span>
+                  <input type="text" placeholder="例：山田 花子" style="width:100%;border:1px solid #F2DBE7;border-radius:16px;padding:9px 10px;font-size:14px;">
                 </label>
-                <label style="display:grid; gap:6px;">
-                  <span
-                    style="font-family:'M PLUS Rounded 1c',sans-serif;font-size:13px;font-weight:600;color:#FF8FB1;letter-spacing:.01em;">セレクトボックス</span>
-                  <select
-                    style="width:100%;font-family:'M PLUS Rounded 1c',sans-serif;font-size:14px;line-height:1.5;color:#4A2D3C;background:#fff;border:1px solid #CBD5E1;border-radius:10px;padding:10px 12px;">
+                <label style="display:grid; gap:4px;">
+                  <span style="font-weight:700;">お問い合わせ種別</span>
+                  <select style="width:100%;border:1px solid #F2DBE7;border-radius:16px;padding:9px 10px;font-size:14px;background:#fff;">
                     <option>選択してください</option>
-                    <option>有効</option>
-                    <option>停止</option>
+                    <option>サービスについて</option>
+                    <option>料金について</option>
                   </select>
                 </label>
-                <label style="display:grid; gap:6px;">
-                  <span
-                    style="font-family:'M PLUS Rounded 1c',sans-serif;font-size:13px;font-weight:600;color:#FF8FB1;letter-spacing:.01em;">テキストエリア</span>
-                  <textarea
-                    style="width:100%;min-height:90px;resize:vertical;font-family:'M PLUS Rounded 1c',sans-serif;font-size:14px;line-height:1.5;color:#4A2D3C;background:#fff;border:1px solid #CBD5E1;border-radius:10px;padding:10px 12px;">備考を入力</textarea>
+                <label style="display:grid; gap:4px;">
+                  <span style="font-weight:700;">内容</span>
+                  <textarea rows="4" placeholder="お問い合わせ内容を入力" style="width:100%;border:1px solid #F2DBE7;border-radius:16px;padding:9px 10px;font-size:14px;"></textarea>
                 </label>
-                <div style="display:grid; gap:6px;">
-                  <span
-                    style="font-family:'M PLUS Rounded 1c',sans-serif;font-size:13px;font-weight:600;color:#FF8FB1;letter-spacing:.01em;">チェックボックス
-                    / ラジオボタン</span>
-                  <div style="display:flex;flex-wrap:wrap;gap:12px;">
-                    <label style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#4A2D3C;"><input
-                        type="checkbox" style="accent-color:#FF8FB1;"> 利用規約に同意する</label>
-                    <label style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#4A2D3C;"><input
-                        type="radio" name="demo-kind" style="accent-color:#FF8FB1;"> 個人</label>
-                    <label style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#4A2D3C;"><input
-                        type="radio" name="demo-kind" style="accent-color:#FF8FB1;"> 法人</label>
-                  </div>
-                </div>
-                <div style="display:grid; gap:6px;">
-                  <span
-                    style="font-family:'M PLUS Rounded 1c',sans-serif;font-size:13px;font-weight:600;color:#FF8FB1;letter-spacing:.01em;">トグルスイッチ</span>
-                  <label style="display:inline-flex;align-items:center;gap:10px;cursor:pointer;">
-                    <input type="checkbox" checked style="position:absolute;opacity:0;width:0;height:0;">
-                    <span
-                      style="display:inline-block;width:44px;height:24px;border-radius:999px;background:#FF8FB1;position:relative;">
-                      <span
-                        style="position:absolute;top:3px;left:23px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.25);"></span>
-                    </span>
-                    <span style="font-size:14px;color:#4A2D3C;">通知を有効にする</span>
-                  </label>
-                </div>
-                <label style="display:grid; gap:6px;">
-                  <span
-                    style="font-family:'M PLUS Rounded 1c',sans-serif;font-size:13px;font-weight:600;color:#FF8FB1;letter-spacing:.01em;">エラー表示例</span>
-                  <input type="text" value="入力エラー"
-                    style="width:100%;font-family:'M PLUS Rounded 1c',sans-serif;font-size:14px;line-height:1.5;color:#4A2D3C;background:#FEF2F2;border:1px solid #DC2626;border-radius:10px;padding:10px 12px;">
-                  <span style="font-size:12px;color:#DC2626;">メールアドレスの形式が正しくありません。</span>
+                <label style="font-size:14px;"><input type="checkbox"> 利用規約に同意する</label>
+                <label style="font-size:14px;"><input type="radio" name="demoContactMethod"> メール連絡を希望</label>
+                <label style="display:inline-flex;align-items:center;gap:8px;font-size:14px;">
+                  <input type="checkbox" checked style="position:absolute;opacity:0;width:0;height:0;">
+                  <span style="width:44px;height:24px;background:#FF8FB1;border-radius:999px;position:relative;display:inline-block;">
+                    <span style="position:absolute;top:3px;left:23px;width:18px;height:18px;border-radius:50%;background:#fff;"></span>
+                  </span>
+                  通知を有効にする（トグルスイッチ）
+                </label>
+                <label style="display:grid; gap:4px;">
+                  <span style="font-weight:700;">メールアドレス（エラー表示例）</span>
+                  <input type="email" value="sample@" style="width:100%;border:1px solid #DC2626;border-radius:16px;padding:9px 10px;font-size:14px;background:#FEF2F2;">
+                  <span style="font-size:12px;color:#B91C1C;">メールアドレスの形式が正しくありません。</span>
                 </label>
               </form>
             </div>
           </div>
+
+          <div class="fill-block">
+            <div class="fill-label">ナビゲーション <span class="required">必須</span></div>
+            <div class="fill-hint">モバイルはハンバーガー、PCは横並びナビに切替（実物のHTMLサンプル付き）</div>
+            <div class="fill-content">
+              <p><strong>デザイン条件</strong><br>
+                ヘッダー：sticky固定 / 最小高さ：56px / 境界線：1px solid #F2DBE7 / モバイルはメニュー展開式 / 768px以上で横並び常時表示</p>
+              <p><strong>実装クラス</strong><br>
+                `.site-header`, `.nav-wrap`, `.menu-toggle`, `.global-nav`, `.global-nav.open`, `.skip-link`</p>
+              <p>・`site-header` は sticky（上部固定）<br>
+                ・`global-nav` はモバイル初期非表示、`.open` 付与で展開<br>
+                ・`@media (min-width: 768px)` で常時表示の横並びへ切替</p>
+              <p><strong>表示サンプル</strong></p>
+              <div style="border:1px solid #F2DBE7;border-radius:14px;background:#fff;padding:10px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+                  <span style="font-weight:800;color:#7A3E57;">ペットライフプラス</span>
+                  <button style="border:1px solid #F2DBE7;background:#fff7fb;border-radius:999px;padding:6px 10px;font-size:12px;">☰</button>
+                </div>
+                <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;color:#7A6170;font-size:13px;">
+                  <span>トップ</span><span>総合案内</span><span>導入事例と実績</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="fill-block">
             <div class="fill-label">カード・テーブル・その他 <span class="required">必須</span></div>
             <div class="fill-hint">カードコンポーネント・テーブルスタイル・アラート等（実物のHTMLサンプル付き）</div>
             <div class="fill-content">
-              <p><strong>HTML</strong></p>
+              <p><strong>デザイン条件</strong><br>
+                カード角丸：26px / 枠線：1px solid #F2DBE7 / 影：0 10px 20px rgba(221,136,170,0.12) / テーブル見出し背景：#EEF7FB / アラート角丸：10px</p>
+
+              <p><strong>HTML（実装準拠）</strong></p>
               <pre><code>&lt;!-- カード --&gt;
-&lt;article class=&quot;ui-card&quot;&gt;
-  &lt;img class=&quot;ui-card-image&quot; src=&quot;../img/top.html.png&quot; alt=&quot;カード画像&quot; /&gt;
-  &lt;div class=&quot;ui-card-body&quot;&gt;
-    &lt;h3 class=&quot;ui-card-title&quot;&gt;サービス紹介カード&lt;/h3&gt;
-    &lt;p class=&quot;ui-card-text&quot;&gt;健康記録・AI症状チェック・オンライン診療を一体化した導線を提供します。&lt;/p&gt;
-    &lt;a class=&quot;btn btn-primary&quot; href=&quot;#&quot;&gt;詳細を見る&lt;/a&gt;
-  &lt;/div&gt;
+&lt;article class=&quot;card&quot;&gt;
+  &lt;h3&gt;サービス紹介カード&lt;/h3&gt;
+  &lt;p&gt;健康記録・AI症状チェック・オンライン診療を一体化した導線を提供します。&lt;/p&gt;
 &lt;/article&gt;
 
 &lt;!-- テーブル --&gt;
-&lt;table class=&quot;ui-table&quot;&gt;
+&lt;table class=&quot;price-table&quot;&gt;
   &lt;thead&gt;
-    &lt;tr&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;氏名&lt;/th&gt;&lt;th&gt;ステータス&lt;/th&gt;&lt;th&gt;更新日&lt;/th&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;th&gt;プラン&lt;/th&gt;&lt;th&gt;月額&lt;/th&gt;&lt;th&gt;主な機能&lt;/th&gt;&lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
-    &lt;tr&gt;&lt;td&gt;U-001&lt;/td&gt;&lt;td&gt;佐藤 美咲&lt;/td&gt;&lt;td&gt;有効&lt;/td&gt;&lt;td&gt;2026-05-13&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;U-002&lt;/td&gt;&lt;td&gt;田中 亮&lt;/td&gt;&lt;td&gt;有効&lt;/td&gt;&lt;td&gt;2026-05-12&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;ベーシック&lt;/td&gt;&lt;td&gt;¥980&lt;/td&gt;&lt;td&gt;健康記録・基本通知&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;プレミアム&lt;/td&gt;&lt;td&gt;¥2,980&lt;/td&gt;&lt;td&gt;AI症状チェック・オンライン相談&lt;/td&gt;&lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -721,153 +613,102 @@ textarea.control {
 &lt;div class=&quot;ui-alert warning&quot;&gt;警告：未入力項目があります。&lt;/div&gt;
 &lt;div class=&quot;ui-alert error&quot;&gt;エラー：通信に失敗しました。&lt;/div&gt;</code></pre>
 
-              <p><strong>CSS</strong></p>
-              <pre><code>.ui-card {
-  width: min(360px, 100%);
-  border: 1px solid #d9e4f5;
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
-  overflow: hidden;
+              <p><strong>CSS（主要部分）</strong></p>
+              <pre><code>.card {
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 18px;
+  box-shadow: 0 10px 20px rgba(221, 136, 170, 0.12);
 }
-.ui-card-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-}
-.ui-card-body { padding: 14px; }
-.ui-card-title {
-  margin: 0 0 8px;
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: #0f172a;
-}
-.ui-card-text {
-  margin: 0 0 12px;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #64748b;
-}
-
-.ui-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  border: 1px solid #d9e4f5;
-  border-radius: 12px;
-  overflow: hidden;
-}
-.ui-table th, .ui-table td {
-  padding: 10px 12px;
-  border-bottom: 1px solid #e2e8f0;
-  text-align: left;
-  font-size: 14px;
-}
-.ui-table thead th {
-  background: linear-gradient(135deg, #eaf2ff 0%, #e8faf6 100%);
-  color: #0f172a;
-  font-weight: 700;
-}
-.ui-table tbody tr:nth-child(even) td {
-  background: #f8fbff;
-}
-.ui-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.ui-alert {
-  border-radius: 10px;
-  padding: 10px 12px;
-  border: 1px solid transparent;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-.ui-alert.info {
-  background: #eff6ff;
-  border-color: #bfdbfe;
-  color: #1e40af;
-}
-.ui-alert.success {
-  background: #ecfdf3;
-  border-color: #86efac;
-  color: #166534;
-}
-.ui-alert.warning {
-  background: #fffbeb;
-  border-color: #fcd34d;
-  color: #92400e;
-}
-.ui-alert.error {
-  background: #fef2f2;
-  border-color: #fca5a5;
-  color: #b91c1c;
-}</code></pre>
+.price-table thead th { background: #eef7fb; font-weight: 700; }
+.ui-alert { border-radius: 10px; padding: 10px 12px; font-size: 14px; }
+.ui-alert.info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+.ui-alert.success { background: #ecfdf3; border: 1px solid #86efac; color: #166534; }
+.ui-alert.warning { background: #fffbeb; border: 1px solid #fcd34d; color: #92400e; }
+.ui-alert.error { background: #fef2f2; border: 1px solid #fca5a5; color: #b91c1c; }</code></pre>
 
               <p><strong>表示サンプル</strong></p>
-              <div style="display:grid; gap:14px;">
-                <article
-                  style="width:min(360px,100%);border:1px solid #d9e4f5;border-radius:14px;background:#fff;box-shadow:0 10px 20px rgba(37,99,235,.08);overflow:hidden;">
-                  <img src="../img/top.html.png" alt="カード画像サンプル"
-                    style="width:100%;height:180px;object-fit:cover;display:block;">
-                  <div style="padding:14px;">
-                    <h3
-                      style="margin:0 0 8px;font-family:'M PLUS Rounded 1c',sans-serif;font-size:18px;font-weight:700;color:#0f172a;">
-                      サービス紹介カード</h3>
-                    <p style="margin:0 0 12px;font-size:14px;line-height:1.7;color:#64748b;">
-                      健康記録・AI症状チェック・オンライン診療を一体化した導線を提供します。</p>
-                    <button
-                      style="font-family:'M PLUS Rounded 1c',sans-serif;font-size:14px;font-weight:600;letter-spacing:.02em;line-height:1.2;border-radius:14px;padding:10px 16px;border:1px solid #FF8FB1;background:#FF8FB1;color:#fff;cursor:pointer;">詳細を見る</button>
-                  </div>
+              <div style="display:grid; gap:10px;">
+                <article style="border:1px solid #F2DBE7;border-radius:26px;padding:14px;box-shadow:0 10px 20px rgba(221,136,170,.12);background:#fff;">
+                  <h3 style="margin:0 0 6px;">サービス紹介カード</h3>
+                  <p style="margin:0;color:#7A6170;">健康記録・AI症状チェック・オンライン診療を一体化した導線を提供します。</p>
                 </article>
-
-                <table
-                  style="width:100%;border-collapse:separate;border-spacing:0;border:1px solid #d9e4f5;border-radius:12px;overflow:hidden;">
+                <table style="width:100%;border-collapse:collapse;background:#fff;border:1px solid #F2DBE7;border-radius:10px;overflow:hidden;">
                   <thead>
-                    <tr>
-                      <th
-                        style="padding:10px 12px;background:linear-gradient(135deg,#eaf2ff 0%,#e8faf6 100%);color:#0f172a;font-weight:700;border-bottom:1px solid #e2e8f0;">
-                        ID</th>
-                      <th
-                        style="padding:10px 12px;background:linear-gradient(135deg,#eaf2ff 0%,#e8faf6 100%);color:#0f172a;font-weight:700;border-bottom:1px solid #e2e8f0;">
-                        氏名</th>
-                      <th
-                        style="padding:10px 12px;background:linear-gradient(135deg,#eaf2ff 0%,#e8faf6 100%);color:#0f172a;font-weight:700;border-bottom:1px solid #e2e8f0;">
-                        ステータス</th>
-                      <th
-                        style="padding:10px 12px;background:linear-gradient(135deg,#eaf2ff 0%,#e8faf6 100%);color:#0f172a;font-weight:700;border-bottom:1px solid #e2e8f0;">
-                        更新日</th>
-                    </tr>
+                    <tr><th style="padding:8px;background:#EEF7FB;text-align:left;">プラン</th><th style="padding:8px;background:#EEF7FB;text-align:left;">月額</th><th style="padding:8px;background:#EEF7FB;text-align:left;">主な機能</th></tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;">U-001</td>
-                      <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;">佐藤 美咲</td>
-                      <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;">有効</td>
-                      <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;">2026-05-13</td>
-                    </tr>
-                    <tr>
-                      <td style="padding:10px 12px;background:#f8fbff;">U-002</td>
-                      <td style="padding:10px 12px;background:#f8fbff;">田中 亮</td>
-                      <td style="padding:10px 12px;background:#f8fbff;">有効</td>
-                      <td style="padding:10px 12px;background:#f8fbff;">2026-05-12</td>
-                    </tr>
+                    <tr><td style="padding:8px;border-top:1px solid #F2DBE7;">ベーシック</td><td style="padding:8px;border-top:1px solid #F2DBE7;">¥980</td><td style="padding:8px;border-top:1px solid #F2DBE7;">健康記録・基本通知</td></tr>
+                    <tr><td style="padding:8px;border-top:1px solid #F2DBE7;">プレミアム</td><td style="padding:8px;border-top:1px solid #F2DBE7;">¥2,980</td><td style="padding:8px;border-top:1px solid #F2DBE7;">AI症状チェック・オンライン相談</td></tr>
                   </tbody>
                 </table>
+                <div style="border-radius:10px;padding:10px 12px;border:1px solid #BFDBFE;background:#EFF6FF;color:#1E40AF;">情報：プロフィールが更新されました。</div>
+                <div style="border-radius:10px;padding:10px 12px;border:1px solid #86EFAC;background:#ECFDF3;color:#166534;">成功：登録処理が完了しました。</div>
+                <div style="border-radius:10px;padding:10px 12px;border:1px solid #FCD34D;background:#FFFBEB;color:#92400E;">警告：未入力項目があります。</div>
+                <div style="border-radius:10px;padding:10px 12px;border:1px solid #FCA5A5;background:#FEF2F2;color:#B91C1C;">エラー：通信に失敗しました。</div>
+              </div>
+            </div>
+          </div>
 
-                <div
-                  style="border-radius:10px;padding:10px 12px;border:1px solid #bfdbfe;background:#eff6ff;color:#1e40af;font-size:14px;">
-                  情報：プロフィールが更新されました。</div>
-                <div
-                  style="border-radius:10px;padding:10px 12px;border:1px solid #86efac;background:#ecfdf3;color:#166534;font-size:14px;">
-                  成功：登録処理が完了しました。</div>
-                <div
-                  style="border-radius:10px;padding:10px 12px;border:1px solid #fcd34d;background:#fffbeb;color:#92400e;font-size:14px;">
-                  警告：未入力項目があります。</div>
-                <div
-                  style="border-radius:10px;padding:10px 12px;border:1px solid #fca5a5;background:#fef2f2;color:#b91c1c;font-size:14px;">
-                  エラー：通信に失敗しました。</div>
+          <div class="fill-block">
+            <div class="fill-label">カード・バナー・統計 <span class="required">必須</span></div>
+            <div class="fill-hint">トップ画面の主構成要素を標準コンポーネント化（実物のHTMLサンプル付き）</div>
+            <div class="fill-content">
+              <p><strong>デザイン条件</strong><br>
+                カード角丸：26px / カード余白：18px / 枠線：1px solid #F2DBE7 / 影：0 10px 20px rgba(221,136,170,0.12) / バナー角丸：16px</p>
+              <p><strong>実装クラス</strong><br>
+                カード系：`.hero-card`, `.card`, `.image-card`, `.stat`<br>
+                バナー系：`.value-banner`, `.value-track`, `.value-pill`</p>
+
+              <p><strong>HTML（実装準拠）</strong></p>
+              <pre><code>&lt;div class=&quot;card-grid&quot;&gt;
+  &lt;article class=&quot;card&quot;&gt;
+    &lt;h3&gt;健康記録&lt;/h3&gt;
+    &lt;p&gt;体重・食事・運動・ワクチン情報をまとめて管理します。&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;article class=&quot;card&quot;&gt;
+    &lt;h3&gt;AI症状チェック&lt;/h3&gt;
+    &lt;p&gt;受診目安を可視化し、判断時の不安を軽減します。&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;value-banner&quot;&gt;
+  &lt;div class=&quot;value-track&quot;&gt;
+    &lt;div class=&quot;value-group&quot;&gt;
+      &lt;span&gt;&lt;strong class=&quot;value-pill&quot;&gt;提供価値&lt;/strong&gt; 日常記録・症状チェック・オンライン相談をひとつにつなぐ。&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+              <p><strong>CSS（主要部分）</strong></p>
+              <pre><code>.hero-card, .card, .stat, .image-card {
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 18px;
+  box-shadow: 0 10px 20px rgba(221, 136, 170, 0.12);
+}
+.value-banner {
+  overflow: hidden;
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+}
+.value-track { animation: value-scroll 22s linear infinite; }</code></pre>
+
+              <p><strong>表示サンプル</strong></p>
+              <div style="display:grid;gap:10px;">
+                <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;">
+                  <article style="background:#fff;border:1px solid #F2DBE7;border-radius:26px;padding:14px;box-shadow:0 10px 20px rgba(221,136,170,.12);">
+                    <h3 style="margin:0 0 6px;font-size:16px;">健康記録</h3>
+                    <p style="margin:0;font-size:14px;color:#7A6170;">体重・食事・運動をまとめて管理。</p>
+                  </article>
+                  <article style="background:#fff;border:1px solid #F2DBE7;border-radius:26px;padding:14px;box-shadow:0 10px 20px rgba(221,136,170,.12);">
+                    <h3 style="margin:0 0 6px;font-size:16px;">AI症状チェック</h3>
+                    <p style="margin:0;font-size:14px;color:#7A6170;">受診目安を可視化して不安を軽減。</p>
+                  </article>
+                </div>
+                <div style="overflow:hidden;border:1px dashed #F2DBE7;border-radius:16px;background:#fff;padding:8px 10px;">
+                  <span style="display:inline-flex;align-items:center;font-size:13px;color:#4A2D3C;font-weight:600;"><strong style="display:inline-flex;align-items:center;justify-content:center;margin-right:8px;padding:3px 8px;border-radius:999px;background:#ff7aa8;color:#fff;font-size:11px;">提供価値</strong>日常記録・症状チェック・オンライン相談をひとつにつなぐ。</span>
+                </div>
               </div>
             </div>
           </div>
@@ -954,3 +795,5 @@ textarea.control {
 </body>
 
 </html>
+
+
