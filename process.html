@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>制作プロセス -  プロジェクトアーカイブ</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <title>制作プロセス - プロジェクトアーカイブ</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <button class="hamburger" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
 
   <div class="page-wrapper">
-  <aside class="sidebar" data-nav-level="root"></aside>
+    <aside class="sidebar" data-nav-level="root"></aside>
 
     <main class="main-content">
       <header class="doc-header">
         <div class="doc-category">PROCESS</div>
         <h1 class="doc-title">制作プロセス</h1>
         <div class="doc-meta">
-          <span><span class="material-symbols-outlined icon-sm">calendar_today</span> 作成日：2026-XX-XX</span>
-          <span><span class="material-symbols-outlined icon-sm">person</span> 作成者：（氏名を入力）</span>
+          <span><span class="material-symbols-outlined icon-sm">calendar_today</span> 作成日：2026-05-25</span>
+          <span><span class="material-symbols-outlined icon-sm">person</span> 作成者：清水宏美</span>
           <span><span class="material-symbols-outlined icon-sm">push_pin</span> Ver 1.0</span>
         </div>
       </header>
@@ -30,11 +33,14 @@
 
 
         <section class="section">
-          <h2 class="section-title"><span class="section-icon"><span class="material-symbols-outlined">timeline</span></span> 制作フロー概要</h2>
+          <h2 class="section-title"><span class="section-icon"><span
+                class="material-symbols-outlined">timeline</span></span> 制作フロー概要</h2>
 
           <div class="fill-block">
             <div class="fill-label">制作期間 <span class="required">必須</span></div>
-            <div class="fill-content"><p>20XX年X月〜20XX年X月（約X週間）</p></div>
+            <div class="fill-content">
+              <p>2026年5月〜2026年6月（約6週間）</p>
+            </div>
           </div>
 
           <div class="card-grid">
@@ -84,13 +90,15 @@
         </section>
 
         <section class="section">
-          <h2 class="section-title"><span class="section-icon"><span class="material-symbols-outlined">event_note</span></span> 制作スケジュール</h2>
+          <h2 class="section-title"><span class="section-icon"><span
+                class="material-symbols-outlined">event_note</span></span> 制作スケジュール</h2>
 
           <div class="fill-block">
             <div class="fill-label">スケジュール詳細 <span class="required">必須</span></div>
             <div class="fill-hint">各フェーズにかけた期間を記載</div>
             <div class="fill-content">
-              <table class="doc-table">
+              <div class="table-wrap">
+                <table class="doc-table schedule-table">
                 <thead>
                   <tr>
                     <th>フェーズ</th>
@@ -102,63 +110,72 @@
                   <tr>
                     <td>企画・調査</td>
                     <td>第1週</td>
-                    <td>（作業内容を入力）</td>
+                    <td>課題整理、ターゲット設定、競合調査、サービスコンセプト策定、要件の洗い出し</td>
                   </tr>
                   <tr>
                     <td>設計</td>
                     <td>第2週</td>
-                    <td>（作業内容を入力）</td>
+                    <td>サイトマップ作成、画面遷移設計、ワイヤーフレーム作成、DBテーブル設計、API設計方針の整理</td>
                   </tr>
                   <tr>
                     <td>デザイン</td>
                     <td>第3週</td>
-                    <td>（作業内容を入力）</td>
+                    <td>デザインガイドライン作成、配色・タイポグラフィ決定、主要画面UI作成、レスポンシブ方針の確定</td>
                   </tr>
                   <tr>
                     <td>実装</td>
                     <td>第4〜6週</td>
-                    <td>（作業内容を入力）</td>
+                    <td>フロント実装（HTML/CSS/JavaScript）、バックエンド実装（Spring Boot/MyBatis）、DB連携、外部連携・デプロイ設定</td>
                   </tr>
                   <tr>
                     <td>テスト・修正</td>
                     <td>第7週</td>
-                    <td>（作業内容を入力）</td>
+                    <td>単体・結合テスト、画面表示確認、入力バリデーション確認、不具合修正、パフォーマンスとUI調整</td>
                   </tr>
                   <tr>
                     <td>振り返り</td>
                     <td>第8週</td>
-                    <td>（作業内容を入力）</td>
+                    <td>成果物整理、課題と改善点の抽出、学習内容の言語化、ポートフォリオ・ドキュメント最終更新</td>
                   </tr>
                 </tbody>
-              </table>
+                </table>
+              </div>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <h2 class="section-title"><span class="section-icon"><span class="material-symbols-outlined">build</span></span> 各フェーズの詳細</h2>
+          <h2 class="section-title"><span class="section-icon"><span
+                class="material-symbols-outlined">build</span></span> 各フェーズの詳細</h2>
 
           <div class="fill-block">
             <div class="fill-label">企画フェーズ <span class="required">必須</span></div>
             <div class="fill-hint">どのようにアイデアを出し、企画をまとめたか</div>
-            <div class="fill-content"><p>（企画フェーズの詳細を入力）</p></div>
+            <div class="fill-content">
+              <p>　共働き・単身世帯の飼い主が抱える「通院時間の確保が難しい」「健康変化に気づきにくい」という課題を起点に、競合サービスの機能比較と不足点の整理を実施。そこから「健康記録」「異変の早期把握」「相談導線」を1つの体験に統合する方針を定め、MVPとして健康記録管理・予約管理・ユーザー管理を優先要件に決定した。</p>
+            </div>
           </div>
 
           <div class="fill-block">
             <div class="fill-label">設計フェーズ <span class="required">必須</span></div>
             <div class="fill-hint">設計時に意識したこと、工夫した点</div>
-            <div class="fill-content"><p>（設計フェーズの詳細を入力）</p></div>
+            <div class="fill-content">
+              <p>　画面遷移は「記録入力までの操作数を減らす」ことを重視し、主要導線をトップページから2クリック以内に設計。データ設計では users / pets / health_records / appointments を中心に、更新頻度が高い項目と履歴項目を分離して保守性を確保した。APIはフロントの利用単位でエンドポイントを整理し、一覧・詳細・更新の責務を明確化して実装の複雑化を抑えた。</p>
+            </div>
           </div>
 
           <div class="fill-block">
             <div class="fill-label">実装フェーズ <span class="required">必須</span></div>
             <div class="fill-hint">実装で苦労した点、解決方法</div>
-            <div class="fill-content"><p>（実装フェーズの詳細を入力）</p></div>
+            <div class="fill-content">
+              <p>　フロントエンドはHTML/CSS/JavaScriptでコンポーネントの再利用性を意識して構築し、フォーム入力時のバリデーションとエラーメッセージ表示を統一。バックエンドはSpring Boot + MyBatisでCRUD APIを実装し、SQLマッパーの責務を分離して可読性を維持した。予約・記録のデータ整合性で課題が出た箇所は、テーブル制約とサービス層での入力チェックを併用し、再現テストを追加して解消した。</p>
+            </div>
           </div>
         </section>
 
         <section class="section">
-          <h2 class="section-title"><span class="section-icon"><span class="material-symbols-outlined">smart_toy</span></span> AIツールの活用</h2>
+          <h2 class="section-title"><span class="section-icon"><span
+                class="material-symbols-outlined">smart_toy</span></span> AIツールの活用</h2>
 
           <div class="fill-block">
             <div class="fill-label">AI活用の概要 <span class="optional">任意</span></div>
@@ -181,4 +198,5 @@
 
   <script src="js/main.js"></script>
 </body>
+
 </html>

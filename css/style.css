@@ -462,6 +462,148 @@ textarea:focus-visible {
   font-style: normal;
 }
 
+.log-entry {
+  border: 1px solid #dbe7f6;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+  padding: 12px;
+  margin-top: 14px;
+}
+
+.log-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 10px;
+  border: 1px solid #d8e4f6;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #eff6ff 0%, #f8fafc 100%);
+  margin-bottom: 10px;
+}
+
+.log-title {
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.log-date {
+  font-size: 12px;
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #cbdcf5;
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #cfdef3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.log-table th,
+.log-table td {
+  border-bottom: 1px solid #e2ebf8;
+  padding: 10px 12px;
+  vertical-align: top;
+}
+
+.log-table tr:last-child th,
+.log-table tr:last-child td {
+  border-bottom: none;
+}
+
+.log-table th {
+  width: 180px;
+  background: #f3f7ff;
+  color: #1e3a8a;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.log-table td {
+  background: #ffffff;
+}
+
+.log-input {
+  min-height: 56px;
+  background: #f8fafc;
+  border: 1px dashed #c9d7ea;
+  border-radius: 8px;
+  padding: 8px 10px;
+  line-height: 1.7;
+  color: #0f172a;
+}
+
+.log-item-table th:nth-child(1),
+.log-item-table td:nth-child(1) {
+  width: 180px;
+  white-space: nowrap;
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.schedule-table {
+  table-layout: fixed;
+}
+
+.schedule-table th:nth-child(1),
+.schedule-table td:nth-child(1) {
+  width: 18%;
+}
+
+.schedule-table th:nth-child(2),
+.schedule-table td:nth-child(2) {
+  width: 14%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.schedule-table th:nth-child(3),
+.schedule-table td:nth-child(3) {
+  width: 68%;
+  line-height: 1.75;
+}
+
+.language-table {
+  table-layout: fixed;
+}
+
+.language-table th:nth-child(1),
+.language-table td:nth-child(1) {
+  width: 18%;
+  white-space: nowrap;
+}
+
+.language-table th:nth-child(2),
+.language-table td:nth-child(2) {
+  width: 14%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.language-table th:nth-child(3),
+.language-table td:nth-child(3) {
+  width: 14%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.language-table th:nth-child(4),
+.language-table td:nth-child(4) {
+  width: 54%;
+  line-height: 1.75;
+}
+
 .tech-table {
   font-size: 13px;
 }
@@ -626,6 +768,14 @@ textarea:focus-visible {
   line-height: 1.5;
 }
 
+.code-block pre {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #0f172a;
+}
+
 .hamburger {
   display: none;
   position: fixed;
@@ -704,6 +854,22 @@ textarea:focus-visible {
   }
 
   .form-check label {
+    align-items: flex-start;
+  }
+
+  .schedule-table {
+    min-width: 700px;
+  }
+
+  .language-table {
+    min-width: 760px;
+  }
+
+  .log-table {
+    min-width: 720px;
+  }
+
+  .log-header {
     align-items: flex-start;
   }
 }

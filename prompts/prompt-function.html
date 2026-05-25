@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>機能追加別プロンプト -  プロジェクトアーカイブ</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <title>機能追加別プロンプト - プロジェクトアーカイブ</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
   <button class="hamburger" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
 
   <div class="page-wrapper">
-  <aside class="sidebar" data-nav-level="prompts"></aside>
+    <aside class="sidebar" data-nav-level="prompts"></aside>
 
     <main class="main-content">
       <header class="doc-header">
@@ -59,6 +62,55 @@
             </div>
           </div>
 
+          <div class="fill-block">
+            <div class="fill-label">プロンプト例（Validation）</div>
+            <div class="fill-content code-block">
+              <pre>あなたは厳密なバリデーターです。以下の「入力データ」が「検証ルール」を満たすか判定してください。
+
+# 出力形式（必ず厳守）
+- JSONのみを返す
+- スキーマ:
+{
+  "valid": true | false,
+  "errors": [
+    {
+      "field": "項目名",
+      "rule": "違反したルール名",
+      "message": "日本語の具体的なエラー内容"
+    }
+  ],
+  "normalized": {
+    "正規化後の値": "..."
+  }
+}
+
+# 検証ルール
+1. name: 必須、1〜50文字
+2. email: 必須、メール形式
+3. age: 任意、入力時は18〜120の整数
+4. url: 任意、http:// または https:// で始まる
+5. tags: 任意、配列、最大5件、各要素は20文字以内
+
+# 正規化ルール
+- 文字列の前後空白を除去
+- email は小文字化
+- 空文字は null 扱い
+
+# 入力データ
+{{INPUT_JSON}}
+
+# 判定方針
+- 1つでも違反があれば valid=false
+- errors は全件返す（打ち切らない）
+- 問題なければ errors は空配列
+
+# 技術スタック
+- Spring Boot 4.x
+- Thymeleaf
+- Jakarta Validation (jakarta.validation.constraints)</pre>
+            </div>
+          </div>
+
         </section>
 
         <!-- 機能02: 検索機能 -->
@@ -75,11 +127,97 @@
             </div>
           </div>
 
+          <div class="fill-block">
+            <div class="fill-label">プロンプト例（検索機能）</div>
+            <div class="fill-content code-block">
+              <pre>あなたは Spring Boot アプリの検索機能を実装するエンジニアです。
+以下要件を満たす「Controller / Service / Repository(MyBatis可) / HTML(Thymeleaf)」の実装例を提示してください。
+
+# 検索対象
+- 一覧画面のデータ（例: pets テーブル）
+- 検索項目:
+1. キーワード（name, memo を部分一致）
+2. ステータス（完全一致）
+3. 日付範囲（created_at の From〜To）
+
+# 要件
+- 各条件は任意入力（未入力なら条件に含めない）
+- SQLインジェクション対策を行う
+- 0件時は「検索結果がありません」を表示
+- 検索条件を画面に保持する
+- ページネーションと両立できる構成にする
+
+# 出力してほしい内容
+1. 検索フォームDTO（バリデーション付き）
+2. Controller の検索処理
+3. Service の検索ロジック
+4. Repository / Mapper の動的クエリ
+5. 一覧HTML（検索フォーム + 結果テーブル + 0件表示）
+6. テスト観点（正常系/境界値/不正値）
+
+# 技術スタック
+- Spring Boot 4.x (@RequestParam)
+- Thymeleaf
+- Jakarta Validation (jakarta.validation.constraints)
+- MyBatis (動的SQL、LIKE検索)</pre>
+            </div>
+          </div>
+
         </section>
 
         <!-- 機能03: ソート機能 -->
         <section class="section" id="func03">
           <h2 class="section-title"><span class="section-icon">3</span> ソート機能</h2>
+
+          <div class="fill-block">
+            <div class="fill-label">機能概要</div>
+            <div class="fill-hint">一覧画面の並び替え（昇順・降順）</div>
+            <div class="fill-content">
+              <p>・作成日、更新日、名称などでソート</p>
+              <p>・昇順 / 降順の切り替え</p>
+              <p>・検索条件・ページネーションとの併用</p>
+            </div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">プロンプト例（ソート機能）</div>
+            <div class="fill-content code-block">
+              <pre>あなたは Spring Boot アプリのソート機能を実装するエンジニアです。
+以下要件を満たす「Controller / Service / Repository(MyBatis可) / HTML(Thymeleaf)」の実装例を提示してください。
+
+# 対象画面
+- 一覧画面のデータ（例: pets テーブル）
+- ソート対象カラム:
+1. created_at（作成日）
+2. updated_at（更新日）
+3. name（名称）
+
+# 要件
+- デフォルトは created_at の降順
+- ユーザーがソート項目・順序（asc/desc）を選択可能
+- 昇順/降順の切り替えが可能
+- 許可したカラム以外は受け付けない（ホワイトリスト方式）
+- SQLインジェクション対策を行う
+- 検索条件・ページネーションと同時利用できる構成にする
+- 現在のソート条件を画面に保持する
+- 現在のソート状態を視覚的に表示（▲▼アイコン）
+- URLパラメータでソート状態を保持
+
+# 出力してほしい内容
+1. ソート条件DTO（バリデーション付き）
+2. Controller のリクエスト受け取りと引き回し
+3. Service のソート適用ロジック
+4. Repository / Mapper の動的ORDER BY実装（安全な実装）
+5. 一覧HTML（ソートUI、現在条件の表示）
+6. テスト観点（正常系/不正カラム指定/境界値）
+
+# 技術スタック
+- Spring Boot 4.x
+- Thymeleaf
+- Jakarta Validation (jakarta.validation.constraints)
+- MyBatis (ORDER BY動的SQL)</pre>
+            </div>
+          </div>
 
         </section>
 
@@ -87,11 +225,103 @@
         <section class="section" id="func04">
           <h2 class="section-title"><span class="section-icon">4</span> ページネーション</h2>
 
+          <div class="fill-block">
+            <div class="fill-label">機能概要</div>
+            <div class="fill-hint">一覧データの分割表示とページ移動</div>
+            <div class="fill-content">
+              <p>・1ページあたりの表示件数を制御</p>
+              <p>・前へ / 次へ / ページ番号で移動</p>
+              <p>・検索条件・ソート条件の維持</p>
+            </div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">プロンプト例（ページネーション）</div>
+            <div class="fill-content code-block">
+              <pre>あなたは Spring Boot アプリのページネーション機能を実装するエンジニアです。
+以下要件を満たす「Controller / Service / Repository(MyBatis可) / HTML(Thymeleaf)」の実装例を提示してください。
+
+# 対象画面
+- 一覧画面のデータ（例: pets テーブル）
+
+# 要件
+- デフォルトは 1ページ目、1ページあたり20件
+- page（ページ番号）と size（件数）をURLパラメータで受け取る
+- 総件数・総ページ数を表示する
+- 前へ / 次へ / ページ番号リンクを表示する
+- 先頭ページ・最終ページで無効化制御を行う
+- 検索条件・ソート条件を保持したままページ移動できる
+- 不正な page / size（0以下・過大値）は安全な既定値へ補正する
+- 現在のページをハイライト表示
+
+# 出力してほしい内容
+1. ページネーション用DTO（バリデーション付き）
+2. Controller のリクエスト処理（page/size受け取り）
+3. Service のページング計算ロジック（offset/limit）
+4. Repository / Mapper のSQL（LIMIT/OFFSET と 総件数取得）
+5. 一覧HTML（ページネーションUI、総件数表示）
+6. テスト観点（正常系/境界値/不正値）
+
+# 技術スタック
+- Spring Boot 4.x (Pageable, Page)
+- Thymeleaf
+- Jakarta Validation (jakarta.validation.constraints)
+- MyBatis (LIMIT, OFFSET)</pre>
+            </div>
+          </div>
+
         </section>
 
         <!-- 機能05: CSV出力 -->
         <section class="section" id="func05">
           <h2 class="section-title"><span class="section-icon">5</span> CSV出力</h2>
+
+          <div class="fill-block">
+            <div class="fill-label">機能概要</div>
+            <div class="fill-hint">一覧データをCSV形式でダウンロード</div>
+            <div class="fill-content">
+              <p>・検索結果をそのままCSV出力</p>
+              <p>・ヘッダー付きCSVの生成</p>
+              <p>・文字化け対策（UTF-8/BOM）</p>
+            </div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">プロンプト例（CSV出力）</div>
+            <div class="fill-content code-block">
+              <pre>あなたは Spring Boot アプリのCSV出力機能を実装するエンジニアです。
+以下要件を満たす「Controller / Service / Repository(MyBatis可) / HTML(Thymeleaf)」の実装例を提示してください。
+
+# 対象画面
+- 一覧画面のデータ（例: pets テーブル）
+- 現在の検索条件・ソート条件を反映した結果をCSV出力する
+
+# 要件
+- CSVダウンロード用エンドポイントを作成する（GET）
+- レスポンスヘッダーに Content-Type, Content-Disposition を適切に設定
+- ファイル名に出力日時を含める（例: pets_20260525_153000.csv）
+- 1行目はヘッダー行を出力
+- 値にカンマ・改行・ダブルクォートが含まれても正しくエスケープする
+- 文字コードは UTF-8（必要に応じてBOM付与）
+- 大量データでもメモリ負荷が高くなりすぎない実装方針にする
+- 権限のないユーザーは出力できないようにする（認可考慮）
+
+# 出力してほしい内容
+1. CSV出力用DTOまたはパラメータ定義
+2. Controller のダウンロード処理
+3. Service のCSV生成ロジック
+4. Repository / Mapper のデータ取得処理
+5. 一覧HTML（CSV出力ボタン、検索条件引き継ぎ）
+6. テスト観点（正常系/文字エスケープ/0件/大量件数/権限）
+
+# 技術スタック
+- Spring Boot 4.x
+- Thymeleaf
+- Jakarta Validation (jakarta.validation.constraints)
+- Java CSV出力（OpenCSV等は使用しない）
+- MyBatis</pre>
+            </div>
+          </div>
 
         </section>
 
@@ -99,11 +329,110 @@
         <section class="section" id="func06">
           <h2 class="section-title"><span class="section-icon">6</span> ファイルアップロード</h2>
 
+          <div class="fill-block">
+            <div class="fill-label">機能概要</div>
+            <div class="fill-hint">画像・資料ファイルの安全なアップロード</div>
+            <div class="fill-content">
+              <p>・単体/複数ファイルのアップロード</p>
+              <p>・拡張子・サイズのバリデーション</p>
+              <p>・保存先管理とファイル参照</p>
+            </div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">プロンプト例（ファイルアップロード）</div>
+            <div class="fill-content code-block">
+              <pre>あなたは Spring Boot アプリのファイルアップロード機能を実装するエンジニアです。
+以下要件を満たす「Controller / Service / Repository(MyBatis可) / HTML(Thymeleaf)」の実装例を提示してください。
+
+# 対象
+- フォームから画像・資料ファイルをアップロードする
+- 例: プロフィール画像、添付資料（PDF）
+
+# 要件
+- Multipart/form-data で受け取る
+- 許可拡張子を制限する（例: jpg, jpeg, png, pdf）
+- 1ファイルあたり最大サイズを制限する（例: 5MB）
+- ファイル名の衝突を避けるため保存名を一意化する
+- FileStorageServiceでファイル保存（UUID形式のファイル名に変換）
+- 保存先は環境変数/設定ファイルで切り替え可能にする
+- 不正ファイル（拡張子偽装、空ファイル）を弾く
+- アップロード成功時は保存パス/メタ情報をDBへ保存する
+- 権限のないユーザーはアップロード不可
+- エラー時は日本語メッセージを返す
+
+# 出力してほしい内容
+1. アップロード用DTO（バリデーション付き）
+2. Controller の受け取り処理
+3. Service の保存ロジック（ファイル検証・保存・DB登録）
+4. Repository / Mapper のメタ情報保存SQL
+5. HTML（アップロードフォーム、エラー表示、アップロード結果表示）
+6. テスト観点（正常系/サイズ超過/拡張子不正/空ファイル/権限）
+
+# 技術スタック
+- Spring Boot 4.x
+- MultipartFile
+- Thymeleaf
+- Jakarta Validation (jakarta.validation.constraints)
+- MyBatis</pre>
+            </div>
+          </div>
+
         </section>
 
         <!-- 機能07: 削除確認ダイアログ -->
         <section class="section" id="func07">
           <h2 class="section-title"><span class="section-icon">7</span> 削除確認ダイアログ</h2>
+
+          <div class="fill-block">
+            <div class="fill-label">機能概要</div>
+            <div class="fill-hint">削除操作の誤実行を防ぐ確認UI</div>
+            <div class="fill-content">
+              <p>・削除前に確認ダイアログを表示</p>
+              <p>・対象データ名を明示して確認</p>
+              <p>・キャンセル時は状態を保持</p>
+            </div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">プロンプト例（削除確認ダイアログ）</div>
+            <div class="fill-content code-block">
+              <pre>あなたは Spring Boot アプリの削除確認ダイアログ機能を実装するエンジニアです。
+以下要件を満たす「Controller / Service / Repository(MyBatis可) / HTML(Thymeleaf) / JavaScript」の実装例を提示してください。
+
+# 対象
+- 一覧画面の各レコード（例: appointments テーブル）
+- 削除ボタン押下時に確認ダイアログを表示する
+
+# 要件
+- ダイアログには対象IDと対象名を表示する
+- 削除ボタンクリック時にJavaScriptで確認ダイアログを表示
+- 「本当に削除しますか？」というメッセージを表示
+- 「OK」「キャンセル」の2操作を用意する
+- キャンセル時は何も変更せず画面状態（検索・ページ）を保持
+- Enterキー誤操作で即削除されない設計にする
+- 削除実行時はCSRF対策を有効にする
+- 削除方式は論理削除（deleted_at 更新）を採用
+- 削除成功/失敗のメッセージを一覧画面で表示する
+- 権限のないユーザーの削除導線は非表示または無効化する
+- 可能であればモーダルダイアログで実装
+
+# 出力してほしい内容
+1. Controller の削除処理（POST/DELETE）
+2. Service の削除ロジック（存在確認、削除済み判定）
+3. Repository / Mapper の更新SQL
+4. 一覧HTML（削除ボタン、モーダル構造、メッセージ表示）
+5. JavaScript（モーダル開閉、対象情報の差し込み）
+6. テスト観点（正常系/キャンセル/権限なし/二重送信）
+
+# 技術スタック
+- JavaScript (confirm() または カスタムモーダル)
+- Spring Boot 4.x (DELETE処理)
+- Thymeleaf
+- Jakarta Validation (jakarta.validation.constraints)
+- MyBatis</pre>
+            </div>
+          </div>
 
         </section>
 
@@ -111,11 +440,104 @@
         <section class="section" id="func08">
           <h2 class="section-title"><span class="section-icon">8</span> 一括削除</h2>
 
+          <div class="fill-block">
+            <div class="fill-label">機能概要</div>
+            <div class="fill-hint">複数レコードの選択削除を安全に実行</div>
+            <div class="fill-content">
+              <p>・チェックボックスで複数選択</p>
+              <p>・確認ダイアログを経由して削除実行</p>
+              <p>・成功/失敗件数をユーザーに通知</p>
+            </div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">プロンプト例（一括削除）</div>
+            <div class="fill-content code-block">
+              <pre>あなたは Spring Boot アプリの一括削除機能を実装するエンジニアです。
+以下要件を満たす「Controller / Service / Repository(MyBatis可) / HTML(Thymeleaf)」の実装例を提示してください。
+
+# 対象
+- 一覧画面のレコード（例: appointments テーブル）
+- チェックボックスで複数IDを選択して削除する
+
+# 要件
+- 1件以上選択時のみ削除実行可能
+- 未選択時は警告メッセージを表示
+- 削除前に確認ダイアログを表示する
+- 削除方式は論理削除（deleted_at 更新）を採用
+- 権限のないユーザーは削除不可
+- 一括削除はトランザクションで実行し、整合性を担保する
+- 存在しないIDや削除済みIDが混在しても安全に処理する
+- 実行結果（対象件数、成功件数、失敗件数）を画面表示する
+- 検索条件・ページネーション状態を保持したまま実行後に一覧へ戻す
+
+# 出力してほしい内容
+1. 一括削除リクエストDTO（IDリスト、バリデーション付き）
+2. Controller の一括削除処理
+3. Service の削除ロジック（トランザクション、件数集計）
+4. Repository / Mapper の一括更新SQL
+5. 一覧HTML（チェックボックス、全選択、削除ボタン、確認UI）
+6. テスト観点（正常系/未選択/権限なし/混在ID/ロールバック）
+
+# 技術スタック
+- Spring Boot 4.x (@RequestParam List)
+- Thymeleaf
+- JavaScript (チェックボックス制御)
+- Jakarta Validation (jakarta.validation.constraints)
+- MyBatis (IN句で一括削除)</pre>
+            </div>
+          </div>
+
         </section>
 
         <!-- 機能09: ステータス管理 -->
         <section class="section" id="func09">
           <h2 class="section-title"><span class="section-icon">9</span> ステータス管理</h2>
+
+          <div class="fill-block">
+            <div class="fill-label">機能概要</div>
+            <div class="fill-hint">業務データの状態遷移を管理</div>
+            <div class="fill-content">
+              <p>・ステータスの一覧表示と更新</p>
+              <p>・遷移可能な状態の制御</p>
+              <p>・更新履歴の記録</p>
+            </div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">プロンプト例（ステータス管理）</div>
+            <div class="fill-content code-block">
+              <pre>あなたは Spring Boot アプリのステータス管理機能を実装するエンジニアです。
+以下要件を満たす「Controller / Service / Repository(MyBatis可) / HTML(Thymeleaf)」の実装例を提示してください。
+
+# 対象
+- 業務データ（例: appointments テーブル）
+- ステータス例: DRAFT, ACTIVE, DONE, CANCELLED
+
+# 要件
+- ステータスは定義済みの値のみ受け付ける（Enumで管理）
+- 許可された遷移のみ更新可能にする（例: DRAFT→ACTIVE→DONE）
+- 不正な遷移はエラーとして日本語メッセージを返す
+- 一覧画面でステータス絞り込み可能にする
+- ステータス更新時に更新者・更新日時を記録する
+- 楽観ロックまたは更新競合対策を考慮する
+- 監査ログ（変更前/変更後）を残せる構成にする
+
+# 出力してほしい内容
+1. ステータスEnumとDTO（バリデーション付き）
+2. Controller のステータス更新API/画面処理
+3. Service の遷移チェックロジック
+4. Repository / Mapper の更新SQL
+5. 一覧HTML（ステータス表示・絞り込み・更新導線）
+6. テスト観点（正常系/不正遷移/競合更新/境界値）
+
+# 技術スタック
+- Spring Boot 4.x
+- Thymeleaf
+- Jakarta Validation (jakarta.validation.constraints)
+- MyBatis</pre>
+            </div>
+          </div>
 
         </section>
 
@@ -123,9 +545,55 @@
         <section class="section" id="func10">
           <h2 class="section-title"><span class="section-icon">10</span> カテゴリ管理</h2>
 
+          <div class="fill-block">
+            <div class="fill-label">機能概要</div>
+            <div class="fill-hint">カテゴリの登録・編集・削除・一覧管理</div>
+            <div class="fill-content">
+              <p>・カテゴリマスタのCRUD</p>
+              <p>・重複名チェックと入力バリデーション</p>
+              <p>・利用中カテゴリの削除制御</p>
+            </div>
+          </div>
+
+          <div class="fill-block">
+            <div class="fill-label">プロンプト例（カテゴリ管理）</div>
+            <div class="fill-content code-block">
+              <pre>あなたは Spring Boot アプリのカテゴリ管理機能を実装するエンジニアです。
+以下要件を満たす「Controller / Service / Repository(MyBatis可) / HTML(Thymeleaf)」の実装例を提示してください。
+
+# 対象
+- カテゴリマスタ（例: categories テーブル）
+- 管理画面でカテゴリの追加・編集・削除・一覧表示を行う
+
+# 要件
+- カテゴリ名は必須、1〜50文字
+- カテゴリ名は重複不可（大文字小文字・前後空白の扱いも定義）
+- 表示順（sort_order）は0以上の整数
+- 一覧は表示順→カテゴリ名でソート
+- 論理削除（deleted_at）を採用し、通常一覧には非表示
+- 他テーブルで使用中のカテゴリは削除不可（または削除前に確認）
+- 登録・更新・削除時に日本語メッセージを表示
+- 一覧画面で検索（カテゴリ名部分一致）できるようにする
+
+# 出力してほしい内容
+1. カテゴリDTO（作成/更新/検索、バリデーション付き）
+2. Controller のCRUD処理
+3. Service の業務ロジック（重複チェック、削除可否判定）
+4. Repository / Mapper のSQL実装
+5. 管理画面HTML（一覧、登録フォーム、編集フォーム、削除導線）
+6. テスト観点（正常系/重複/使用中削除/境界値）
+
+# 技術スタック
+- Spring Boot 4.x
+- Thymeleaf
+- Jakarta Validation (jakarta.validation.constraints)
+- MyBatis (JOINクエリ)</pre>
+            </div>
+          </div>
+
         </section>
 
-        
+
 
       </div>
     </main>
@@ -133,4 +601,5 @@
 
   <script src="../js/main.js"></script>
 </body>
+
 </html>

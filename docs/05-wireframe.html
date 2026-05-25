@@ -14,6 +14,7 @@
         radial-gradient(circle at 2% 0%, rgba(59, 130, 246, 0.08), transparent 25%),
         radial-gradient(circle at 100% 10%, rgba(20, 184, 166, 0.08), transparent 22%);
     }
+
     .doc-header {
       background: linear-gradient(120deg, #0f172a 0%, #1d4ed8 58%, #0ea5a4 100%);
       color: #f8fafc;
@@ -22,29 +23,35 @@
       box-shadow: 0 16px 30px rgba(15, 23, 42, 0.2);
       margin-bottom: 18px;
     }
+
     .doc-header .doc-category,
     .doc-header .doc-meta,
     .doc-header .doc-meta .material-symbols-outlined {
       color: #dbeafe;
     }
+
     .doc-header .doc-title {
       color: #f8fafc;
     }
+
     .external-link-box {
       border: 1px solid #cfe3ff;
       background: linear-gradient(180deg, #f8fbff 0%, #f2fcfb 100%);
       border-radius: 14px;
       box-shadow: 0 8px 22px rgba(37, 99, 235, 0.08);
     }
+
     .external-link-box-title {
       color: #1e3a8a;
       font-weight: 700;
     }
+
     .external-link-input input {
       border: 1px solid #b7cff7;
       background: #fff;
       border-radius: 10px;
     }
+
     .section {
       border: 1px solid #d7e5f6;
       border-radius: 14px;
@@ -53,11 +60,13 @@
       padding: 16px;
       margin-bottom: 16px;
     }
+
     .section-title {
       border-left: 6px solid #14b8a6;
       padding-left: 10px;
       color: #0f172a;
     }
+
     .fill-block {
       border: 1px solid #e2e8f0;
       border-radius: 12px;
@@ -65,13 +74,16 @@
       padding: 12px;
       margin-top: 12px;
     }
+
     .fill-label {
       color: #1d4ed8;
       font-weight: 700;
     }
+
     .fill-hint {
       color: #64748b;
     }
+
     .doc-table {
       border-collapse: separate;
       border-spacing: 0;
@@ -80,32 +92,39 @@
       overflow: hidden;
       box-shadow: 0 8px 18px rgba(37, 99, 235, 0.07);
     }
+
     .doc-table thead th {
       background: linear-gradient(135deg, #eaf2ff 0%, #e8faf6 100%);
       color: #0f172a;
       font-weight: 700;
       border-bottom: 1px solid #d6e2f3;
     }
+
     .doc-table tbody tr:nth-child(even) td {
       background: #f8fbff;
     }
+
     .doc-table tbody tr:hover td {
       background: #eef6ff;
     }
+
     .toc {
       border: 1px solid #d7e5f6;
       border-radius: 12px;
       background: #ffffff;
       box-shadow: 0 8px 16px rgba(15, 23, 42, 0.04);
     }
+
     .toc-title {
       color: #1e3a8a;
       font-weight: 700;
     }
+
     .intent-list {
       display: grid;
       gap: 12px;
     }
+
     .intent-item {
       border: 1px solid #dbe7f7;
       background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
@@ -113,6 +132,7 @@
       padding: 12px 14px;
       box-shadow: 0 6px 14px rgba(15, 23, 42, 0.05);
     }
+
     .intent-title {
       display: inline-block;
       margin-bottom: 8px;
@@ -193,9 +213,9 @@
             <div class="fill-content">
               <p>【PCワイヤー（12カラム基準）】</p>
               <p> ・コンテナ幅：min(960px, 82vw)<br>
-                 ・PC切替：768px以上<br>
-                 ・セクション間余白：36px<br>
-                 ・構成：2カラム + 3カラムカードの組み合わせ</p>
+                ・PC切替：768px以上<br>
+                ・セクション間余白：36px<br>
+                ・構成：2カラム + 3カラムカードの組み合わせ</p>
               <p>1. ヘッダー（min-height 56px / sticky）<br>
                 　左：ブランド名 / 右：横並びナビ（トップ / 総合案内 / 導入事例と実績 / ログイン / お問い合わせ）</p>
               <p>2. ヒーロー（`.hero-grid`）<br>
@@ -215,47 +235,67 @@
                 　主要CTAはヒーロー内で横並び（`display:flex` / `gap:10px`）に配置</p>
               <p>9. フッター（`.footer-grid`）<br>
                 　リンク群を横方向に配置し、運営情報・法務・サポートへ到達しやすくする</p>
-              <p>ワイヤーフレーム画像配置：<br>
-                &lt;img src=&quot;../images/wireframe/top-pc.png&quot; alt=&quot;トップページ PC版 ワイヤーフレーム&quot;&gt;</p>
-              <p><img src="../img/index.png" alt="top.html のスクリーンショット（PC版）" style="max-width:100%; height:auto; border:1px solid #dbe3ef; border-radius:10px;"></p>
-          </div>
-        </div>
-        <div class="fill-block">
-          <div class="fill-label">配置意図の説明 <span class="required">必須</span></div>
-          <div class="fill-hint">各セクションの配置理由とユーザーへの効果</div>
-          <div class="fill-content intent-list">
-            <div class="intent-item">
-              <span class="intent-title">【ヘッダー】</span>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span style="flex:1 1 auto;">全ページ共通で最上部に固定し、どの閲覧タイミングでも主要導線（サービス紹介・ご利用の流れ・運営情報・お問い合わせ・ログイン）へ即アクセスできるようにするため。</span></p>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　ユーザーへの効果：</span><span style="flex:1 1 auto;">迷子になりにくく、比較検討中でもすぐに必要情報へ戻れる。行動（相談/ログイン）への心理的ハードルが下がる。</span></p>
-            </div>
-            <div class="intent-item">
-              <span class="intent-title">【ヒーローセクション】</span>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span style="flex:1 1 auto;">ファーストビューに配置し、サービス価値と対象ユーザーへの適合性を最初の数秒で伝えるため。CTAも同時配置して初動離脱を防ぐため。</span></p>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　ユーザーへの効果：</span><span style="flex:1 1 auto;">「自分向けサービスか」を短時間で判断でき、次の行動（詳細閲覧・相談予約）へ自然に進める。</span></p>
-            </div>
-            <div class="intent-item">
-              <span class="intent-title">【サービス紹介】</span>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span style="flex:1 1 auto;">ヒーロー直下に置き、興味を持った直後に機能の具体像（健康記録・AIチェック・診療連携）を提示するため。</span></p>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　ユーザーへの効果：</span><span style="flex:1 1 auto;">抽象的な魅力だけでなく、利用時のイメージが明確になる。比較検討時の理解コストが下がる。</span></p>
-            </div>
-            <div class="intent-item">
-              <span class="intent-title">【実績】</span>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span style="flex:1 1 auto;">機能理解の後段に配置し、導入判断の直前で信頼情報（事例・数値）を提示するため。</span></p>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　ユーザーへの効果：</span><span style="flex:1 1 auto;">「本当に効果があるか」という不安を軽減し、意思決定を後押しできる。</span></p>
-            </div>
-            <div class="intent-item">
-              <span class="intent-title">【CTA】</span>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span style="flex:1 1 auto;">ヒーロー内に主要CTAを配置し、価値理解の初期段階で即行動できるようにするため。</span></p>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　ユーザーへの効果：</span><span style="flex:1 1 auto;">検討から申込みへの遷移がスムーズになり、離脱前にアクションを取りやすくなる。</span></p>
-            </div>
-            <div class="intent-item">
-              <span class="intent-title">【フッター】</span>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span style="flex:1 1 auto;">ページ末尾に法務情報・運営情報・補助リンクを集約し、最終確認ニーズに対応するため。</span></p>
-              <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　ユーザーへの効果：</span><span style="flex:1 1 auto;">信頼性確認（規約・プライバシー・運営者情報）がしやすくなり、安心して申込み判断できる。</span></p>
+              <p>　ワイヤーフレーム画像配置：<br>
+                　&lt;img src=&quot;../img/index.png&quot; alt=&quot;トップページ PC版 ワイヤーフレーム&quot;&gt;</p>
+              <p><img src="../img/index.png" alt="top.html のスクリーンショット（PC版）"
+                  style="max-width:100%; height:auto; border:1px solid #dbe3ef; border-radius:10px;"></p>
             </div>
           </div>
-        </div>
+          <div class="fill-block">
+            <div class="fill-label">配置意図の説明 <span class="required">必須</span></div>
+            <div class="fill-hint">各セクションの配置理由とユーザーへの効果</div>
+            <div class="fill-content intent-list">
+              <div class="intent-item">
+                <span class="intent-title">【ヘッダー】</span>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span
+                    style="flex:1 1 auto;">全ページ共通で最上部に固定し、どの閲覧タイミングでも主要導線（サービス紹介・ご利用の流れ・運営情報・お問い合わせ・ログイン）へ即アクセスできるようにするため。</span>
+                </p>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span
+                    style="flex:0 0 auto;">　ユーザーへの効果：</span><span
+                    style="flex:1 1 auto;">迷子になりにくく、比較検討中でもすぐに必要情報へ戻れる。行動（相談/ログイン）への心理的ハードルが下がる。</span></p>
+              </div>
+              <div class="intent-item">
+                <span class="intent-title">【ヒーローセクション】</span>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span
+                    style="flex:1 1 auto;">ファーストビューに配置し、サービス価値と対象ユーザーへの適合性を最初の数秒で伝えるため。CTAも同時配置して初動離脱を防ぐため。</span></p>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span
+                    style="flex:0 0 auto;">　ユーザーへの効果：</span><span
+                    style="flex:1 1 auto;">「自分向けサービスか」を短時間で判断でき、次の行動（詳細閲覧・相談予約）へ自然に進める。</span></p>
+              </div>
+              <div class="intent-item">
+                <span class="intent-title">【サービス紹介】</span>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span
+                    style="flex:1 1 auto;">ヒーロー直下に置き、興味を持った直後に機能の具体像（健康記録・AIチェック・診療連携）を提示するため。</span></p>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span
+                    style="flex:0 0 auto;">　ユーザーへの効果：</span><span
+                    style="flex:1 1 auto;">抽象的な魅力だけでなく、利用時のイメージが明確になる。比較検討時の理解コストが下がる。</span></p>
+              </div>
+              <div class="intent-item">
+                <span class="intent-title">【実績】</span>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span
+                    style="flex:1 1 auto;">機能理解の後段に配置し、導入判断の直前で信頼情報（事例・数値）を提示するため。</span></p>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span
+                    style="flex:0 0 auto;">　ユーザーへの効果：</span><span
+                    style="flex:1 1 auto;">「本当に効果があるか」という不安を軽減し、意思決定を後押しできる。</span></p>
+              </div>
+              <div class="intent-item">
+                <span class="intent-title">【CTA】</span>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span
+                    style="flex:1 1 auto;">ヒーロー内に主要CTAを配置し、価値理解の初期段階で即行動できるようにするため。</span></p>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span
+                    style="flex:0 0 auto;">　ユーザーへの効果：</span><span
+                    style="flex:1 1 auto;">検討から申込みへの遷移がスムーズになり、離脱前にアクションを取りやすくなる。</span></p>
+              </div>
+              <div class="intent-item">
+                <span class="intent-title">【フッター】</span>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span style="flex:0 0 auto;">　なぜその位置か：</span><span
+                    style="flex:1 1 auto;">ページ末尾に法務情報・運営情報・補助リンクを集約し、最終確認ニーズに対応するため。</span></p>
+                <p style="display:flex;align-items:flex-start;gap:0;"><span
+                    style="flex:0 0 auto;">　ユーザーへの効果：</span><span
+                    style="flex:1 1 auto;">信頼性確認（規約・プライバシー・運営者情報）がしやすくなり、安心して申込み判断できる。</span></p>
+              </div>
+            </div>
+          </div>
 
         </section>
 
@@ -324,10 +364,11 @@
                 　主要リンクを縦方向に配置し、モバイルでの到達性を優先</p>
               <p>　切替ルール：768px未満は1カラム（ドロワーナビ）。768px以上でPCレイアウト（ナビ常時表示、カード3列、ヒーロー2カラム）へ切替。</p>
               <p>　ワイヤーフレーム画像配置：<br>
-                &lt;img src=&quot;../images/wireframe/top-sp.png&quot; alt=&quot;トップページ スマートフォン版 ワイヤーフレーム&quot;&gt;</p>
-              <p><img src="../img/m_index.png" alt="top_sp.html のスクリーンショット（スマートフォン版）" style="max-width:100%; height:auto; border:1px solid #dbe3ef; border-radius:10px;"></p>
+                　&lt;img src=&quot;../img/m_index.png&quot; alt=&quot;トップページ スマートフォン版 ワイヤーフレーム&quot;&gt;</p>
+              <p><img src="../img/m_index.png" alt="top_sp.html のスクリーンショット（スマートフォン版）"
+                  style="max-width:100%; height:auto; border:1px solid #dbe3ef; border-radius:10px;"></p>
+            </div>
           </div>
-        </div>
 
         </section>
 

@@ -148,6 +148,32 @@
               </div>
             </div>
 
+            <div class="subsection">
+              <h3 class="subsection-title">前提条件</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>Entityクラスが作成済みであること</li>
+                <li>Repository（Mapper）で必要なCRUDメソッドが定義済みであること</li>
+                <li>業務仕様に必要な処理内容が整理されていること</li>
+              </ul>
+            </div>
+
+            <div class="subsection" style="margin-top: 20px;">
+              <h3 class="subsection-title">期待される出力</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>Serviceインターフェース</li>
+                <li>Service実装クラス（@Service）</li>
+                <li>一覧取得・詳細取得・登録・更新・削除などのメソッド</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">確認ポイント</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>@Serviceアノテーションが付与されているか</li>
+                <li>Repositoryがコンストラクタインジェクションで利用されているか</li>
+                <li>Controllerに依存しないビジネスロジックとして整理されているか</li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -162,6 +188,32 @@
               </div>
             </div>
 
+            <div class="subsection">
+              <h3 class="subsection-title">前提条件</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>Serviceクラスが作成済みであること</li>
+                <li>画面遷移とURL設計が整理されていること</li>
+                <li>一覧・詳細・登録・編集・削除の処理要件が決まっていること</li>
+              </ul>
+            </div>
+
+            <div class="subsection" style="margin-top: 20px;">
+              <h3 class="subsection-title">期待される出力</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>Controllerクラス（@Controller）</li>
+                <li>@GetMapping / @PostMapping を使用したリクエスト処理</li>
+                <li>Modelへのデータ設定と遷移先テンプレート名の返却</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">確認ポイント</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>URLとメソッドの対応が分かりやすいか</li>
+                <li>Serviceを経由してデータ操作を行っているか</li>
+                <li>登録・更新後にリダイレクトして二重送信を防いでいるか</li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -176,6 +228,32 @@
               </div>
             </div>
 
+            <div class="subsection">
+              <h3 class="subsection-title">前提条件</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>Controllerから一覧データがModelに設定されていること</li>
+                <li>表示項目と画面レイアウトが決まっていること</li>
+                <li>Thymeleafが依存関係に追加されていること</li>
+              </ul>
+            </div>
+
+            <div class="subsection" style="margin-top: 20px;">
+              <h3 class="subsection-title">期待される出力</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>一覧画面テンプレート（例：list.html）</li>
+                <li>詳細画面テンプレート（必要に応じて detail.html）</li>
+                <li>詳細・編集・削除など各操作へのリンク</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">確認ポイント</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>th:each で一覧データを正しく表示できているか</li>
+                <li>th:text / th:href などのThymeleaf属性が正しいか</li>
+                <li>データが0件の場合の表示が考慮されているか</li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -190,6 +268,32 @@
               </div>
             </div>
 
+            <div class="subsection">
+              <h3 class="subsection-title">前提条件</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>登録・編集用のControllerメソッドが作成済みであること</li>
+                <li>入力項目とバリデーションルールが整理されていること</li>
+                <li>フォームに渡すオブジェクト名が決まっていること</li>
+              </ul>
+            </div>
+
+            <div class="subsection" style="margin-top: 20px;">
+              <h3 class="subsection-title">期待される出力</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>登録画面テンプレート（例：create.html）</li>
+                <li>編集画面テンプレート（例：edit.html）</li>
+                <li>入力フォーム、送信ボタン、戻るリンク</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">確認ポイント</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>th:object / th:field が正しく設定されているか</li>
+                <li>編集画面で既存データが初期表示されるか</li>
+                <li>入力エラー時にエラーメッセージを表示できるか</li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -204,6 +308,32 @@
               </div>
             </div>
 
+            <div class="subsection">
+              <h3 class="subsection-title">前提条件</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>Spring Securityの依存関係が追加されていること</li>
+                <li>ユーザー情報の管理方法（DBまたはメモリ）が決まっていること</li>
+                <li>ログイン後に表示する画面と保護対象URLが整理されていること</li>
+              </ul>
+            </div>
+
+            <div class="subsection" style="margin-top: 20px;">
+              <h3 class="subsection-title">期待される出力</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>SecurityConfigクラス</li>
+                <li>ログイン画面テンプレート（login.html）</li>
+                <li>認証後のリダイレクト設定とログアウト設定</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">確認ポイント</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>未ログイン時に保護画面へアクセスするとログイン画面へ遷移するか</li>
+                <li>ログイン成功・失敗時の挙動が正しいか</li>
+                <li>CSRFやパスワード暗号化の設定が適切か</li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -218,6 +348,32 @@
               </div>
             </div>
 
+            <div class="subsection">
+              <h3 class="subsection-title">前提条件</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>主要な画面テンプレートが作成済みであること</li>
+                <li>共通レイアウト、配色、余白、ボタンの方針が決まっていること</li>
+                <li>CSSファイルの配置場所が決まっていること</li>
+              </ul>
+            </div>
+
+            <div class="subsection" style="margin-top: 20px;">
+              <h3 class="subsection-title">期待される出力</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>共通CSSファイル（例：style.css）</li>
+                <li>ヘッダー、一覧表、フォーム、ボタンのスタイル</li>
+                <li>各テンプレートへのCSS読み込み設定</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">確認ポイント</h3>
+              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+                <li>全画面でCSSが正しく読み込まれているか</li>
+                <li>PC・スマートフォンの両方で表示が崩れていないか</li>
+                <li>ボタンやリンクなど操作要素が見分けやすいか</li>
+              </ul>
+            </div>
           </div>
         </section>
 
