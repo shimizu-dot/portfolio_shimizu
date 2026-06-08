@@ -722,6 +722,14 @@ textarea:focus-visible {
   margin-top: 2px;
 }
 
+.form-status {
+  display: block;
+  min-height: 1.5em;
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

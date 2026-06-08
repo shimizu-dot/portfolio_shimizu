@@ -216,4 +216,56 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Contact form submit via Formspree
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const status = document.getElementById('contact-form-status');
+    if (status) {
+      status.classList.add('form-status');
+    }
+
+    const setContactStatus = (message, color) => {
+      if (!status) return;
+      status.textContent = message;
+      status.style.color = color;
+      status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
+
+    const clearContactStatus = () => {
+      if (!status) return;
+      status.textContent = '';
+      status.style.color = '';
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      if (!submitBtn || !status) return;
+
+      submitBtn.disabled = true;
+      setContactStatus('送信中...', '#374151');
+
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' }
+        });
+
+        if (res.ok) {
+          contactForm.reset();
+          clearContactStatus();
+          window.alert('お問い合わせを送信しました。2〜3営業日以内にご返事いたします。');
+        } else {
+          setContactStatus('送信に失敗しました。時間をおいて再度お試しください。', '#b91c1c');
+        }
+      } catch (_) {
+        setContactStatus('通信エラーが発生しました。ネットワーク接続を確認してください。', '#b91c1c');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
 });
