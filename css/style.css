@@ -699,6 +699,15 @@ textarea:focus-visible {
   color: var(--text-light);
 }
 
+.work-url {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.work-url-small {
+  font-size: 10px;
+}
+
 .contact-form {
   display: grid;
   gap: 10px;
