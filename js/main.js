@@ -81,9 +81,57 @@ function generateNavigation() {
   sidebar.innerHTML = navHTML;
 }
 
+function positionMochiDisplay() {
+  const grid = document.querySelector('.card-grid-docs');
+  const designGuideCard = document.querySelector('.card-design-guide');
+  const mochiDisplay = document.querySelector('.mochi-display');
+  const mochiImage = mochiDisplay?.querySelector('img');
+
+  if (!grid || !designGuideCard || !mochiDisplay) return;
+  if (mochiImage && !mochiImage.dataset.floatAnimated) {
+    mochiImage.animate(
+      [
+        { transform: 'translateX(-20px)' },
+        { transform: 'translateX(0px)' },
+        { transform: 'translateX(20px)' },
+        { transform: 'translateX(0px)' },
+        { transform: 'translateX(-20px)' }
+      ],
+      {
+        duration: 2400,
+        iterations: Infinity,
+        easing: 'ease-in-out'
+      }
+    );
+    mochiImage.dataset.floatAnimated = 'true';
+  }
+
+  if (window.innerWidth <= 768) {
+    mochiDisplay.classList.remove('is-script-positioned');
+    mochiDisplay.style.left = '';
+    mochiDisplay.style.top = '';
+    mochiDisplay.style.width = '';
+    return;
+  }
+
+  const gridRect = grid.getBoundingClientRect();
+  const cardRect = designGuideCard.getBoundingClientRect();
+  const computedGrid = window.getComputedStyle(grid);
+  const columnGap = parseFloat(computedGrid.columnGap || computedGrid.gap || '24') || 24;
+  const targetWidth = cardRect.width;
+  const left = cardRect.left - gridRect.left;
+  const top = cardRect.bottom - gridRect.top + columnGap;
+
+  mochiDisplay.classList.add('is-script-positioned');
+  mochiDisplay.style.left = `${left}px`;
+  mochiDisplay.style.top = `${top}px`;
+  mochiDisplay.style.width = `${targetWidth}px`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // ナビゲーションを生成
   generateNavigation();
+  positionMochiDisplay();
 
   // Sidebar toggle for mobile
   const hamburger = document.querySelector('.hamburger');
@@ -97,8 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close sidebar when clicking outside
     document.addEventListener('click', (e) => {
       if (sidebar.classList.contains('open') &&
-          !sidebar.contains(e.target) &&
-          !hamburger.contains(e.target)) {
+        !sidebar.contains(e.target) &&
+        !hamburger.contains(e.target)) {
         sidebar.classList.remove('open');
       }
     });
@@ -157,6 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  window.addEventListener('resize', positionMochiDisplay);
+
   // Login form submit
   const loginForm = document.getElementById('login-form');
   if (loginForm) {
@@ -193,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let parsed = text;
         try {
           parsed = text ? JSON.parse(text) : {};
-        } catch (_) {}
+        } catch (_) { }
 
         responseJson.textContent =
           typeof parsed === 'string' ? parsed : JSON.stringify(parsed, null, 2);
