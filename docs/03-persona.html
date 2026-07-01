@@ -108,6 +108,21 @@
       background: #eef6ff;
     }
 
+    .digital-behavior-table {
+      table-layout: fixed;
+    }
+
+    .digital-behavior-table th:first-child,
+    .digital-behavior-table td:first-child {
+      width: 30%;
+      white-space: nowrap;
+    }
+
+    .digital-behavior-table th:last-child,
+    .digital-behavior-table td:last-child {
+      width: 70%;
+    }
+
     .toc {
       border: 1px solid #d7e5f6;
       border-radius: 12px;
@@ -179,7 +194,7 @@
           <div class="fill-block">
             <div class="fill-label">ペルソナ基本情報 <span class="required">必須</span></div>
             <div class="fill-hint">架空の人物として具体的に設定してください</div>
-            <table class="doc-table">
+            <table class="doc-table digital-behavior-table">
               <thead>
                 <tr>
                   <th>項目</th>
@@ -275,7 +290,7 @@
           <div class="fill-block">
             <div class="fill-label">使用デバイス・サービス <span class="required">必須</span></div>
             <div class="fill-hint">日常的に使用するデバイス、SNS、Webサービス</div>
-            <table class="doc-table">
+            <table class="doc-table digital-behavior-table">
               <thead>
                 <tr>
                   <th>項目</th>
