@@ -31,352 +31,297 @@
 
       <div class="doc-body">
 
-
         <div class="toc">
           <div class="toc-title">目次</div>
           <ol class="toc-list">
             <li><a href="#step01">STEP 01: プロジェクト作成</a></li>
             <li><a href="#step02">STEP 02: Entity作成</a></li>
-            <li><a href="#step03">STEP 03: Repository作成</a></li>
-            <li><a href="#step04">STEP 04: Service作成</a></li>
-            <li><a href="#step05">STEP 05: Controller作成</a></li>
-            <li><a href="#step06">STEP 06: View作成（一覧画面）</a></li>
-            <li><a href="#step07">STEP 07: View作成（登録・編集画面）</a></li>
-            <li><a href="#step08">STEP 08: 認証機能</a></li>
-            <li><a href="#step09">STEP 09: 画面デザイン適用</a></li>
+            <li><a href="#step03">STEP 03: Repository作成（MyBatis Mapper）</a></li>
+            <li><a href="#step04">STEP 04: Service作成（ビジネスロジック）</a></li>
+            <li><a href="#step05">STEP 05: Controller作成（画面遷移）</a></li>
+            <li><a href="#step06">STEP 06: View作成（一覧）</a></li>
+            <li><a href="#step07">STEP 07: View作成（登録・編集）</a></li>
+            <li><a href="#step08">STEP 08: 認証（Spring Security）</a></li>
+            <li><a href="#step09">STEP 09: 画面デザイン（共通CSS）</a></li>
           </ol>
         </div>
 
         <!-- STEP 01 -->
         <section class="section" id="step01">
-          <div class="step-card">
-            <div class="step-header">
-              <div class="step-number">01</div>
-              <div>
-                <div class="step-title">プロジェクト作成</div>
-                <div class="step-desc">Spring Initializrでプロジェクトを作成し、基本設定を行う</div>
-              </div>
-            </div>
+          <h2 class="section-title"><span class="section-icon">01</span> プロジェクト作成</h2>
+          <p class="fill-hint">Spring Initializrでプロジェクトを作成し、基本設定を行う</p>
 
-            <div class="subsection">
-              <h3 class="subsection-title">前提条件</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>Java 21以上がインストールされていること</li>
-                <li>Maven または Gradle が使用可能なこと</li>
-                <li>IDE（Eclipse、IntelliJ IDEA、VS Code等）が設定済みであること</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">前提条件</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>Java 25以上がインストールされていること</li>
+              <li>Maven が使用可能なこと</li>
+              <li>IDE（VS Code等）が設定済みであること</li>
+            </ul>
+          </div>
 
+          <div class="subsection" style="margin-top: 20px;">
+            <h3 class="subsection-title">期待される出力</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>pom.xml（依存関係設定済み）</li>
+              <li>src/main/resources/application.properties</li>
+              <li>メインクラス（TaskAppApplication.java）</li>
+            </ul>
+          </div>
 
-            <div class="subsection" style="margin-top: 20px;">
-              <h3 class="subsection-title">期待される出力</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>pom.xml（依存関係設定済み）</li>
-                <li>src/main/resources/application.properties</li>
-                <li>メインクラス（TaskAppApplication.java）</li>
-              </ul>
-            </div>
-
-            <div class="subsection">
-              <h3 class="subsection-title">確認ポイント</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>アプリケーションが正常に起動するか</li>
-                <li>http://localhost:8080 にアクセスできるか（エラーページでもOK）</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">確認ポイント</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>アプリケーションが正常に起動するか</li>
+              <li>http://localhost:8080 にアクセスできるか（エラーページでもOK）</li>
+            </ul>
           </div>
         </section>
 
         <!-- STEP 02 -->
         <section class="section" id="step02">
-          <div class="step-card">
-            <div class="step-header">
-              <div class="step-number">02</div>
-              <div>
-                <div class="step-title">Entity作成</div>
-                <div class="step-desc">DB設計書を元にEntityクラスを作成する</div>
-              </div>
-            </div>
+          <h2 class="section-title"><span class="section-icon">02</span> Entity作成</h2>
+          <p class="fill-hint">データベース設計書を参考にEntityクラスを作成する</p>
 
-            <div class="subsection">
-              <h3 class="subsection-title">前提条件</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>DB設計書が完成していること</li>
-                <li>MySQLにデータベースとテーブルが作成済みであること</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">前提条件</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>データベース設計書が参照できること</li>
+              <li>H2にデータベースとテーブルが作成済みであること</li>
+            </ul>
+          </div>
 
-
-            <div class="subsection" style="margin-top: 20px;">
-              <h3 class="subsection-title">確認ポイント</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>フィールドの型が適切か（Long, String, LocalDate等）</li>
-                <li>Lombokアノテーションが正しく設定されているか</li>
-              </ul>
-            </div>
+          <div class="subsection" style="margin-top: 20px;">
+            <h3 class="subsection-title">確認ポイント</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>フィールドの型が適切か（Long, String, LocalDate等）</li>
+              <li>Lombokアノテーションが正しく設定されているか</li>
+            </ul>
           </div>
         </section>
 
         <!-- STEP 03 -->
         <section class="section" id="step03">
-          <div class="step-card">
-            <div class="step-header">
-              <div class="step-number">03</div>
-              <div>
-                <div class="step-title">Repository作成</div>
-                <div class="step-desc">MyBatis Mapperインターフェースを作成する</div>
-              </div>
-            </div>
+          <h2 class="section-title"><span class="section-icon">03</span> Repository作成（MyBatis Mapper）</h2>
+          <p class="fill-hint">MyBatis Mapperインターフェースを作成する</p>
 
+          <div class="subsection">
+            <h3 class="subsection-title">前提条件</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>Entityクラスが作成済みであること</li>
+              <li>MyBatis を利用できる依存関係が追加されていること</li>
+              <li>対象テーブルのカラム定義と Entity の対応方針が決まっていること</li>
+            </ul>
+          </div>
 
-            <div class="subsection" style="margin-top: 20px;">
-              <h3 class="subsection-title">確認ポイント</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>@Mapperアノテーションが付与されているか</li>
-                <li>SQLの構文が正しいか</li>
-                <li>カラム名とフィールド名のマッピングが正しいか</li>
-              </ul>
-            </div>
+          <div class="subsection" style="margin-top: 20px;">
+            <h3 class="subsection-title">確認ポイント</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>@Mapperアノテーションが付与されているか</li>
+              <li>SQLの構文が正しいか</li>
+              <li>カラム名とフィールド名のマッピングが正しいか</li>
+            </ul>
           </div>
         </section>
 
         <!-- STEP 04 -->
         <section class="section" id="step04">
-          <div class="step-card">
-            <div class="step-header">
-              <div class="step-number">04</div>
-              <div>
-                <div class="step-title">Service作成</div>
-                <div class="step-desc">ビジネスロジック層のServiceクラスを作成する</div>
-              </div>
-            </div>
+          <h2 class="section-title"><span class="section-icon">04</span> Service作成（ビジネスロジック）</h2>
+          <p class="fill-hint">ビジネスロジック層のServiceクラスを作成する</p>
 
-            <div class="subsection">
-              <h3 class="subsection-title">前提条件</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>Entityクラスが作成済みであること</li>
-                <li>Repository（Mapper）で必要なCRUDメソッドが定義済みであること</li>
-                <li>業務仕様に必要な処理内容が整理されていること</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">前提条件</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>Entityクラスが作成済みであること</li>
+              <li>Repository（Mapper）で必要なCRUDメソッドが定義済みであること</li>
+              <li>業務仕様に必要な処理内容が整理されていること</li>
+              <li>MyBatis と Lombok が利用できるよう依存関係とビルド設定が整っていること</li>
+            </ul>
+          </div>
 
-            <div class="subsection" style="margin-top: 20px;">
-              <h3 class="subsection-title">期待される出力</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>Serviceインターフェース</li>
-                <li>Service実装クラス（@Service）</li>
-                <li>一覧取得・詳細取得・登録・更新・削除などのメソッド</li>
-              </ul>
-            </div>
+          <div class="subsection" style="margin-top: 20px;">
+            <h3 class="subsection-title">期待される出力</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>Serviceインターフェース</li>
+              <li>Service実装クラス（@Service）</li>
+              <li>一覧取得・詳細取得・登録・更新・削除などのメソッド</li>
+            </ul>
+          </div>
 
-            <div class="subsection">
-              <h3 class="subsection-title">確認ポイント</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>@Serviceアノテーションが付与されているか</li>
-                <li>Repositoryがコンストラクタインジェクションで利用されているか</li>
-                <li>Controllerに依存しないビジネスロジックとして整理されているか</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">確認ポイント</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>@Serviceアノテーションが付与されているか</li>
+              <li>Repositoryがコンストラクタインジェクションで利用されているか</li>
+              <li>Controllerに依存しないビジネスロジックとして整理されているか</li>
+            </ul>
           </div>
         </section>
 
         <!-- STEP 05 -->
         <section class="section" id="step05">
-          <div class="step-card">
-            <div class="step-header">
-              <div class="step-number">05</div>
-              <div>
-                <div class="step-title">Controller作成</div>
-                <div class="step-desc">HTTPリクエストを処理するControllerを作成する</div>
-              </div>
-            </div>
+          <h2 class="section-title"><span class="section-icon">05</span> Controller作成（画面遷移）</h2>
+          <p class="fill-hint">HTTPリクエストを処理するControllerを作成する</p>
 
-            <div class="subsection">
-              <h3 class="subsection-title">前提条件</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>Serviceクラスが作成済みであること</li>
-                <li>画面遷移とURL設計が整理されていること</li>
-                <li>一覧・詳細・登録・編集・削除の処理要件が決まっていること</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">前提条件</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>Serviceクラスが作成済みであること</li>
+              <li>画面遷移とURL設計が整理されていること</li>
+              <li>一覧・詳細・登録・編集・削除の処理要件が決まっていること</li>
+            </ul>
+          </div>
 
-            <div class="subsection" style="margin-top: 20px;">
-              <h3 class="subsection-title">期待される出力</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>Controllerクラス（@Controller）</li>
-                <li>@GetMapping / @PostMapping を使用したリクエスト処理</li>
-                <li>Modelへのデータ設定と遷移先テンプレート名の返却</li>
-              </ul>
-            </div>
+          <div class="subsection" style="margin-top: 20px;">
+            <h3 class="subsection-title">期待される出力</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>Controllerクラス（@Controller）</li>
+              <li>@GetMapping / @PostMapping を使用したリクエスト処理</li>
+              <li>Modelへのデータ設定と遷移先テンプレート名の返却</li>
+            </ul>
+          </div>
 
-            <div class="subsection">
-              <h3 class="subsection-title">確認ポイント</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>URLとメソッドの対応が分かりやすいか</li>
-                <li>Serviceを経由してデータ操作を行っているか</li>
-                <li>登録・更新後にリダイレクトして二重送信を防いでいるか</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">確認ポイント</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>URLとメソッドの対応が分かりやすいか</li>
+              <li>Serviceを経由してデータ操作を行っているか</li>
+              <li>登録・更新後にリダイレクトして二重送信を防いでいるか</li>
+            </ul>
           </div>
         </section>
 
         <!-- STEP 06 -->
         <section class="section" id="step06">
-          <div class="step-card">
-            <div class="step-header">
-              <div class="step-number">06</div>
-              <div>
-                <div class="step-title">View作成（一覧画面）</div>
-                <div class="step-desc">Thymeleafテンプレートで一覧・詳細画面を作成する</div>
-              </div>
-            </div>
+          <h2 class="section-title"><span class="section-icon">06</span> View作成（一覧）</h2>
+          <p class="fill-hint">Thymeleafテンプレートで一覧・詳細画面を作成する</p>
 
-            <div class="subsection">
-              <h3 class="subsection-title">前提条件</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>Controllerから一覧データがModelに設定されていること</li>
-                <li>表示項目と画面レイアウトが決まっていること</li>
-                <li>Thymeleafが依存関係に追加されていること</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">前提条件</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>Controllerから一覧データがModelに設定されていること</li>
+              <li>表示項目と画面レイアウトが決まっていること</li>
+              <li>Thymeleafが依存関係に追加されていること</li>
+            </ul>
+          </div>
 
-            <div class="subsection" style="margin-top: 20px;">
-              <h3 class="subsection-title">期待される出力</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>一覧画面テンプレート（例：list.html）</li>
-                <li>詳細画面テンプレート（必要に応じて detail.html）</li>
-                <li>詳細・編集・削除など各操作へのリンク</li>
-              </ul>
-            </div>
+          <div class="subsection" style="margin-top: 20px;">
+            <h3 class="subsection-title">期待される出力</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>一覧画面テンプレート（例：list.html）</li>
+              <li>詳細画面テンプレート（必要に応じて detail.html）</li>
+              <li>詳細・編集・削除など各操作へのリンク</li>
+            </ul>
+          </div>
 
-            <div class="subsection">
-              <h3 class="subsection-title">確認ポイント</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>th:each で一覧データを正しく表示できているか</li>
-                <li>th:text / th:href などのThymeleaf属性が正しいか</li>
-                <li>データが0件の場合の表示が考慮されているか</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">確認ポイント</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>th:each で一覧データを正しく表示できているか</li>
+              <li>th:text / th:href などのThymeleaf属性が正しいか</li>
+              <li>データが0件の場合の表示が考慮されているか</li>
+            </ul>
           </div>
         </section>
 
         <!-- STEP 07 -->
         <section class="section" id="step07">
-          <div class="step-card">
-            <div class="step-header">
-              <div class="step-number">07</div>
-              <div>
-                <div class="step-title">View作成（登録・編集画面）</div>
-                <div class="step-desc">フォーム入力画面を作成する</div>
-              </div>
-            </div>
+          <h2 class="section-title"><span class="section-icon">07</span> View作成（登録・編集）</h2>
+          <p class="fill-hint">フォーム入力画面を作成する</p>
 
-            <div class="subsection">
-              <h3 class="subsection-title">前提条件</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>登録・編集用のControllerメソッドが作成済みであること</li>
-                <li>入力項目とバリデーションルールが整理されていること</li>
-                <li>フォームに渡すオブジェクト名が決まっていること</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">前提条件</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>登録・編集用のControllerメソッドが作成済みであること</li>
+              <li>入力項目とバリデーションルールが整理されていること</li>
+              <li>フォームに渡すオブジェクト名が決まっていること</li>
+              <li>登録画面と編集画面を共通フォームで扱う場合は遷移先を統一しておくこと</li>
+            </ul>
+          </div>
 
-            <div class="subsection" style="margin-top: 20px;">
-              <h3 class="subsection-title">期待される出力</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>登録画面テンプレート（例：create.html）</li>
-                <li>編集画面テンプレート（例：edit.html）</li>
-                <li>入力フォーム、送信ボタン、戻るリンク</li>
-              </ul>
-            </div>
+          <div class="subsection" style="margin-top: 20px;">
+            <h3 class="subsection-title">期待される出力</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>登録・編集兼用のフォームテンプレート（例：form.html）</li>
+              <li>入力フォーム、送信ボタン、戻るリンク</li>
+              <li>入力エラー時のメッセージ表示</li>
+            </ul>
+          </div>
 
-            <div class="subsection">
-              <h3 class="subsection-title">確認ポイント</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>th:object / th:field が正しく設定されているか</li>
-                <li>編集画面で既存データが初期表示されるか</li>
-                <li>入力エラー時にエラーメッセージを表示できるか</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">確認ポイント</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>th:object / th:field が正しく設定されているか</li>
+              <li>編集画面で既存データが初期表示されるか</li>
+              <li>入力エラー時にエラーメッセージを表示できるか</li>
+              <li>登録と編集で同じフォームを安全に使い回せるか</li>
+            </ul>
           </div>
         </section>
 
         <!-- STEP 08 -->
         <section class="section" id="step08">
-          <div class="step-card">
-            <div class="step-header">
-              <div class="step-number">08</div>
-              <div>
-                <div class="step-title">認証機能</div>
-                <div class="step-desc">Spring Securityでログイン機能を実装する</div>
-              </div>
-            </div>
+          <h2 class="section-title"><span class="section-icon">08</span> 認証（Spring Security）</h2>
+          <p class="fill-hint">Spring Securityでログイン機能を実装する</p>
 
-            <div class="subsection">
-              <h3 class="subsection-title">前提条件</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>Spring Securityの依存関係が追加されていること</li>
-                <li>ユーザー情報の管理方法（DBまたはメモリ）が決まっていること</li>
-                <li>ログイン後に表示する画面と保護対象URLが整理されていること</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">前提条件</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>Spring Securityの依存関係が追加されていること</li>
+              <li>ユーザー情報の管理方法（DBまたはメモリ）が決まっていること</li>
+              <li>ログイン後に表示する画面と保護対象URLが整理されていること</li>
+            </ul>
+          </div>
 
-            <div class="subsection" style="margin-top: 20px;">
-              <h3 class="subsection-title">期待される出力</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>SecurityConfigクラス</li>
-                <li>ログイン画面テンプレート（login.html）</li>
-                <li>認証後のリダイレクト設定とログアウト設定</li>
-              </ul>
-            </div>
+          <div class="subsection" style="margin-top: 20px;">
+            <h3 class="subsection-title">期待される出力</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>SecurityConfigクラス</li>
+              <li>ログイン画面テンプレート（login.html）</li>
+              <li>認証後のリダイレクト設定とログアウト設定</li>
+            </ul>
+          </div>
 
-            <div class="subsection">
-              <h3 class="subsection-title">確認ポイント</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>未ログイン時に保護画面へアクセスするとログイン画面へ遷移するか</li>
-                <li>ログイン成功・失敗時の挙動が正しいか</li>
-                <li>CSRFやパスワード暗号化の設定が適切か</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">確認ポイント</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>未ログイン時に保護画面へアクセスするとログイン画面へ遷移するか</li>
+              <li>ログイン成功・失敗時の挙動が正しいか</li>
+              <li>CSRFやパスワード暗号化の設定が適切か</li>
+            </ul>
           </div>
         </section>
 
         <!-- STEP 09 -->
         <section class="section" id="step09">
-          <div class="step-card">
-            <div class="step-header">
-              <div class="step-number">09</div>
-              <div>
-                <div class="step-title">画面デザイン適用</div>
-                <div class="step-desc">CSSを適用してUIを整える</div>
-              </div>
-            </div>
+          <h2 class="section-title"><span class="section-icon">09</span> 画面デザイン（共通CSS）</h2>
+          <p class="fill-hint">CSSを適用してUIを整える</p>
 
-            <div class="subsection">
-              <h3 class="subsection-title">前提条件</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>主要な画面テンプレートが作成済みであること</li>
-                <li>共通レイアウト、配色、余白、ボタンの方針が決まっていること</li>
-                <li>CSSファイルの配置場所が決まっていること</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">前提条件</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>主要な画面テンプレートが作成済みであること</li>
+              <li>共通レイアウト、配色、余白、ボタンの方針が決まっていること</li>
+              <li>CSSファイルの配置場所が決まっていること</li>
+            </ul>
+          </div>
 
-            <div class="subsection" style="margin-top: 20px;">
-              <h3 class="subsection-title">期待される出力</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>共通CSSファイル（例：style.css）</li>
-                <li>ヘッダー、一覧表、フォーム、ボタンのスタイル</li>
-                <li>各テンプレートへのCSS読み込み設定</li>
-              </ul>
-            </div>
+          <div class="subsection" style="margin-top: 20px;">
+            <h3 class="subsection-title">期待される出力</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>共通CSSファイル（例：style.css）</li>
+              <li>ヘッダー、一覧表、フォーム、ボタンのスタイル</li>
+              <li>各テンプレートへのCSS読み込み設定</li>
+            </ul>
+          </div>
 
-            <div class="subsection">
-              <h3 class="subsection-title">確認ポイント</h3>
-              <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
-                <li>全画面でCSSが正しく読み込まれているか</li>
-                <li>PC・スマートフォンの両方で表示が崩れていないか</li>
-                <li>ボタンやリンクなど操作要素が見分けやすいか</li>
-              </ul>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">確認ポイント</h3>
+            <ul style="font-size: 14px; color: var(--text-light); margin-left: 20px;">
+              <li>全画面でCSSが正しく読み込まれているか</li>
+              <li>PC・スマートフォンの両方で表示が崩れていないか</li>
+              <li>ボタンやリンクなど操作要素が見分けやすいか</li>
+            </ul>
           </div>
         </section>
 

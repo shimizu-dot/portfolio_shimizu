@@ -31,64 +31,6 @@
 
       <div class="doc-body">
 
-
-        <section class="section" id="sec1">
-          <h2 class="section-title"><span class="section-icon"><span
-                class="material-symbols-outlined">edit_note</span></span> ログの記録方法</h2>
-
-          <div class="fill-block">
-            <div class="fill-label">記録する項目</div>
-            <div class="fill-content">
-              <table class="doc-table log-item-table">
-                <thead>
-                  <tr>
-                    <th>項目</th>
-                    <th>説明</th>
-                    <th>記入例</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>実行日時</td>
-                    <td>プロンプトを実行した日時</td>
-                    <td>2026-01-15 10:30</td>
-                  </tr>
-                  <tr>
-                    <td>使用プロンプト</td>
-                    <td>使用したプロンプト名またはファイル名</td>
-                    <td>STEP 03: Repository作成</td>
-                  </tr>
-                  <tr>
-                    <td>入力内容の要約</td>
-                    <td>プロンプトに追加した情報</td>
-                    <td>カラム定義を追加指定</td>
-                  </tr>
-                  <tr>
-                    <td>生成されたファイル</td>
-                    <td>AIが生成/修正したファイル一覧</td>
-                    <td>TaskMapper.java</td>
-                  </tr>
-                  <tr>
-                    <td>動作確認結果</td>
-                    <td>正常動作したか、エラーがあったか</td>
-                    <td>○ 正常動作</td>
-                  </tr>
-                  <tr>
-                    <td>修正・調整した内容</td>
-                    <td>手動で修正した箇所</td>
-                    <td>SQLの構文を修正</td>
-                  </tr>
-                  <tr>
-                    <td>学んだこと・気づき</td>
-                    <td>このステップで得た知識や気づき</td>
-                    <td>@ResultsでカラムマッピングをすることでDB命名規則と異なるフィールド名にできる</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
         <section class="section" id="sec2">
           <h2 class="section-title"><span class="section-icon"><span
                 class="material-symbols-outlined">checklist</span></span> ステップ別プロンプト 実行ログ</h2>
@@ -97,7 +39,7 @@
           <div class="log-entry">
             <div class="log-header">
               <div class="log-title">STEP 01: プロジェクト作成</div>
-              <div class="log-date">実行日時：（入力してください）</div>
+              <div class="log-date">実行日時：2026-07-01</div>
             </div>
             <table class="log-table">
               <tr>
@@ -107,36 +49,36 @@
               <tr>
                 <th>入力内容の要約</th>
                 <td>
-                  <div class="log-input">（追加で指定した内容を記入）</div>
+                  <div class="log-input">Spring Initializr で Spring Boot プロジェクトを作成し、Java 25 以上と Maven
+                    が利用できる前提で、基本設定を行うよう指定しました。</div>
                 </td>
               </tr>
               <tr>
                 <th>生成されたファイル</th>
                 <td>
-                  <div class="log-input">（生成されたファイル一覧を記入）
-                    例：
-                    ・pom.xml
-                    ・application.properties
-                    ・TaskAppApplication.java</div>
+                  <div class="log-input">pom.xml<br>
+                    src/main/resources/application.properties<br>
+                    src/main/java/com/example/taskapp/TaskAppApplication.java</div>
                 </td>
               </tr>
               <tr>
                 <th>動作確認結果</th>
                 <td>
-                  <div class="log-input">○ 正常動作 / × エラー
-                    （エラーの場合はエラー内容を記入）</div>
+                  <div class="log-input">○ 正常動作</div>
                 </td>
               </tr>
               <tr>
                 <th>修正・調整した内容</th>
                 <td>
-                  <div class="log-input">（手動で修正した箇所を記入）</div>
+                  <div class="log-input">・pom.xml を Spring Initializr 標準寄りに整理<br>
+                    ・application.properties に開発用設定を追加</div>
                 </td>
               </tr>
               <tr>
                 <th>学んだこと・気づき</th>
                 <td>
-                  <div class="log-input">（このステップで学んだことを記入）</div>
+                  <div class="log-input">Spring Initializr
+                    で作成した直後でも、依存関係や起動クラス名を早めに整理しておくと、以降の開発でパッケージ構成や設定のズレを防ぎやすいと分かりました。</div>
                 </td>
               </tr>
             </table>
@@ -146,7 +88,7 @@
           <div class="log-entry">
             <div class="log-header">
               <div class="log-title">STEP 02: Entity作成</div>
-              <div class="log-date">実行日時：（入力してください）</div>
+              <div class="log-date">実行日時：2026-07-01</div>
             </div>
             <table class="log-table">
               <tr>
@@ -156,31 +98,35 @@
               <tr>
                 <th>入力内容の要約</th>
                 <td>
-                  <div class="log-input">（追加で指定した内容を記入）</div>
+                  <div class="log-input">データベース設計書を参考に、Task App の基礎となる Entity を 1
+                    件作成するように指示し、今後の Repository / Service 実装に繋げられる最小構成で定義しました。</div>
                 </td>
               </tr>
               <tr>
                 <th>生成されたファイル</th>
                 <td>
-                  <div class="log-input">（生成されたファイル一覧を記入）</div>
+                  <div class="log-input">src/main/java/com/example/taskapp/entity/Task.java</div>
                 </td>
               </tr>
               <tr>
                 <th>動作確認結果</th>
                 <td>
-                  <div class="log-input">○ 正常動作 / × エラー</div>
+                  <div class="log-input">○ 正常動作</div>
                 </td>
               </tr>
               <tr>
                 <th>修正・調整した内容</th>
                 <td>
-                  <div class="log-input">（手動で修正した箇所を記入）</div>
+                  <div class="log-input">・`Task` エンティティを追加<br>
+                    ・`id` / `title` / `description` / `completed` / `createdAt` / `updatedAt` を定義<br>
+                    ・Lombok の `@Data` / `@Builder` / `@NoArgsConstructor` / `@AllArgsConstructor` を付与</div>
                 </td>
               </tr>
               <tr>
                 <th>学んだこと・気づき</th>
                 <td>
-                  <div class="log-input">（このステップで学んだことを記入）</div>
+                  <div class="log-input">Entity は後続の Repository や Service
+                    から参照されるため、最初にフィールド名と型を整理しておくと実装のぶれを抑えやすいと分かりました。</div>
                 </td>
               </tr>
             </table>
@@ -189,8 +135,8 @@
           <!-- STEP 03 ログ -->
           <div class="log-entry">
             <div class="log-header">
-              <div class="log-title">STEP 03: Repository作成</div>
-              <div class="log-date">実行日時：（入力してください）</div>
+              <div class="log-title">STEP 03: Repository作成（MyBatis Mapper）</div>
+              <div class="log-date">実行日時：2026-07-01</div>
             </div>
             <table class="log-table">
               <tr>
@@ -200,31 +146,36 @@
               <tr>
                 <th>入力内容の要約</th>
                 <td>
-                  <div class="log-input">（追加で指定した内容を記入）</div>
+                  <div class="log-input">Task エンティティに対応する Repository を MyBatis Mapper
+                    インターフェースとして作成し、一覧取得・単体取得・登録・更新・削除の基本メソッドを定義するようにしました。</div>
                 </td>
               </tr>
               <tr>
                 <th>生成されたファイル</th>
                 <td>
-                  <div class="log-input">（生成されたファイル一覧を記入）</div>
+                  <div class="log-input">pom.xml<br>
+                    src/main/java/com/example/taskapp/repository/TaskMapper.java</div>
                 </td>
               </tr>
               <tr>
                 <th>動作確認結果</th>
                 <td>
-                  <div class="log-input">○ 正常動作 / × エラー</div>
+                  <div class="log-input">○ 正常動作</div>
                 </td>
               </tr>
               <tr>
                 <th>修正・調整した内容</th>
                 <td>
-                  <div class="log-input">（手動で修正した箇所を記入）</div>
+                  <div class="log-input">・`mybatis-spring-boot-starter` を pom.xml に追加<br>
+                    ・`TaskMapper` を作成し、`@Mapper` と SQL アノテーションで CRUD 操作を定義<br>
+                    ・`created_at` / `updated_at` を `createdAt` / `updatedAt` にマッピング</div>
                 </td>
               </tr>
               <tr>
                 <th>学んだこと・気づき</th>
                 <td>
-                  <div class="log-input">（このステップで学んだことを記入）</div>
+                  <div class="log-input">Repository 層は Entity との対応を明確にし、SQL とフィールドのマッピングを先に揃えておくと、後続の Service
+                    実装を進めやすいと分かりました。</div>
                 </td>
               </tr>
             </table>
@@ -233,8 +184,8 @@
           <!-- STEP 04-09 ログ（テンプレート） -->
           <div class="log-entry">
             <div class="log-header">
-              <div class="log-title">STEP 04: Service作成</div>
-              <div class="log-date">実行日時：（入力してください）</div>
+              <div class="log-title">STEP 04: Service作成（ビジネスロジック）</div>
+              <div class="log-date">実行日時：2026-07-01</div>
             </div>
             <table class="log-table">
               <tr>
@@ -244,31 +195,38 @@
               <tr>
                 <th>入力内容の要約</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">Task エンティティと TaskMapper を利用する Service 層を作成し、一覧取得・単体取得・登録・更新・削除をまとめて扱えるようにしました。
+                  </div>
                 </td>
               </tr>
               <tr>
                 <th>生成されたファイル</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">src/main/java/com/example/taskapp/service/TaskService.java<br>
+                    src/main/java/com/example/taskapp/service/TaskServiceImpl.java<br>
+                    pom.xml</div>
                 </td>
               </tr>
               <tr>
                 <th>動作確認結果</th>
                 <td>
-                  <div class="log-input">○ / ×</div>
+                  <div class="log-input">○ 正常動作</div>
                 </td>
               </tr>
               <tr>
                 <th>修正・調整した内容</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">・`@Service` とコンストラクタインジェクションで Service 実装を追加<br>
+                    ・登録時は作成日時と更新日時を自動設定<br>
+                    ・更新時は既存データを確認し、更新日時のみ再設定<br>
+                    ・Lombok のアノテーション処理が効くように `pom.xml` のコンパイラ設定を調整</div>
                 </td>
               </tr>
               <tr>
                 <th>学んだこと・気づき</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">Service 層で日付や存在確認の責務を集約すると、Controller 側は入力の受け渡しに集中できるため、処理の役割分担が明確になると分かりました。
+                  </div>
                 </td>
               </tr>
             </table>
@@ -276,8 +234,8 @@
 
           <div class="log-entry">
             <div class="log-header">
-              <div class="log-title">STEP 05: Controller作成</div>
-              <div class="log-date">実行日時：（入力してください）</div>
+              <div class="log-title">STEP 05: Controller作成（画面遷移）</div>
+              <div class="log-date">実行日時：2026-07-01</div>
             </div>
             <table class="log-table">
               <tr>
@@ -287,31 +245,35 @@
               <tr>
                 <th>入力内容の要約</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">Task Service を利用して、一覧・詳細・新規作成・登録・編集・更新・削除の HTTP リクエストを処理する Controller
+                    を作成するようにしました。</div>
                 </td>
               </tr>
               <tr>
                 <th>生成されたファイル</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">src/main/java/com/example/taskapp/controller/TaskController.java</div>
                 </td>
               </tr>
               <tr>
                 <th>動作確認結果</th>
                 <td>
-                  <div class="log-input">○ / ×</div>
+                  <div class="log-input">○ 正常動作</div>
                 </td>
               </tr>
               <tr>
                 <th>修正・調整した内容</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">・`@Controller` と `@RequestMapping("/tasks")` を追加<br>
+                    ・一覧、詳細、新規、登録、編集、更新、削除の各メソッドを実装<br>
+                    ・`RedirectAttributes` を使って登録・更新・削除後のメッセージを返すようにした</div>
                 </td>
               </tr>
               <tr>
                 <th>学んだこと・気づき</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">Controller は画面遷移とリクエストの入口をまとめる役割なので、Service に処理を寄せておくと URL
+                    設計と画面実装を切り分けやすくなると分かりました。</div>
                 </td>
               </tr>
             </table>
@@ -319,8 +281,8 @@
 
           <div class="log-entry">
             <div class="log-header">
-              <div class="log-title">STEP 06: View作成（一覧画面）</div>
-              <div class="log-date">実行日時：（入力してください）</div>
+              <div class="log-title">STEP 06: View作成（一覧）</div>
+              <div class="log-date">実行日時：2026-07-01 12:54</div>
             </div>
             <table class="log-table">
               <tr>
@@ -330,31 +292,37 @@
               <tr>
                 <th>入力内容の要約</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">Task 一覧、詳細、登録・編集画面の Thymeleaf View を作成し、Controller から渡される task / tasks /
+                    message を表示できるようにしました。</div>
                 </td>
               </tr>
               <tr>
                 <th>生成されたファイル</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">src/main/resources/templates/tasks/list.html<br>
+                    src/main/resources/templates/tasks/detail.html<br>
+                    src/main/resources/templates/tasks/form.html</div>
                 </td>
               </tr>
               <tr>
                 <th>動作確認結果</th>
                 <td>
-                  <div class="log-input">○ / ×</div>
+                  <div class="log-input">○ 正常動作</div>
                 </td>
               </tr>
               <tr>
                 <th>修正・調整した内容</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">・一覧画面に Task の件数 0 件時の空表示を追加<br>
+                    ・詳細画面で編集 / 削除へ遷移できるように整理<br>
+                    ・登録・編集画面を共通フォーム化し、戻る導線と削除確認を追加</div>
                 </td>
               </tr>
               <tr>
                 <th>学んだこと・気づき</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">画面ごとの責務を分けつつ、Controller の URL 設計と Thymeleaf
+                    のリンクを揃えると、一覧・詳細・編集の遷移が自然につながると分かりました。</div>
                 </td>
               </tr>
             </table>
@@ -362,8 +330,8 @@
 
           <div class="log-entry">
             <div class="log-header">
-              <div class="log-title">STEP 07: View作成（登録・編集画面）</div>
-              <div class="log-date">実行日時：（入力してください）</div>
+              <div class="log-title">STEP 07: View作成（登録・編集）</div>
+              <div class="log-date">実行日時：2026-07-01 12:56</div>
             </div>
             <table class="log-table">
               <tr>
@@ -373,31 +341,33 @@
               <tr>
                 <th>入力内容の要約</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">Task の登録・編集で使う共通フォームを整え、th:object / th:field による入力バインドとエラー表示を追加しました。</div>
                 </td>
               </tr>
               <tr>
                 <th>生成されたファイル</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">src/main/resources/templates/tasks/form.html</div>
                 </td>
               </tr>
               <tr>
                 <th>動作確認結果</th>
                 <td>
-                  <div class="log-input">○ / ×</div>
+                  <div class="log-input">○ 正常動作</div>
                 </td>
               </tr>
               <tr>
                 <th>修正・調整した内容</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">・タイトル入力に必須属性とエラー表示を追加<br>
+                    ・内容欄にもエラー表示の枠を追加<br>
+                    ・登録 / 更新 / 戻る導線を共通フォームにまとめて使い回しやすく整理</div>
                 </td>
               </tr>
               <tr>
                 <th>学んだこと・気づき</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">登録画面と編集画面を同じテンプレートで扱うと、URL とフォーム定義を揃えたまま画面の重複を減らせることが分かりました。</div>
                 </td>
               </tr>
             </table>
@@ -405,8 +375,8 @@
 
           <div class="log-entry">
             <div class="log-header">
-              <div class="log-title">STEP 08: 認証機能</div>
-              <div class="log-date">実行日時：（入力してください）</div>
+              <div class="log-title">STEP 08: 認証（Spring Security）</div>
+              <div class="log-date">実行日時：2026-07-01 13:00</div>
             </div>
             <table class="log-table">
               <tr>
@@ -416,31 +386,40 @@
               <tr>
                 <th>入力内容の要約</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">Spring Security を追加し、メモリ上のユーザー認証、ログイン画面、保護URLの設定を行って Task App に認証（Spring
+                    Security）を導入しました。</div>
                 </td>
               </tr>
               <tr>
                 <th>生成されたファイル</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">pom.xml<br>
+                    src/main/java/com/example/taskapp/config/SecurityConfig.java<br>
+                    src/main/java/com/example/taskapp/controller/AuthController.java<br>
+                    src/main/java/com/example/taskapp/controller/HomeController.java<br>
+                    src/main/resources/templates/login.html</div>
                 </td>
               </tr>
               <tr>
                 <th>動作確認結果</th>
                 <td>
-                  <div class="log-input">○ / ×</div>
+                  <div class="log-input">○ 正常動作</div>
                 </td>
               </tr>
               <tr>
                 <th>修正・調整した内容</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">・Spring Security の依存関係を追加<br>
+                    ・ログインページを Thymeleaf で作成し、成功・失敗・ログアウトの表示を追加<br>
+                    ・in-memory のデモユーザーと BCryptPasswordEncoder を設定<br>
+                    ・H2 コンソール向けに CSRF と frameOptions を調整</div>
                 </td>
               </tr>
               <tr>
                 <th>学んだこと・気づき</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">Security は画面遷移だけでなく、静的リソースや H2
+                    コンソールの例外設定まで含めて設計すると、開発時の使い勝手を保ちながら保護範囲を明確にできると分かりました。</div>
                 </td>
               </tr>
             </table>
@@ -448,8 +427,8 @@
 
           <div class="log-entry">
             <div class="log-header">
-              <div class="log-title">STEP 09: 画面デザイン適用</div>
-              <div class="log-date">実行日時：（入力してください）</div>
+              <div class="log-title">STEP 09: 画面デザイン（共通CSS）</div>
+              <div class="log-date">実行日時：2026-07-01 13:05</div>
             </div>
             <table class="log-table">
               <tr>
@@ -459,41 +438,683 @@
               <tr>
                 <th>入力内容の要約</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">各画面の共通デザインを外部 CSS に集約し、一覧・詳細・フォーム・ログイン画面へ同じスタイルを適用しました。</div>
                 </td>
               </tr>
               <tr>
                 <th>生成されたファイル</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">src/main/resources/static/css/style.css<br>
+                    src/main/resources/templates/tasks/list.html<br>
+                    src/main/resources/templates/tasks/detail.html<br>
+                    src/main/resources/templates/tasks/form.html<br>
+                    src/main/resources/templates/login.html</div>
                 </td>
               </tr>
               <tr>
                 <th>動作確認結果</th>
                 <td>
-                  <div class="log-input">○ / ×</div>
+                  <div class="log-input">○ 正常動作</div>
                 </td>
               </tr>
               <tr>
                 <th>修正・調整した内容</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">・共通 CSS ファイルを作成し、配色、余白、ボタン、カード、レスポンシブ表示を集約<br>
+                    ・各テンプレートから style タグを外し、stylesheet を読み込む構成に変更<br>
+                    ・一覧、詳細、フォーム、ログイン画面の見た目を統一</div>
                 </td>
               </tr>
               <tr>
                 <th>学んだこと・気づき</th>
                 <td>
-                  <div class="log-input">（記入）</div>
+                  <div class="log-input">画面ごとの見た目を共通 CSS に寄せると、修正点が一箇所に集まり、デザインの一貫性と保守性を同時に高められると分かりました。</div>
                 </td>
               </tr>
             </table>
           </div>
+
         </section>
 
         <section class="section" id="sec3">
           <h2 class="section-title"><span class="section-icon"><span
                 class="material-symbols-outlined">settings</span></span> 機能追加別プロンプト 実行ログ</h2>
 
+          <!-- 機能01 ログ -->
+          <div class="log-entry">
+            <div class="log-header">
+              <div class="log-title">機能追加: 1.バリデーション強化</div>
+              <div class="log-date">実行日時：2026-07-01 13:26</div>
+            </div>
+            <table class="log-table">
+              <tr>
+                <th>使用プロンプト</th>
+                <td>prompt-function.html - 機能01</td>
+              </tr>
+              <tr>
+                <th>機能の概要</th>
+                <td>
+                  <div class="log-input">Task の登録・更新に対して Bean Validation
+                    を追加し、タイトル必須、文字数制限、入力エラー表示を整えて、画面とサーバーの両方で入力チェックを強化しました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>入力内容の要約</th>
+                <td>
+                  <div class="log-input">Task エンティティに `@NotBlank` と `@Size` を付与し、Controller で `@Valid` と `BindingResult`
+                    を使って登録・更新時のバリデーションエラーをフォームへ戻すようにしました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>生成されたファイル</th>
+                <td>
+                  <div class="log-input">src/main/java/com/example/taskapp/entity/Task.java<br>
+                    src/main/java/com/example/taskapp/controller/TaskController.java<br>
+                    src/main/resources/templates/tasks/form.html</div>
+                </td>
+              </tr>
+              <tr>
+                <th>動作確認結果</th>
+                <td>
+                  <div class="log-input">○ 正常動作</div>
+                </td>
+              </tr>
+              <tr>
+                <th>修正・調整した内容</th>
+                <td>
+                  <div class="log-input">・Task の title に必須チェックと 100 文字制限を追加<br>
+                    ・description に 1000 文字制限を追加<br>
+                    ・TaskController で登録 / 更新時の検証失敗をフォーム再表示に切り替え<br>
+                    ・フォームの入力欄に maxlength を追加してサーバー側制約と揃えた</div>
+                </td>
+              </tr>
+              <tr>
+                <th>学んだこと・気づき</th>
+                <td>
+                  <div class="log-input">サーバー側の Bean Validation と画面側の入力制限を合わせておくと、エラーを早い段階で防ぎつつ、Controller
+                    でのエラーハンドリングも分かりやすくなると分かりました。</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 機能02 ログ -->
+          <div class="log-entry">
+            <div class="log-header">
+              <div class="log-title">機能追加: 2.検索機能</div>
+              <div class="log-date">実行日時：2026-07-01 13:34</div>
+            </div>
+            <table class="log-table">
+              <tr>
+                <th>使用プロンプト</th>
+                <td>prompt-function.html - 機能02</td>
+              </tr>
+              <tr>
+                <th>機能の概要</th>
+                <td>
+                  <div class="log-input">Task一覧にキーワード検索を追加し、タイトルと内容を部分一致で絞り込めるようにしました。検索キーワードの文字数制限とエラー表示も用意しました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>入力内容の要約</th>
+                <td>
+                  <div class="log-input">Task の title / description
+                    を検索対象にして、検索条件を画面に保持し、空欄時は全件表示へ戻し、キーワード超過時はエラー表示する一覧検索を実装するようにしました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>生成されたファイル</th>
+                <td>
+                  <div class="log-input">src/main/java/com/example/taskapp/dto/TaskSearchCondition.java<br>
+                    src/main/java/com/example/taskapp/repository/TaskMapper.java<br>
+                    src/main/java/com/example/taskapp/service/TaskService.java<br>
+                    src/main/java/com/example/taskapp/service/TaskServiceImpl.java<br>
+                    src/main/java/com/example/taskapp/controller/TaskController.java<br>
+                    src/main/resources/templates/tasks/list.html<br>
+                    src/main/resources/static/css/style.css</div>
+                </td>
+              </tr>
+              <tr>
+                <th>動作確認結果</th>
+                <td>
+                  <div class="log-input">○ 正常動作</div>
+                </td>
+              </tr>
+              <tr>
+                <th>修正・調整した内容</th>
+                <td>
+                  <div class="log-input">・検索条件DTOを追加し、検索キーワードに文字数制限を設定<br>
+                    ・TaskMapper に title / description の LIKE 検索を追加<br>
+                    ・TaskController で検索条件を受け取り、一覧へ引き回すように変更<br>
+                    ・一覧画面に検索フォーム、入力エラー表示、0 件時のメッセージを追加<br>
+                    ・検索フォームの見た目を最小限整えた</div>
+                </td>
+              </tr>
+              <tr>
+                <th>学んだこと・気づき</th>
+                <td>
+                  <div class="log-input">検索条件を DTO にまとめて一覧へ引き回すと、Controller・Service・View の役割が明確になり、条件保持と 0
+                    件表示も一緒に整えやすいと分かりました。</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 機能03 ログ -->
+          <div class="log-entry">
+            <div class="log-header">
+              <div class="log-title">機能追加: 3.ソート機能</div>
+              <div class="log-date">実行日時：2026-07-01 13:38</div>
+            </div>
+            <table class="log-table">
+              <tr>
+                <th>使用プロンプト</th>
+                <td>prompt-function.html - 機能03</td>
+              </tr>
+              <tr>
+                <th>機能の概要</th>
+                <td>
+                  <div class="log-input">Task一覧にソート機能を追加し、作成日・更新日・タイトルを昇順または降順で並び替えできるようにしました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>入力内容の要約</th>
+                <td>
+                  <div class="log-input">Task 一覧の検索条件とあわせて、createdAt / updatedAt / title
+                    を安全なホワイトリスト方式で並び替えできるようにするよう指示しました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>生成されたファイル</th>
+                <td>
+                  <div class="log-input">src/main/java/com/example/taskapp/dto/TaskSearchCondition.java<br>
+                    src/main/java/com/example/taskapp/repository/TaskMapper.java<br>
+                    src/main/java/com/example/taskapp/service/TaskService.java<br>
+                    src/main/java/com/example/taskapp/service/TaskServiceImpl.java<br>
+                    src/main/java/com/example/taskapp/controller/TaskController.java<br>
+                    src/main/resources/templates/tasks/list.html<br>
+                    src/main/resources/static/css/style.css</div>
+                </td>
+              </tr>
+              <tr>
+                <th>動作確認結果</th>
+                <td>
+                  <div class="log-input">○ 正常動作</div>
+                </td>
+              </tr>
+              <tr>
+                <th>修正・調整した内容</th>
+                <td>
+                  <div class="log-input">・TaskSearchCondition に sortBy / sortDir を追加し、デフォルト値を設定<br>
+                    ・TaskMapper で ORDER BY をホワイトリスト方式に変更<br>
+                    ・TaskController で検索条件とソート条件をまとめて一覧へ渡すように変更<br>
+                    ・一覧画面にソート項目とソート順のセレクトボックスを追加<br>
+                    ・検索条件とソート条件を同じフォームで保持できるように整理</div>
+                </td>
+              </tr>
+              <tr>
+                <th>学んだこと・気づき</th>
+                <td>
+                  <div class="log-input">ORDER BY はパラメータ直結ではなくホワイトリストで分岐させると安全で、検索条件と一緒に DTO
+                    でまとめると一覧画面の状態管理がしやすいと分かりました。</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 機能04 ログ -->
+          <div class="log-entry">
+            <div class="log-header">
+              <div class="log-title">機能追加: 4.ページネーション</div>
+              <div class="log-date">実行日時：2026-07-01 13:42</div>
+            </div>
+            <table class="log-table">
+              <tr>
+                <th>使用プロンプト</th>
+                <td>prompt-function.html - 機能04</td>
+              </tr>
+              <tr>
+                <th>機能の概要</th>
+                <td>
+                  <div class="log-input">Task一覧を 1 ページあたりの表示件数で分割し、前へ・次へ・ページ番号リンクで移動できるようにしました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>入力内容の要約</th>
+                <td>
+                  <div class="log-input">Task 一覧に page / size を追加し、検索条件とソート条件を保持したままページ移動できるようにするよう指示しました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>生成されたファイル</th>
+                <td>
+                  <div class="log-input">src/main/java/com/example/taskapp/dto/TaskSearchCondition.java<br>
+                    src/main/java/com/example/taskapp/dto/TaskPageResult.java<br>
+                    src/main/java/com/example/taskapp/repository/TaskMapper.java<br>
+                    src/main/java/com/example/taskapp/service/TaskService.java<br>
+                    src/main/java/com/example/taskapp/service/TaskServiceImpl.java<br>
+                    src/main/java/com/example/taskapp/controller/TaskController.java<br>
+                    src/main/resources/templates/tasks/list.html<br>
+                    src/main/resources/static/css/style.css</div>
+                </td>
+              </tr>
+              <tr>
+                <th>動作確認結果</th>
+                <td>
+                  <div class="log-input">○ 正常動作</div>
+                </td>
+              </tr>
+              <tr>
+                <th>修正・調整した内容</th>
+                <td>
+                  <div class="log-input">・TaskSearchCondition に page / size を追加し、既定値と安全な補正を用意<br>
+                    ・TaskPageResult を追加して総件数、総ページ数、前後ページを扱えるようにした<br>
+                    ・TaskMapper に総件数取得と LIMIT/OFFSET 付きのページ取得を追加<br>
+                    ・TaskController で一覧表示時にページ情報を Model へ渡すように変更<br>
+                    ・一覧画面に表示件数、件数表示、ページリンクを追加</div>
+                </td>
+              </tr>
+              <tr>
+                <th>学んだこと・気づき</th>
+                <td>
+                  <div class="log-input">ページネーションは検索・ソートと同じ条件オブジェクトで扱うと、一覧画面の状態保持が一貫し、URL パラメータの管理もシンプルになると分かりました。</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 機能05 ログ -->
+          <div class="log-entry">
+            <div class="log-header">
+              <div class="log-title">機能追加: 5. CSV出力</div>
+              <div class="log-date">実行日時：2026-07-01 13:48</div>
+            </div>
+            <table class="log-table">
+              <tr>
+                <th>使用プロンプト</th>
+                <td>prompt-function.html - 機能05</td>
+              </tr>
+              <tr>
+                <th>機能の概要</th>
+                <td>
+                  <div class="log-input">Task一覧の検索条件とソート条件を反映した CSV 出力を追加し、カテゴリ列とステータス列も含めて一覧画面からダウンロードできるようにしました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>入力内容の要約</th>
+                <td>
+                  <div class="log-input">Task 一覧の現在条件を維持したまま、CSV 形式で全件を出力できるようにし、カテゴリ列とステータス列、UTF-8/BOM
+                    とエスケープ処理も含めて実装するようにしました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>生成されたファイル</th>
+                <td>
+                  <div class="log-input">src/main/java/com/example/taskapp/repository/TaskMapper.java<br>
+                    src/main/java/com/example/taskapp/service/TaskService.java<br>
+                    src/main/java/com/example/taskapp/service/TaskServiceImpl.java<br>
+                    src/main/java/com/example/taskapp/controller/TaskController.java<br>
+                    src/main/resources/templates/tasks/list.html</div>
+                </td>
+              </tr>
+              <tr>
+                <th>動作確認結果</th>
+                <td>
+                  <div class="log-input">○ 正常動作</div>
+                </td>
+              </tr>
+              <tr>
+                <th>修正・調整した内容</th>
+                <td>
+                  <div class="log-input">・TaskMapper に CSV 出力用の全件取得 SQL を追加<br>
+                    ・TaskService に exportCsv 処理を追加<br>
+                    ・TaskController に CSV ダウンロードエンドポイントとカテゴリ列 / ステータス列の出力を追加<br>
+                    ・一覧画面に CSV 出力ボタンを追加<br>
+                    ・カンマ、改行、ダブルクォートを考慮した CSV エスケープを実装</div>
+                </td>
+              </tr>
+              <tr>
+                <th>学んだこと・気づき</th>
+                <td>
+                  <div class="log-input">CSV 出力は画面表示用のページングとは分けて、検索・ソート条件だけを引き継いで全件取得する構成にすると、一覧と出力の責務を分離しやすいと分かりました。
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 機能06 ログ -->
+          <div class="log-entry">
+            <div class="log-header">
+              <div class="log-title">機能追加: 6. ファイルアップロード</div>
+              <div class="log-date">実行日時：2026-07-01 13:52</div>
+            </div>
+            <table class="log-table">
+              <tr>
+                <th>使用プロンプト</th>
+                <td>prompt-function.html - 機能06</td>
+              </tr>
+              <tr>
+                <th>機能の概要</th>
+                <td>
+                  <div class="log-input">Task の登録・編集時に添付ファイルをアップロードできるようにし、詳細画面からダウンロードできるようにしました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>入力内容の要約</th>
+                <td>
+                  <div class="log-input">Task フォームに Multipart/form-data の添付機能を追加し、jpg / jpeg / png / pdf を 5MB
+                    以内で保存・参照できるようにするよう指示しました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>生成されたファイル</th>
+                <td>
+                  <div class="log-input">src/main/resources/schema.sql<br>
+                    src/main/resources/application.properties<br>
+                    src/main/java/com/example/taskapp/entity/Task.java<br>
+                    src/main/java/com/example/taskapp/service/FileStorageService.java<br>
+                    src/main/java/com/example/taskapp/service/FileStorageServiceImpl.java<br>
+                    src/main/java/com/example/taskapp/service/TaskService.java<br>
+                    src/main/java/com/example/taskapp/service/TaskServiceImpl.java<br>
+                    src/main/java/com/example/taskapp/controller/TaskController.java<br>
+                    src/main/java/com/example/taskapp/repository/TaskMapper.java<br>
+                    src/main/resources/templates/tasks/form.html<br>
+                    src/main/resources/templates/tasks/detail.html<br>
+                    src/main/resources/templates/tasks/list.html</div>
+                </td>
+              </tr>
+              <tr>
+                <th>動作確認結果</th>
+                <td>
+                  <div class="log-input">○ 正常動作</div>
+                </td>
+              </tr>
+              <tr>
+                <th>修正・調整した内容</th>
+                <td>
+                  <div class="log-input">・Task に添付ファイルのメタ情報と MultipartFile を追加<br>
+                    ・ファイル保存用サービスを追加し、拡張子とサイズを検証して UUID 名で保存<br>
+                    ・TaskMapper と schema.sql に添付メタ情報列を追加<br>
+                    ・Task フォームに multipart 対応とファイル入力を追加<br>
+                    ・詳細画面と一覧に添付ファイルの表示とダウンロード導線を追加<br>
+                    ・application.properties に multipart と保存先の設定を追加</div>
+                </td>
+              </tr>
+              <tr>
+                <th>学んだこと・気づき</th>
+                <td>
+                  <div class="log-input">添付ファイルは画面入力、保存先、DB
+                    メタ情報、ダウンロード導線を一体で揃える必要があり、更新時に既存ファイルを保持する分岐まで含めて設計すると使い勝手が安定すると分かりました。</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 機能07 ログ -->
+          <div class="log-entry">
+            <div class="log-header">
+              <div class="log-title">機能追加: 7. 削除確認ダイアログ</div>
+              <div class="log-date">実行日時：2026-07-01 14:03</div>
+            </div>
+            <table class="log-table">
+              <tr>
+                <th>使用プロンプト</th>
+                <td>prompt-function.html - 機能07</td>
+              </tr>
+              <tr>
+                <th>機能の概要</th>
+                <td>
+                  <div class="log-input">Task の一覧画面と詳細画面の削除ボタンに、対象情報を表示する確認ダイアログを追加しました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>入力内容の要約</th>
+                <td>
+                  <div class="log-input">Task の削除前に `&lt;dialog&gt;` を使った確認UIを表示し、ID
+                    とタイトルを明示したうえで、キャンセル時は何も変更しないようにするよう指示しました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>生成されたファイル</th>
+                <td>
+                  <div class="log-input">src/main/resources/static/js/delete-confirm.js<br>
+                    src/main/resources/static/css/style.css<br>
+                    src/main/resources/templates/tasks/list.html<br>
+                    src/main/resources/templates/tasks/detail.html<br>
+                    prompts/prompt-function.html<br>
+                    prompts/prompt-log.html</div>
+                </td>
+              </tr>
+              <tr>
+                <th>動作確認結果</th>
+                <td>
+                  <div class="log-input">○ 正常動作</div>
+                </td>
+              </tr>
+              <tr>
+                <th>修正・調整した内容</th>
+                <td>
+                  <div class="log-input">・一覧画面と詳細画面の削除ボタンを type="button" に変更<br>
+                    ・共通の削除確認ダイアログを `&lt;dialog&gt;` で追加<br>
+                    ・削除対象の Task ID とタイトルをダイアログに反映<br>
+                    ・共通 JavaScript でキャンセル、背景クリック、Esc キーを扱うようにした<br>
+                    ・ダイアログの見た目を既存デザインに合わせて追加</div>
+                </td>
+              </tr>
+              <tr>
+                <th>学んだこと・気づき</th>
+                <td>
+                  <div class="log-input">削除確認は confirm()
+                    でも実現できますが、対象情報を明示する共通ダイアログにすると、一覧画面と詳細画面で同じ操作感を保ちながら誤操作を減らせると分かりました。</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 機能08 ログ -->
+          <div class="log-entry">
+            <div class="log-header">
+              <div class="log-title">機能追加: 8. 一括削除</div>
+              <div class="log-date">実行日時：2026-07-01 14:08</div>
+            </div>
+            <table class="log-table">
+              <tr>
+                <th>使用プロンプト</th>
+                <td>prompt-function.html - 機能08</td>
+              </tr>
+              <tr>
+                <th>機能の概要</th>
+                <td>
+                  <div class="log-input">Task 一覧画面で複数の Task を選択し、確認ダイアログを経由して一括削除できるようにしました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>入力内容の要約</th>
+                <td>
+                  <div class="log-input">Task 一覧でチェックボックス選択と全選択を行い、選択件数を確認したうえで一括削除し、検索条件とページ状態を維持して一覧へ戻すよう指示しました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>生成されたファイル</th>
+                <td>
+                  <div class="log-input">src/main/java/com/example/taskapp/repository/TaskMapper.java<br>
+                    src/main/java/com/example/taskapp/service/TaskService.java<br>
+                    src/main/java/com/example/taskapp/service/TaskServiceImpl.java<br>
+                    src/main/java/com/example/taskapp/controller/TaskController.java<br>
+                    src/main/resources/templates/tasks/list.html<br>
+                    src/main/resources/static/js/bulk-delete.js<br>
+                    src/main/resources/static/css/style.css<br>
+                    prompts/prompt-function.html<br>
+                    prompts/prompt-log.html</div>
+                </td>
+              </tr>
+              <tr>
+                <th>動作確認結果</th>
+                <td>
+                  <div class="log-input">○ 正常動作</div>
+                </td>
+              </tr>
+              <tr>
+                <th>修正・調整した内容</th>
+                <td>
+                  <div class="log-input">・TaskMapper に `IN` 句の一括削除 SQL を追加<br>
+                    ・TaskService / TaskServiceImpl に重複排除付きの一括削除処理を追加<br>
+                    ・TaskController に一括削除エンドポイントと一覧復帰用の条件保持を追加<br>
+                    ・一覧画面にチェックボックス、全選択、確認ダイアログを追加<br>
+                    ・一括削除用 JavaScript とダイアログスタイルを追加</div>
+                </td>
+              </tr>
+              <tr>
+                <th>学んだこと・気づき</th>
+                <td>
+                  <div class="log-input">一括削除は単に複数IDを送るだけでなく、選択状態、確認UI、検索条件の復帰、存在しないIDの混在まで揃えることで、個別削除と同じ操作感を保てると分かりました。
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 機能09 ログ -->
+          <div class="log-entry">
+            <div class="log-header">
+              <div class="log-title">機能追加: 9. ステータス管理</div>
+              <div class="log-date">実行日時：2026-07-01 14:18</div>
+            </div>
+            <table class="log-table">
+              <tr>
+                <th>使用プロンプト</th>
+                <td>prompt-function.html - 機能09</td>
+              </tr>
+              <tr>
+                <th>機能の概要</th>
+                <td>
+                  <div class="log-input">Task に DRAFT / ACTIVE / DONE / CANCELLED のステータスを追加し、フォーム更新と一覧絞り込みで扱えるようにしました。
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>入力内容の要約</th>
+                <td>
+                  <div class="log-input">Task の登録・編集フォームでステータスを選択し、一覧画面で絞り込みと表示ができるようにし、許可された遷移以外は日本語エラーにするよう指示しました。
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>生成されたファイル</th>
+                <td>
+                  <div class="log-input">src/main/java/com/example/taskapp/entity/TaskStatus.java<br>
+                    src/main/java/com/example/taskapp/entity/Task.java<br>
+                    src/main/java/com/example/taskapp/dto/TaskSearchCondition.java<br>
+                    src/main/java/com/example/taskapp/controller/TaskController.java<br>
+                    src/main/java/com/example/taskapp/service/TaskServiceImpl.java<br>
+                    src/main/java/com/example/taskapp/repository/TaskMapper.java<br>
+                    src/main/resources/schema.sql<br>
+                    src/main/resources/templates/tasks/form.html<br>
+                    src/main/resources/templates/tasks/detail.html<br>
+                    src/main/resources/templates/tasks/list.html<br>
+                    src/main/resources/static/css/style.css<br>
+                    prompts/prompt-function.html<br>
+                    prompts/prompt-log.html</div>
+                </td>
+              </tr>
+              <tr>
+                <th>動作確認結果</th>
+                <td>
+                  <div class="log-input">○ 正常動作</div>
+                </td>
+              </tr>
+              <tr>
+                <th>修正・調整した内容</th>
+                <td>
+                  <div class="log-input">・TaskStatus Enum を追加し、DRAFT / ACTIVE / DONE / CANCELLED を定義<br>
+                    ・Task Entity と schema.sql に status 列を追加<br>
+                    ・TaskSearchCondition にステータス絞り込みを追加<br>
+                    ・TaskService で初期値設定と遷移チェックを実装<br>
+                    ・一覧 / 詳細 / フォームにステータス表示と選択UIを追加<br>
+                    ・一覧画面の検索、CSV、ページ遷移にステータス条件を反映</div>
+                </td>
+              </tr>
+              <tr>
+                <th>学んだこと・気づき</th>
+                <td>
+                  <div class="log-input">ステータス管理は単なる表示項目ではなく、保存時の初期値、遷移制約、一覧の絞り込みまで含めて一つの仕様として揃える必要があると分かりました。</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- 機能10 ログ -->
+          <div class="log-entry">
+            <div class="log-header">
+              <div class="log-title">機能追加: 10. カテゴリ管理</div>
+              <div class="log-date">実行日時：2026-07-01</div>
+            </div>
+            <table class="log-table">
+              <tr>
+                <th>使用プロンプト</th>
+                <td>prompt-function.html - 機能10</td>
+              </tr>
+              <tr>
+                <th>機能の概要</th>
+                <td>
+                  <div class="log-input">カテゴリマスタの CRUD を追加し、Task の登録・編集画面からカテゴリを選択できるようにして、一覧・詳細・CSV
+                    でもカテゴリ名を表示できるようにしました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>入力内容の要約</th>
+                <td>
+                  <div class="log-input">カテゴリ名の重複チェック、表示順、論理削除、使用中カテゴリの削除制御を実装し、Task との関連表示まで揃えるようにしました。</div>
+                </td>
+              </tr>
+              <tr>
+                <th>生成されたファイル</th>
+                <td>
+                  <div class="log-input">src/main/java/com/example/taskapp/entity/Category.java<br>
+                    src/main/java/com/example/taskapp/dto/CategorySearchCondition.java<br>
+                    src/main/java/com/example/taskapp/dto/CategoryPageResult.java<br>
+                    src/main/java/com/example/taskapp/repository/CategoryMapper.java<br>
+                    src/main/java/com/example/taskapp/service/CategoryService.java<br>
+                    src/main/java/com/example/taskapp/service/CategoryServiceImpl.java<br>
+                    src/main/java/com/example/taskapp/controller/CategoryController.java<br>
+                    src/main/resources/templates/categories/list.html<br>
+                    src/main/resources/templates/categories/form.html<br>
+                    src/main/resources/schema.sql<br>
+                    src/main/java/com/example/taskapp/entity/Task.java<br>
+                    src/main/java/com/example/taskapp/repository/TaskMapper.java<br>
+                    src/main/java/com/example/taskapp/service/TaskServiceImpl.java<br>
+                    src/main/java/com/example/taskapp/controller/TaskController.java<br>
+                    src/main/resources/templates/tasks/list.html<br>
+                    src/main/resources/templates/tasks/form.html<br>
+                    src/main/resources/templates/tasks/detail.html<br>
+                    prompts/prompt-function.html</div>
+                </td>
+              </tr>
+              <tr>
+                <th>動作確認結果</th>
+                <td>
+                  <div class="log-input">○ 正常動作</div>
+                </td>
+              </tr>
+              <tr>
+                <th>修正・調整した内容</th>
+                <td>
+                  <div class="log-input">・カテゴリ一覧、フォーム、削除確認を新規追加<br>
+                    ・Task のカテゴリ選択とカテゴリ名表示を追加<br>
+                    ・カテゴリ削除時に Task で使用中かを確認するように調整<br>
+                    ・prompt-function.html の機能10を実装内容に合わせて Task 連携込みに修正</div>
+                </td>
+              </tr>
+              <tr>
+                <th>学んだこと・気づき</th>
+                <td>
+                  <div class="log-input">マスタ系の CRUD は、その単体だけでなく参照先の画面にも波及するため、選択肢、表示、削除制御を一緒に設計すると実装の抜け漏れが減ると分かりました。
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
 
           <!-- 機能追加ログテンプレート -->
           <div class="log-entry">
@@ -545,56 +1166,6 @@
               </tr>
             </table>
           </div>
-
-          <!-- 追加ログ用の空テンプレート -->
-          <div class="log-entry">
-            <div class="log-header">
-              <div class="log-title">機能追加: （機能名を入力）</div>
-              <div class="log-date">実行日時：</div>
-            </div>
-            <table class="log-table">
-              <tr>
-                <th>使用プロンプト</th>
-                <td></td>
-              </tr>
-              <tr>
-                <th>機能の概要</th>
-                <td>
-                  <div class="log-input"></div>
-                </td>
-              </tr>
-              <tr>
-                <th>入力内容の要約</th>
-                <td>
-                  <div class="log-input"></div>
-                </td>
-              </tr>
-              <tr>
-                <th>生成されたファイル</th>
-                <td>
-                  <div class="log-input"></div>
-                </td>
-              </tr>
-              <tr>
-                <th>動作確認結果</th>
-                <td>
-                  <div class="log-input"></div>
-                </td>
-              </tr>
-              <tr>
-                <th>修正・調整した内容</th>
-                <td>
-                  <div class="log-input"></div>
-                </td>
-              </tr>
-              <tr>
-                <th>学んだこと・気づき</th>
-                <td>
-                  <div class="log-input"></div>
-                </td>
-              </tr>
-            </table>
-          </div>
         </section>
 
         <section class="section" id="sec4">
@@ -604,26 +1175,35 @@
           <div class="fill-block">
             <div class="fill-label">全体を通しての学び</div>
             <div class="fill-content">
-              <div class="log-input" style="min-height: 120px;">（プロンプトプログラミングを通して学んだことを記入）
+              <div class="log-input" style="min-height: 120px;">
+                　AIは一度で完成形を出させるより、機能単位で段階的に依頼し、実装とログを同じ粒度で揃えるほうが品質を保ちやすいと分かりました。
 
-                ・AIの効果的な使い方
-                ・プロンプトの書き方のコツ
-                ・Spring Bootの理解が深まった点
-                ・次回に活かしたいこと</div>
+                要件は「何を作るか」だけでなく、「どの画面や層に影響するか」まで書くと、Controller・Service・Repository・View の役割分担がぶれにくくなりました。
+
+                Spring Boot では、バリデーション、検索条件の引き回し、CSV
+                出力、認証、カテゴリ管理のような機能を通して、単体のコードだけでなく画面遷移やデータ整合性まで一緒に設計する重要性を理解できました。<br>
+
+                　次回は、先に用語と仕様の統一ルールを固定し、途中で増えた機能もそのルールに必ず合わせる進め方を徹底したいです。</div>
             </div>
           </div>
 
           <div class="fill-block">
             <div class="fill-label">うまくいったこと</div>
             <div class="fill-content">
-              <div class="log-input" style="min-height: 80px;">（スムーズに進んだ部分、成功体験を記入）</div>
+              <div class="log-input" style="min-height: 80px;">
+                　機能ごとに実行ログを残しながら進めたことで、実装した内容と文書の記述を都度突き合わせやすく、ズレが出た箇所を早い段階で修正できました。
+
+                特にステータス管理やカテゴリ管理のような関連機能は、Entity、Mapper、画面、CSV 出力をまとめて揃えたことで、後から見ても仕様の流れが追いやすい形に整えられました。</div>
             </div>
           </div>
 
           <div class="fill-block">
             <div class="fill-label">苦労したこと・改善点</div>
             <div class="fill-content">
-              <div class="log-input" style="min-height: 80px;">（つまずいた箇所、次回への改善点を記入）</div>
+              <div class="log-input" style="min-height: 80px;">
+                　ステータス列やカテゴリ列のように、途中で仕様が広がる項目は、先に作った画面やCSV説明に記述漏れが起きやすい点が課題でした。
+
+                今後は、機能追加ごとに「画面」「入力」「表示」「出力」「ログ」の5点をチェックし、README やプロンプト文書への反映を同時に行う流れにすると、修正漏れを減らせると考えています。</div>
             </div>
           </div>
         </section>
